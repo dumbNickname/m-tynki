@@ -4,7 +4,7 @@
 
 This project contains **two versions** of the M-TYNK website (a plastering company in Wrocław, Poland):
 
-1. **Legacy static HTML** (root `/`) — Original WordPress + Elementor export. Static HTML files, no build system.
+1. **Legacy static HTML** (`legacy-wordpress/`) — Original WordPress + Elementor export. Static HTML files, no build system.
 2. **SolidJS SSG site** (`solid-site/`) — Modern rewrite using SolidJS with static site generation.
 
 Live domain: `wroclawtynki.pl`
@@ -133,7 +133,7 @@ Defined in `app.config.ts`:
 
 ---
 
-## Legacy Static HTML Site (root `/`)
+## Legacy Static HTML Site (`legacy-wordpress/`)
 
 The original WordPress export. Kept for reference. See below for structure.
 
