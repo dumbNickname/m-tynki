@@ -16,11 +16,12 @@ All user-facing content is in **Polish (pl-PL)**.
 
 ### Tech Stack
 
+- **Package manager:** pnpm (workspace root: `pnpm-workspace.yaml`)
 - **Framework:** SolidJS 1.9 + SolidStart 1.1 + Vinxi 0.5
 - **Routing:** @solidjs/router (file-based routes)
 - **SEO:** @solidjs/meta (Title, Meta, Link tags)
 - **Build output:** Static site generation (SSG) via `preset: "static"` in `app.config.ts`
-- **Styling:** Single global CSS file (`src/styles/global.css`), no CSS modules
+- **Styling:** CSS Modules (`.module.css` co-located with components) + global.css for variables/reset/utilities
 - **Data:** JSON files in `src/data/` (no CMS, no API calls)
 - **TypeScript:** Strict mode enabled
 
@@ -28,11 +29,11 @@ All user-facing content is in **Polish (pl-PL)**.
 
 ```bash
 cd solid-site
-npm install        # Install dependencies
-npm run dev        # Development server (vinxi dev)
-npm run build      # Static site generation (vinxi build) → .output/public/
-npm run preview    # Preview built site (vinxi start)
-npm run typecheck  # TypeScript check (tsc --noEmit)
+pnpm install       # Install dependencies (run from repo root or solid-site/)
+pnpm dev           # Development server (vinxi dev)
+pnpm build         # Static site generation (vinxi build) → .output/public/
+pnpm preview       # Preview built site (vinxi start)
+pnpm typecheck     # TypeScript check (tsc --noEmit)
 ```
 
 There are **no lint or test commands** configured yet.
@@ -92,12 +93,12 @@ Defined in `app.config.ts`:
 
 ### CSS Architecture
 
-- Single file: `src/styles/global.css`
+- CSS Modules (`.module.css` files co-located with components and routes)
+- Global file `src/styles/global.css` contains only CSS custom properties, reset/normalize, typography, and shared utility classes (`container`, `section`, `grid-2`, `grid-3`, `btn-*`, `text-center`, `divider`)
 - CSS custom properties on `:root` for colors, fonts, spacing, shadows
-- Class naming: flat descriptive names matching component usage (e.g., `post-card`, `post-card-title`, `hero-bg`, `footer-grid`)
-- Responsive breakpoints: 1024px (tablet), 768px (mobile)
-- Desktop/mobile header swap via `.header-desktop` / `.header-mobile` display toggle
+- Responsive breakpoints: 1024px (tablet), 768px (mobile) — each module contains its own media queries
 - Fonts: Inter (body), Plus Jakarta Sans (headings) from Google Fonts
+- TypeScript declarations for CSS modules in `src/css.d.ts`
 
 ### Data Model
 
@@ -121,8 +122,8 @@ Defined in `app.config.ts`:
 
 ### Important Notes for Agents
 
-1. Run `npm run typecheck` after any TypeScript changes
-2. Run `npm run build` to verify all routes prerender successfully
+1. Run `pnpm typecheck` after any TypeScript changes
+2. Run `pnpm build` to verify all routes prerender successfully
 3. Images are served from `public/images/` — paths in JSON data start with `/images/`
 4. Do NOT edit legacy WordPress files in the root (those are the old site)
 5. The `entry-server.tsx` defines the HTML document shell (lang, favicons, fonts, CookieYes script)

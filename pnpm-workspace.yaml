@@ -1,0 +1,11 @@
+packages:
+  - 'solid-site'
+
+trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 40160
+minimumReleaseAge: 20160
+strictDepBuilds: true
+
+onlyBuiltDependencies:
+  - esbuild
+  - '@parcel/watcher'

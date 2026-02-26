@@ -8,8 +8,8 @@ Built with **SolidJS** + **SolidStart** and deployed as a **static site** (SSG).
 
 ```bash
 cd solid-site
-npm install
-npm run dev
+pnpm install
+pnpm dev
 ```
 
 Opens a local dev server with hot reload.
@@ -17,14 +17,14 @@ Opens a local dev server with hot reload.
 ## Build & Preview
 
 ```bash
-npm run build      # generates static site → .output/public/
-npm run preview    # serves the built site locally
+pnpm build      # generates static site → .output/public/
+pnpm preview    # serves the built site locally
 ```
 
 ## Checks
 
 ```bash
-npm run typecheck  # TypeScript strict-mode check (tsc --noEmit)
+pnpm typecheck  # TypeScript strict-mode check (tsc --noEmit)
 ```
 
 No linter or test runner is configured yet.
