@@ -1,4 +1,5 @@
-import { createSignal, For } from "solid-js";
+import { createSignal, For, onMount } from "solid-js";
+import { isServer } from "solid-js/web";
 import Layout from "~/components/Layout";
 import SeoHead from "~/components/SeoHead";
 import site from "~/data/site.json";
@@ -46,6 +47,15 @@ const steps = [
 
 export default function Home() {
   const [openStep, setOpenStep] = createSignal<number | null>(null);
+  let reviewsRef: HTMLDivElement | undefined;
+
+  onMount(() => {
+    if (isServer || !reviewsRef) return;
+    const script = document.createElement("script");
+    script.src = "https://cdn.trustindex.io/loader.js?b5167179c03e50ec942cb";
+    script.async = true;
+    reviewsRef.appendChild(script);
+  });
 
   function toggleStep(index: number) {
     setOpenStep(openStep() === index ? null : index);
@@ -109,7 +119,7 @@ export default function Home() {
       <section class="section">
         <div class="container text-center">
           <h2>Opinie naszych klientów</h2>
-          <div class="ti-widget ti-goog" data-layout-id="36" data-set-id="soft" data-pid="b5167179c03e50ec942cb" data-pager-autoplay-timeout="6" />
+          <div ref={reviewsRef} />
         </div>
       </section>
 
