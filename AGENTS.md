@@ -62,7 +62,8 @@ solid-site/
     │   ├── site.json          # Site metadata (name, phone, email, URLs, logos)
     │   ├── navigation.json    # Nav links (main, footer, categories)
     │   ├── posts.json         # Blog posts (slug, title, date, categories, gallery, etc.)
-    │   └── gallery.json       # Gallery page image paths
+    │   ├── gallery.json       # Gallery page image paths
+    │   └── reviews.json       # Google reviews (static, extracted from original site)
     ├── components/
     │   ├── Layout.tsx         # Page wrapper (Header + main + Footer)
     │   ├── Header.tsx         # Sticky header (desktop nav + mobile flyout menu)
@@ -70,7 +71,8 @@ solid-site/
     │   ├── SeoHead.tsx        # SEO meta tags (title, OG, canonical, twitter)
     │   ├── PageHeader.tsx     # Page title banner with breadcrumbs
     │   ├── PostCard.tsx       # Blog post card for listing pages
-    │   └── Gallery.tsx        # Image grid with lightbox
+    │   ├── Gallery.tsx        # Image grid with lightbox
+    │   └── Reviews.tsx        # Google reviews grid (static data, no third-party scripts)
     └── routes/
         ├── index.tsx                          # Homepage (/)
         ├── kontakt.tsx                        # Contact page (/kontakt)
@@ -106,6 +108,7 @@ Defined in `app.config.ts`:
 **navigation.json**: Main nav links, footer links, category definitions (slug + label)
 **posts.json**: Array of post objects with: slug, title, date, categories[], thumbnail, excerpt, description (HTML), executor, duration, area, location, gallery[]
 **gallery.json**: Array of image paths for the gallery page
+**reviews.json**: Array of review objects with: name, date, text, stars (extracted from original Google reviews widget)
 
 ### Adding New Content
 
@@ -125,11 +128,13 @@ Defined in `app.config.ts`:
 1. Run `pnpm typecheck` after any TypeScript changes
 2. Run `pnpm build` to verify all routes prerender successfully
 3. Images are served from `public/images/` — paths in JSON data start with `/images/`
-4. Do NOT edit legacy WordPress files in the root (those are the old site)
+4. Legacy WordPress files live in `legacy-wordpress/` — reference only, do not edit
 5. The `entry-server.tsx` defines the HTML document shell (lang, favicons, fonts, CookieYes script)
 6. All components import data directly from JSON files (static imports, no dynamic fetching)
 7. The Gallery component manages its own lightbox state
 8. Category `"wszystkie"` means "all" — shows all posts without filtering
+9. The Reviews component renders static review data from `reviews.json` — no TrustIndex or third-party widget scripts
+10. Homepage includes: hero, intro, about, reviews, featured service (Gładź natryskowa), 6 service cards, full "O Nas" section, "Jak działamy?" accordion, and CTA
 
 ---
 
