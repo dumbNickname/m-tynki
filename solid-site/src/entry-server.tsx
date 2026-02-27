@@ -20,6 +20,7 @@ export default createHandler(() => (
         <body>
           <div id="app">{children}</div>
           {scripts}
+          <script defer src="https://cdn.trustindex.io/loader.js"></script>
         </body>
       </html>
     )}
