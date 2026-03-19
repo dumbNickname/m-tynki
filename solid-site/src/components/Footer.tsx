@@ -2,7 +2,6 @@ import { A } from "@solidjs/router";
 import { For } from "solid-js";
 import navigation from "~/data/navigation.json";
 import site from "~/data/site.json";
-import { asset } from "~/utils/basePath";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -12,7 +11,7 @@ export default function Footer() {
         <div class={`container ${styles.grid}`}>
           <div class={styles.brand}>
             <A href="/">
-              <img src={asset(site.logoGreen)} alt={site.name} width="300" height="81" />
+              <img src={site.logoGreen} alt={site.name} width="300" height="81" />
             </A>
             <p>
               Oferujemy Tynki Gipsowe z<br />
@@ -37,7 +36,7 @@ export default function Footer() {
             <div class={styles.col}>
               <h3>Oceń nas</h3>
               <a href={site.googleReviewUrl} target="_blank" rel="noopener noreferrer">
-                <img src={asset("/images/ocena-google-300x300-1-150x150-1.png")} alt="Oceń nas na Google" width="150" height="150" />
+                <img src="images/ocena-google-300x300-1-150x150-1.png" alt="Oceń nas na Google" width="150" height="150" />
               </a>
             </div>
             <div class={styles.col}>

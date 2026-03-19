@@ -1,5 +1,4 @@
 import { A } from "@solidjs/router";
-import { asset } from "~/utils/basePath";
 import styles from "./PostCard.module.css";
 
 interface Post {
@@ -23,7 +22,7 @@ export default function PostCard(props: PostCardProps) {
   return (
     <article class={styles.card}>
       <A href={`/realizacje/${props.post.slug}`} class={styles.thumbnail}>
-        <img src={asset(props.post.thumbnail)} alt={props.post.title} loading="lazy" />
+        <img src={props.post.thumbnail} alt={props.post.title} loading="lazy" />
       </A>
       <div class={styles.badge}>{badgeLabel()}</div>
       <div class={styles.body}>

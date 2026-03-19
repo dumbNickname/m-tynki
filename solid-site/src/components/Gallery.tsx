@@ -1,5 +1,4 @@
 import { createSignal, For, Show } from "solid-js";
-import { asset } from "~/utils/basePath";
 import styles from "./Gallery.module.css";
 
 interface GalleryProps {
@@ -35,7 +34,7 @@ export default function Gallery(props: GalleryProps) {
         <For each={props.images}>
           {(src, i) => (
             <button class={styles.item} onClick={() => openLightbox(i())} type="button">
-              <img src={asset(src)} alt="" loading="lazy" />
+              <img src={src} alt="" loading="lazy" />
               <div class={styles.overlay} />
             </button>
           )}
@@ -47,7 +46,7 @@ export default function Gallery(props: GalleryProps) {
           <div class={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
             <button class={styles.close} onClick={closeLightbox} aria-label="Zamknij">✕</button>
             <button class={styles.prev} onClick={prev} aria-label="Poprzednie" disabled={lightboxIndex() === 0}>‹</button>
-            <img src={asset(props.images[lightboxIndex()!])} alt="" />
+            <img src={props.images[lightboxIndex()!]} alt="" />
             <button class={styles.next} onClick={next} aria-label="Następne" disabled={lightboxIndex() === props.images.length - 1}>›</button>
           </div>
         </div>

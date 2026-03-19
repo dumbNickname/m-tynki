@@ -2,7 +2,6 @@ import Layout from "~/components/Layout";
 import SeoHead from "~/components/SeoHead";
 import PageHeader from "~/components/PageHeader";
 import site from "~/data/site.json";
-import { asset } from "~/utils/basePath";
 import styles from "./kontakt.module.css";
 
 export default function Kontakt() {
@@ -12,7 +11,7 @@ export default function Kontakt() {
         title="Kontakt"
         canonical="/kontakt"
         description={`Skontaktuj się z firmą M-TYNK Wrocław. Adres: ${site.address}. Telefon: ${site.phone}. E-mail: ${site.email}. Tynki gipsowe ze szlichtą pod malowanie.`}
-        ogImage="/images/ocena-google-300x300-1-150x150-1.png"
+        ogImage="images/ocena-google-300x300-1-150x150-1.png"
         dateModified="2024-06-19T10:29:05+00:00"
         breadcrumbs={[
           { name: "HOME", href: "/" },
@@ -36,12 +35,12 @@ export default function Kontakt() {
           </div>
           <div class="text-center">
             <a href={site.googleReviewUrl} target="_blank" rel="noopener noreferrer">
-              <img src={asset("/images/ocena-google-300x300-1-150x150-1.png")} alt="Ocena Google" width="150" height="150" loading="lazy" />
+              <img src="images/ocena-google-300x300-1-150x150-1.png" alt="Ocena Google" width="150" height="150" loading="lazy" />
             </a>
           </div>
           <div class="text-center">
             <a href={site.googleReviewUrl} target="_blank" rel="noopener noreferrer">
-              <img src={asset("/images/3f01b95197aa73a801f7357854c22483-150x150-1.png")} alt="Opinie Google" width="150" height="150" loading="lazy" />
+              <img src="images/3f01b95197aa73a801f7357854c22483-150x150-1.png" alt="Opinie Google" width="150" height="150" loading="lazy" />
             </a>
           </div>
         </div>

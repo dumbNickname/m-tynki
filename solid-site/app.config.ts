@@ -2,7 +2,6 @@ import { defineConfig } from "@solidjs/start/config";
 
 export default defineConfig({
   server: {
-    baseURL: "/m-tynki",
     preset: "static",
     prerender: {
       routes: [

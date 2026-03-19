@@ -30,7 +30,7 @@ export default function SeoHead(props: SeoHeadProps) {
       url: site.url,
       logo: {
         "@type": "ImageObject",
-        url: `${site.url}${site.logo}`,
+        url: `${site.url}/${site.logo}`,
       },
       contactPoint: {
         "@type": "ContactPoint",
@@ -81,7 +81,7 @@ export default function SeoHead(props: SeoHeadProps) {
     if (props.ogImage) {
       webPage.primaryImageOfPage = {
         "@type": "ImageObject",
-        url: `${site.url}${props.ogImage}`,
+        url: `${site.url}/${props.ogImage}`,
       };
     }
 
@@ -114,7 +114,7 @@ export default function SeoHead(props: SeoHeadProps) {
       <Meta property="og:title" content={pageTitle()} />
       {props.description && <Meta property="og:description" content={props.description} />}
       <Meta property="og:site_name" content={site.title} />
-      {props.ogImage && <Meta property="og:image" content={`${site.url}${props.ogImage}`} />}
+      {props.ogImage && <Meta property="og:image" content={`${site.url}/${props.ogImage}`} />}
       {props.canonical && (
         <>
           <Link rel="canonical" href={`${site.url}${props.canonical}`} />

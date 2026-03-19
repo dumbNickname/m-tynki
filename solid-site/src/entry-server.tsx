@@ -1,6 +1,5 @@
 // @refresh reload
 import { createHandler, StartServer } from "@solidjs/start/server";
-import { asset } from "~/utils/basePath";
 
 export default createHandler(() => (
   <StartServer
@@ -9,9 +8,10 @@ export default createHandler(() => (
         <head>
           <meta charset="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="icon" href={asset("/images/mtynk-ludzik-gladziolit-300x300-1-150x150.png")} sizes="32x32" />
-          <link rel="icon" href={asset("/images/mtynk-ludzik-gladziolit-300x300-1.png")} sizes="192x192" />
-          <link rel="apple-touch-icon" href={asset("/images/mtynk-ludzik-gladziolit-300x300-1.png")} />
+          <base href="/" />
+          <link rel="icon" href="images/mtynk-ludzik-gladziolit-300x300-1-150x150.png" sizes="32x32" />
+          <link rel="icon" href="images/mtynk-ludzik-gladziolit-300x300-1.png" sizes="192x192" />
+          <link rel="apple-touch-icon" href="images/mtynk-ludzik-gladziolit-300x300-1.png" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
           <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Plus+Jakarta+Sans:wght@600&display=swap" rel="stylesheet" />

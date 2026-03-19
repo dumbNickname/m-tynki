@@ -2,7 +2,6 @@ import { A } from "@solidjs/router";
 import { createSignal, For } from "solid-js";
 import navigation from "~/data/navigation.json";
 import site from "~/data/site.json";
-import { asset } from "~/utils/basePath";
 import styles from "./Header.module.css";
 
 export default function Header() {
@@ -13,7 +12,7 @@ export default function Header() {
       <div class={styles.desktop}>
         <div class={`container ${styles.inner}`}>
           <A href="/" class={styles.logo}>
-            <img src={asset(site.logo)} alt={site.name} width="300" height="62" />
+            <img src={site.logo} alt={site.name} width="300" height="62" />
           </A>
           <div class={styles.right}>
             <a class="btn btn-primary btn-sm" href={`tel:${site.phoneRaw}`}>
@@ -44,7 +43,7 @@ export default function Header() {
             <span class={styles.hamburger} />
           </button>
           <A href="/" class={styles.logo}>
-            <img src={asset(site.logo)} alt={site.name} width="200" height="41" />
+            <img src={site.logo} alt={site.name} width="200" height="41" />
           </A>
           <a class={styles.phoneIcon} href={`tel:${site.phoneRaw}`} aria-label="Zadzwoń">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
