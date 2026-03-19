@@ -1,0 +1,36 @@
+.wrapper {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: var(--color-white);
+  padding: 2.5em 0;
+  text-align: center;
+}
+
+.wrapper h1 {
+  color: var(--color-white);
+  font-size: var(--fs-h2);
+  margin-bottom: 0.3em;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3em;
+  font-size: var(--fs-small);
+  opacity: 0.9;
+  margin-bottom: 0.5em;
+}
+
+.breadcrumbs a {
+  color: var(--color-white);
+  opacity: 0.85;
+}
+
+.breadcrumbs a:hover {
+  opacity: 1;
+  color: var(--color-white);
+}
+
+.sep {
+  opacity: 0.6;
+}

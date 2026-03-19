@@ -1,0 +1,197 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--color-white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.desktop {
+  display: block;
+}
+
+.mobile {
+  display: none;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--section-padding-x);
+}
+
+.logo img {
+  height: 50px;
+  width: auto;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.nav ul {
+  display: flex;
+  align-items: center;
+  gap: 1.5em;
+}
+
+.nav a {
+  color: var(--color-dark);
+  font-weight: 600;
+  font-size: var(--fs-small);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.4em 0;
+  position: relative;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: width var(--transition);
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.nav a:hover {
+  color: var(--color-primary);
+}
+
+.menuToggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  position: relative;
+  z-index: 1100;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-dark);
+  transition: var(--transition);
+  position: absolute;
+  left: 6px;
+}
+
+.hamburger { top: 17px; }
+.hamburger::before { content: ""; top: -7px; }
+.hamburger::after  { content: ""; top: 7px; }
+
+.phoneIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: 2px solid transparent;
+}
+
+.phoneIcon svg {
+  display: inline-block;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1040;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+}
+
+.overlayOpen {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.flyout {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 300px;
+  height: 100vh;
+  background: var(--color-white);
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+  z-index: 1050;
+  padding: 80px 2em 2em;
+  transition: right var(--transition);
+  overflow-y: auto;
+}
+
+.flyoutOpen {
+  right: 0;
+}
+
+.flyout ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.flyout a {
+  display: block;
+  color: var(--color-dark);
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.75em 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.flyout a:hover {
+  color: var(--color-primary);
+}
+
+.flyoutClose {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-dark);
+  line-height: 1;
+}
+
+@media (max-width: 1024px) {
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .inner {
+    height: 64px;
+  }
+
+  .logo img {
+    height: 38px;
+  }
+}

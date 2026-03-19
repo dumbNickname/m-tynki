@@ -1,0 +1,15 @@
+.workDetails {
+  margin-top: 2em;
+  padding: 2em;
+  background: var(--color-light-gray);
+  border-radius: var(--radius);
+}
+
+.workDetails h4 {
+  color: var(--color-primary);
+  margin-top: 1.5em;
+}
+
+.workDetails h4:first-child {
+  margin-top: 0;
+}

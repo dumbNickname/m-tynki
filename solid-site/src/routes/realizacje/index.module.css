@@ -1,0 +1,41 @@
+.postsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2em;
+}
+
+.categoryNav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75em;
+  justify-content: center;
+}
+
+.categoryLink {
+  display: inline-block;
+  padding: 0.5em 1.4em;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: background var(--transition), color var(--transition);
+}
+
+.categoryLink:hover,
+.categoryLinkActive {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+@media (max-width: 1024px) {
+  .postsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .postsGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,111 @@
+.footer {
+  background: var(--color-footer-bg);
+  color: var(--color-footer-text);
+}
+
+.main {
+  padding: var(--section-padding-y) 0;
+}
+
+.footer h3 {
+  color: var(--color-white);
+  margin-bottom: 0.8em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 3em;
+}
+
+.brand p {
+  margin-top: 1em;
+  font-size: var(--fs-small);
+  line-height: 1.8;
+}
+
+.brand img {
+  max-width: 200px;
+}
+
+.linksGroup {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2em;
+}
+
+.col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.col a {
+  color: var(--color-footer-text);
+  font-size: var(--fs-small);
+}
+
+.col a:hover {
+  color: var(--color-white);
+}
+
+.social {
+  display: flex;
+  gap: 1em;
+}
+
+.social a {
+  color: var(--color-footer-text);
+  transition: color var(--transition);
+}
+
+.social a:hover {
+  color: var(--color-white);
+}
+
+.social svg {
+  display: inline-block;
+}
+
+.bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5em 0;
+}
+
+.bottomInner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--fs-small);
+  opacity: 0.7;
+}
+
+.bottomInner a {
+  color: var(--color-footer-text);
+}
+
+.bottomInner a:hover {
+  color: var(--color-white);
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .linksGroup {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .linksGroup {
+    grid-template-columns: 1fr;
+  }
+
+  .bottomInner {
+    flex-direction: column;
+    gap: 0.5em;
+    text-align: center;
+  }
+}

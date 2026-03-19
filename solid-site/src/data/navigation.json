@@ -1,0 +1,23 @@
+{
+  "main": [
+    { "label": "Strona Główna", "href": "/" },
+    { "label": "O Nas", "href": "/#o-nas" },
+    { "label": "Tynki ze szlichtą pod malowanie", "href": "/tynki-ze-szlichta-pod-malowanie" },
+    { "label": "Realizacje", "href": "/realizacje" },
+    { "label": "Galeria", "href": "/galeria" },
+    { "label": "Kontakt", "href": "/kontakt" }
+  ],
+  "footer": [
+    { "label": "Strona Główna", "href": "/" },
+    { "label": "Tynki ze Szlichtą pod Malowanie", "href": "/tynki-ze-szlichta-pod-malowanie" },
+    { "label": "O nas", "href": "/#o-nas" },
+    { "label": "Kontakt", "href": "/kontakt" },
+    { "label": "Polityka prywatności", "href": "/polityka-prywatnosci" }
+  ],
+  "categories": [
+    { "label": "Wszystkie", "slug": "wszystkie" },
+    { "label": "Malowanie ścian", "slug": "malowanie-scian" },
+    { "label": "Tynk ze szlichtą wygładzającą", "slug": "tynk-ze-szlichta-wygladzajaca" },
+    { "label": "Zabudowy z płyt GK", "slug": "zabudowy-z-plyt-gk" }
+  ]
+}
