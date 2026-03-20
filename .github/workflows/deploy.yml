@@ -50,15 +50,8 @@ jobs:
       - name: Build site
         run: pnpm build
         working-directory: solid-site
-
-      - name: Rewrite paths for GitHub Pages subpath
-        run: |
-          find solid-site/.output/public -name '*.html' -exec sed -i \
-            -e 's|<base href="/"|<base href="/m-tynki/"|g' \
-            -e 's|"/_build/|"/m-tynki/_build/|g' \
-            -e "s|'/_build/|'/m-tynki/_build/|g" \
-            -e 's|src="/_build/|src="/m-tynki/_build/|g' \
-            {} +
+        env:
+          BASE_PATH: /m-tynki
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
