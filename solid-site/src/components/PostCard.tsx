@@ -1,4 +1,4 @@
-import { A } from "@solidjs/router";
+import NavLink from "./NavLink";
 import styles from "./PostCard.module.css";
 
 interface Post {
@@ -22,13 +22,13 @@ export default function PostCard(props: PostCardProps) {
 
   return (
     <article class={styles.card}>
-      <A href={`/realizacje/${props.post.slug}`} class={styles.thumbnail}>
+      <NavLink href={`/realizacje/${props.post.slug}`} class={styles.thumbnail}>
         <img src={props.post.thumbnail} alt={props.post.title} loading="lazy" />
-      </A>
+      </NavLink>
       <div class={styles.badge}>{badgeLabel()}</div>
       <div class={styles.body}>
         <h3 class={styles.title}>
-          <A href={`/realizacje/${props.post.slug}`}>{props.post.title}</A>
+          <NavLink href={`/realizacje/${props.post.slug}`}>{props.post.title}</NavLink>
         </h3>
         <p class={styles.excerpt}>{props.post.excerpt}</p>
       </div>

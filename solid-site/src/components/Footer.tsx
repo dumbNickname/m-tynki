@@ -1,7 +1,7 @@
-import { A } from "@solidjs/router";
 import { For } from "solid-js";
 import navigation from "~/data/navigation.json";
 import site from "~/data/site.json";
+import NavLink from "./NavLink";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
@@ -10,9 +10,9 @@ export default function Footer() {
       <div class={styles.main}>
         <div class={`container ${styles.grid}`}>
           <div class={styles.brand}>
-            <A href="/">
+            <NavLink href="/">
               <img src={site.logoGreen} alt={site.name} width="300" height="81" />
-            </A>
+            </NavLink>
             <p>
               Oferujemy Tynki Gipsowe z Gładziolitem Wygładzającym pod Malowanie. Nie potrzebujesz dodatkowej warstwy gładzi!
             </p>
@@ -32,7 +32,7 @@ export default function Footer() {
                 <For each={navigation.footer}>
                   {(item) => (
                     <li>
-                      <A href={item.href}>{item.label}</A>
+                      <NavLink href={item.href}>{item.label}</NavLink>
                     </li>
                   )}
                 </For>

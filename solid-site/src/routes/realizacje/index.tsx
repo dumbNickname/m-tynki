@@ -1,9 +1,9 @@
 import { For } from "solid-js";
-import { A } from "@solidjs/router";
 import Layout from "~/components/Layout";
 import SeoHead from "~/components/SeoHead";
 import PageHeader from "~/components/PageHeader";
 import PostCard from "~/components/PostCard";
+import NavLink from "~/components/NavLink";
 import posts from "~/data/posts.json";
 import navigation from "~/data/navigation.json";
 import styles from "./index.module.css";
@@ -35,9 +35,9 @@ export default function Realizacje() {
           <nav class={styles.categoryNav}>
             <For each={navigation.categories}>
               {(cat) => (
-                <A href={`/category/${cat.slug}`} class={styles.categoryLink}>
+                <NavLink href={`/category/${cat.slug}`} class={styles.categoryLink}>
                   {cat.label}
-                </A>
+                </NavLink>
               )}
             </For>
           </nav>

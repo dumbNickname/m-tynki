@@ -1,4 +1,4 @@
-import { A } from "@solidjs/router";
+import NavLink from "./NavLink";
 import styles from "./PageHeader.module.css";
 
 interface PageHeaderProps {
@@ -16,7 +16,7 @@ export default function PageHeader(props: PageHeaderProps) {
               <>
                 {i > 0 && <span class={styles.sep}> » </span>}
                 {crumb.href ? (
-                  <A href={crumb.href}>{crumb.label}</A>
+                  <NavLink href={crumb.href}>{crumb.label}</NavLink>
                 ) : (
                   <span aria-current="page">{crumb.label}</span>
                 )}

@@ -1,10 +1,10 @@
 import { useParams } from "@solidjs/router";
 import { For, Show, createMemo } from "solid-js";
-import { A } from "@solidjs/router";
 import Layout from "~/components/Layout";
 import SeoHead from "~/components/SeoHead";
 import PageHeader from "~/components/PageHeader";
 import PostCard from "~/components/PostCard";
+import NavLink from "~/components/NavLink";
 import posts from "~/data/posts.json";
 import navigation from "~/data/navigation.json";
 import styles from "../realizacje/index.module.css";
@@ -50,13 +50,12 @@ export default function CategoryPage() {
           <nav class={styles.categoryNav}>
             <For each={navigation.categories}>
               {(cat) => (
-                <A
+                <NavLink
                   href={`/category/${cat.slug}`}
-                  class={styles.categoryLink}
-                  classList={{ [styles.categoryLinkActive]: cat.slug === params.slug }}
+                  class={`${styles.categoryLink} ${cat.slug === params.slug ? styles.categoryLinkActive : ""}`}
                 >
                   {cat.label}
-                </A>
+                </NavLink>
               )}
             </For>
           </nav>
