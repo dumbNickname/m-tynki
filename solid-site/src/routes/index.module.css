@@ -73,17 +73,20 @@
 
 .introGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.1fr 0.9fr;
   gap: 4rem;
   align-items: center;
 }
 
 .introImage {
   text-align: center;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
 }
 
 .introImage img {
   border-radius: var(--radius-lg);
+  width: 100%;
 }
 
 .lead {
@@ -328,8 +331,8 @@
   }
 
   .introGrid {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
   }
 
   .aboutGrid {
@@ -363,6 +366,25 @@
 
   .heroSubtitle {
     font-size: 1rem;
+  }
+
+  .introGrid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .introImage {
+    order: -1;
+    border-radius: var(--radius-lg);
+    margin-bottom: 2rem;
+  }
+
+  .introImage img {
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    object-fit: cover;
+    object-position: center;
+    border-radius: var(--radius-lg);
   }
 
   .servicesGrid {
