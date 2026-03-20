@@ -192,15 +192,14 @@
   text-align: left;
   padding: 2rem;
   background: var(--color-white);
-  border: 1px solid var(--color-border);
+  border: 1px solid transparent;
   border-radius: var(--radius);
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .serviceCard:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-card);
-  border-color: var(--color-primary-light);
 }
 
 .serviceIcon {
@@ -209,7 +208,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-primary-subtle);
+  background: rgba(73, 168, 92, 0.15);
   border-radius: 12px;
   margin-bottom: 1.25rem;
 }
@@ -272,16 +271,17 @@
 
 .timelineItem {
   position: relative;
+  overflow: hidden;
 }
 
 .timelineNumber {
   font-family: var(--font-heading);
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 600;
   color: var(--color-primary);
-  opacity: 0.2;
+  opacity: 0.15;
   line-height: 1;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 .timelineCard {
@@ -374,17 +374,7 @@
   }
 
   .introImage {
-    order: -1;
-    border-radius: var(--radius-lg);
-    margin-bottom: 2rem;
-  }
-
-  .introImage img {
-    width: 100%;
-    aspect-ratio: 21 / 9;
-    object-fit: cover;
-    object-position: center;
-    border-radius: var(--radius-lg);
+    display: none;
   }
 
   .servicesGrid {

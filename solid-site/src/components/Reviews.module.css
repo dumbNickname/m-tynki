@@ -154,6 +154,6 @@
 @media (max-width: 768px) {
   .marqueeWrapper {
     grid-template-columns: 1fr;
-    height: 360px;
+    height: 480px;
   }
 }
