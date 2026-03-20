@@ -8,6 +8,7 @@ interface Post {
   categories: string[];
   thumbnail: string;
   excerpt: string;
+  location: string;
 }
 
 interface PostCardProps {
@@ -33,7 +34,7 @@ export default function PostCard(props: PostCardProps) {
       </div>
       <div class={styles.meta}>
         <span>{props.post.date}</span>
-        <span>Brak komentarzy</span>
+        <span>{props.post.location}</span>
       </div>
     </article>
   );
