@@ -132,6 +132,8 @@ export default function Home() {
         </div>
       </section>
 
+      <SocialFollow />
+
       <section class="section">
         <div class="container text-center">
           <span class={styles.sectionTag}>Zaufali nam</span>
@@ -201,8 +203,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <SocialFollow />
 
       <section class={`section ${styles.process}`}>
         <div class="container">
