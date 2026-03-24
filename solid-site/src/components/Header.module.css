@@ -138,6 +138,12 @@
 .hamburger::before { content: ""; top: -7px; }
 .hamburger::after  { content: ""; top: 7px; }
 
+.mobileRight {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .phoneIcon {
   display: inline-flex;
   align-items: center;

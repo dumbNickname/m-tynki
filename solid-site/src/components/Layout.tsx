@@ -2,6 +2,7 @@ import { JSX } from "solid-js";
 import Header from "./Header";
 import Footer from "./Footer";
 import ScrollToTop from "./ScrollToTop";
+import CookieBanner from "./CookieBanner";
 
 interface LayoutProps {
   children: JSX.Element;
@@ -14,6 +15,7 @@ export default function Layout(props: LayoutProps) {
       <main id="content">{props.children}</main>
       <Footer />
       <ScrollToTop />
+      <CookieBanner />
     </div>
   );
 }

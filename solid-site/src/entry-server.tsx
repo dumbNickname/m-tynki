@@ -16,7 +16,7 @@ export default createHandler(() => (
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
           <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Plus+Jakarta+Sans:wght@600&display=swap" rel="stylesheet" />
-          <script id="cookieyes" type="text/javascript" src="https://cdn-cookieyes.com/client_data/a9dfc722306b5abf286d1dee/script.js" async></script>
+          <script>{`(function(){try{var t=localStorage.getItem("mtynk_theme");if(t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme:dark)").matches))document.documentElement.setAttribute("data-theme","dark")}catch(e){}})()`}</script>
           {assets}
         </head>
         <body>

@@ -38,6 +38,30 @@
   --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+[data-theme="dark"] {
+  --color-primary: #6ecf80;
+  --color-primary-dark: #57bf6b;
+  --color-primary-light: #8ddb9a;
+  --color-primary-subtle: rgba(110, 207, 128, 0.1);
+  --color-dark: #f0f0f0;
+  --color-text: #d1d5db;
+  --color-text-light: #9ca3af;
+  --color-light-gray: #1e2433;
+  --color-border: #2d3548;
+  --color-white: #141925;
+  --color-footer-bg: #0c1017;
+  --color-footer-text: #9ca3af;
+  --color-overlay: rgba(0, 0, 0, 0.7);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.25);
+  --shadow-card-hover: 0 12px 40px rgba(0, 0, 0, 0.35);
+  --shadow-elevated: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+html[data-theme="dark"] img {
+  filter: brightness(0.92);
+}
+
 *,
 *::before,
 *::after {
@@ -60,6 +84,7 @@ body {
   background: var(--color-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 img,
@@ -202,17 +227,6 @@ strong {
 .btn-lg {
   padding: 1em 3em;
   font-size: 1rem;
-}
-
-.cky-btn-accept,
-.cky-btn-accept:hover {
-  background-color: var(--color-primary) !important;
-  border-color: var(--color-primary) !important;
-  color: var(--color-white) !important;
-}
-
-.cky-btn-reject {
-  color: var(--color-text) !important;
 }
 
 @keyframes fadeInUp {
