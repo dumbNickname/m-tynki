@@ -46,8 +46,12 @@ solid-site/
 ├── package.json
 ├── tsconfig.json
 ├── scripts/
-│   └── generate-thumbs.py     # Generates thumbnail images (requires Pillow)
+│   ├── generate-thumbs.py     # Generates thumbnail images (requires Pillow)
+│   └── generate-seo.mjs      # Generates sitemap.xml, robots.txt, llms.txt (runs before each build)
 ├── public/
+│   ├── sitemap.xml            # Auto-generated XML sitemap (all 16 routes)
+│   ├── robots.txt             # Auto-generated robots.txt with sitemap reference
+│   ├── llms.txt               # Auto-generated LLM-friendly site summary
 │   └── images/                # All site images (logos, uploads, gallery)
 │       ├── mtynk-logo-gladziolit.png
 │       ├── m-tynk_logo_greenw-300x81-1.png
