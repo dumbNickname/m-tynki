@@ -302,6 +302,8 @@
 
 .timelineItem {
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .timelineNumber {
@@ -312,6 +314,7 @@
   opacity: 0.15;
   line-height: 1;
   margin-bottom: 0.75rem;
+  flex-shrink: 0;
 }
 
 .timelineCard {
@@ -321,7 +324,7 @@
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--color-border);
   transition: transform var(--transition), box-shadow var(--transition);
-  height: 100%;
+  flex: 1;
 }
 
 .timelineCard:hover {
