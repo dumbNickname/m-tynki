@@ -62,11 +62,7 @@ export default function Footer() {
       <div class={styles.bottom}>
         <div class={`container ${styles.bottomInner}`}>
           <p>&copy; {new Date().getFullYear()} <strong>M-TYNK</strong> Tynki ze Szlichtą pod Malowanie</p>
-          <p>
-            <a href="https://computersoft.net.pl/" target="_blank" rel="noopener">
-              Realizacja: ComputerSoft
-            </a>
-          </p>
+          <p>Realizacja: ro@ch</p>
         </div>
       </div>
     </footer>
