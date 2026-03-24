@@ -28,6 +28,11 @@
 .logo img {
   height: 40px;
   width: auto;
+  transition: filter var(--transition);
+}
+
+:global([data-theme="dark"]) .logo img {
+  filter: brightness(0) invert(1);
 }
 
 .topRight {
@@ -226,6 +231,11 @@
 .flyoutBrand img {
   height: 32px;
   width: auto;
+  transition: filter var(--transition);
+}
+
+:global([data-theme="dark"]) .flyoutBrand img {
+  filter: brightness(0) invert(1);
 }
 
 .flyout ul {
