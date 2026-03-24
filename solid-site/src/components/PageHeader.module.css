@@ -1,7 +1,7 @@
 .wrapper {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
   color: var(--color-white);
-  padding: 3.5rem 0;
+  padding: 2rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -21,8 +21,8 @@
 
 .wrapper h1 {
   color: var(--color-white);
-  font-size: var(--fs-h2);
-  margin-bottom: 0.2em;
+  font-size: var(--fs-h3);
+  margin-bottom: 0;
   animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
@@ -31,9 +31,9 @@
   align-items: center;
   justify-content: center;
   gap: 0.3em;
-  font-size: var(--fs-small);
+  font-size: 0.75rem;
   opacity: 0.85;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .breadcrumbs a {
@@ -49,4 +49,19 @@
 
 .sep {
   opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 1.25rem 0;
+  }
+
+  .wrapper h1 {
+    font-size: 1rem;
+  }
+
+  .breadcrumbs {
+    font-size: 0.7rem;
+    margin-bottom: 0.35rem;
+  }
 }
