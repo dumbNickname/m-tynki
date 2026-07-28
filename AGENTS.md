@@ -2,10 +2,9 @@
 
 ## Project Overview
 
-This project contains **two versions** of the M-TYNK website (a plastering company in Wrocław, Poland):
+This project is the M-TYNK website (a plastering company in Wrocław, Poland):
 
-1. **Legacy static HTML** (`legacy-wordpress/`) — Original WordPress + Elementor export. Static HTML files, no build system.
-2. **SolidJS SSG site** (`solid-site/`) — Modern rewrite using SolidJS with static site generation.
+- **SolidJS SSG site** (`solid-site/`) — SolidJS with static site generation. This is the only site (the original WordPress export previously kept in `legacy-wordpress/` has been removed).
 
 Live domain: `wroclawtynki.pl`
 All user-facing content is in **Polish (pl-PL)**.
@@ -147,8 +146,7 @@ Defined in `app.config.ts`:
 1. Run `pnpm typecheck` after any TypeScript changes
 2. Run `pnpm build` to verify all routes prerender successfully — this also auto-regenerates `sitemap.xml`, `robots.txt`, and `llms.txt` via `scripts/generate-seo.mjs` (no manual step needed)
 3. Images are served from `public/images/` — paths in JSON data start with `/images/`
-4. Legacy WordPress files live in `legacy-wordpress/` — reference only, do not edit
-5. The `entry-server.tsx` defines the HTML document shell (lang, favicons, fonts, theme init script)
+4. The `entry-server.tsx` defines the HTML document shell (lang, favicons, fonts, theme init script)
 6. All components import data directly from JSON files (static imports, no dynamic fetching)
 7. The Gallery component manages its own lightbox state
 8. Category `"wszystkie"` means "all" — shows all posts without filtering
@@ -165,29 +163,6 @@ Defined in `app.config.ts`:
 19. **Asymmetric services grid**: Homepage services use a 6-column grid where one entry flagged with `featured: true` in the `services` array spans all 6 columns (full-width dark hero card with eyebrow + title + description), and the rest span 2 columns each. Tablet collapses to 4-col grid, mobile to single column. To change which service is featured, edit the `featured` flag in `src/routes/index.tsx`, not the array order.
 20. **Vertical rail timeline**: The "Jak działamy?" section uses a flex-column vertical rail with circled numbered markers connected by a `linear-gradient` line that fades at the bottom. Max-width 720px, centered. The connecting line is `.timeline::before` with `position: absolute` — it relies on the items having consistent spacing, so don't add `margin` between timeline items (use `padding` instead).
 21. **Legacy URL redirects**: The old WordPress site exposed portfolio posts at top-level slugs (e.g. `/tynkowanie-scian-we-wroclawiu`); the rewrite moved them under `/realizacje/{slug}/`. Google still has the old URLs indexed, and on a static host they would 404 (showing as "Crawled, not indexed" / soft-404 in Search Console). `scripts/generate-redirects.mjs` runs post-build and emits a meta-refresh + `<link rel=canonical>` + `noindex,follow` stub at `.output/public/{old-slug}/index.html` for each — the static-host equivalent of a 301. The map is auto-derived from `posts.json` (`/{slug}` → `/realizacje/{slug}/`); add any old URL whose slug differs from the new one to the `LEGACY_REDIRECTS` object in that script. The script **skips** any path where a real prerendered page already exists, so it can't clobber routes like `/tynki-ze-szlichta-pod-malowanie/`. These stubs are intentionally **not** in `sitemap.xml` (you don't advertise redirected URLs).
-
----
-
-## Legacy Static HTML Site (`legacy-wordpress/`)
-
-The original WordPress export. Kept for reference. See below for structure.
-
-### Key Files
-
-- `index.html` — Homepage
-- `kontakt.html` — Contact page
-- `realizacje.html` — Portfolio page
-- `galeria.html` — Gallery page
-- `tynki-ze-szlichta-pod-malowanie.html` — Service page
-- `polityka-prywatnosci.html` — Privacy policy
-- `wp-content/` — Static assets (CSS, images)
-- `wp-includes/` — WordPress core JS/CSS
-
-### Notes
-
-- No build system, no package manager
-- Do not edit vendor files in `wp-content/plugins/`, `wp-content/themes/astra/`, or `wp-includes/`
-- These files are reference only for the migration
 
 ---
 

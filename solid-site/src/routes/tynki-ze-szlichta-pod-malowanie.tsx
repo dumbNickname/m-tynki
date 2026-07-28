@@ -61,7 +61,7 @@ export default function TynkiService() {
       <SeoHead
         title="Tynki maszynowe ze szlichtą pod malowanie Wrocław"
         canonical="/tynki-ze-szlichta-pod-malowanie"
-        description="Tynki maszynowe i gipsowe ze szlichtą gładziolitu pod malowanie Wrocław. Ściany gotowe do malowania bez dodatkowej gładzi."
+        description="Tynki ze szlichtą gładziolitu pod malowanie Wrocław ★ ściany gotowe do malowania bez dodatkowej gładzi. Firma M-TYNK od 1999 — bezpłatna wycena. ☎ 535 157 036."
         ogImage="images/uploads/2023/08/tynki-ze-szlichta-pod-malowanie.jpg"
         dateModified="2023-09-04T09:44:26+00:00"
         breadcrumbs={[
