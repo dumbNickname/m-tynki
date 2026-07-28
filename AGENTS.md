@@ -93,21 +93,26 @@ solid-site/
         ├── index.tsx                          # Homepage (/)
         ├── kontakt.tsx                        # Contact page (/kontakt)
         ├── galeria.tsx                        # Gallery page (/galeria)
-        ├── tynki-ze-szlichta-pod-malowanie.tsx # Service page
+        ├── tynki-ze-szlichta-pod-malowanie.tsx # Flagship service page (standalone route)
         ├── polityka-prywatnosci.tsx           # Privacy policy
+        ├── uslugi/
+        │   ├── index.tsx                      # Services hub (/uslugi)
+        │   └── [slug].tsx                     # Service landing pages (/uslugi/:slug) — data-driven from servicePages.ts
         ├── realizacje/
         │   ├── index.tsx                      # All posts listing (/realizacje)
-        │   └── [slug].tsx                     # Single post page (/realizacje/:slug)
-        └── category/
-            └── [slug].tsx                     # Category filtered listing (/category/:slug)
+        │   ├── [slug].tsx                     # Single post page (/realizacje/:slug)
+        │   └── kategoria/
+        │       └── [slug].tsx                 # Category filtered listing (/realizacje/kategoria/:slug)
+        └── [...404].tsx                       # Catch-all 404 page
 ```
 
-### Prerendered Routes (16 total)
+### Prerendered Routes (23 total)
 
 Defined in `app.config.ts`:
-- `/`, `/kontakt`, `/realizacje`, `/galeria`, `/tynki-ze-szlichta-pod-malowanie`, `/polityka-prywatnosci`
+- `/`, `/kontakt`, `/realizacje`, `/galeria`, `/tynki-ze-szlichta-pod-malowanie`, `/uslugi`, `/polityka-prywatnosci`, `/404`
+- 6 service landing pages: `/uslugi/{slug}` (SEO pages targeting money keywords — see `servicePages.ts`)
 - 6 post detail pages: `/realizacje/{slug}`
-- 4 category pages: `/category/{slug}`
+- 3 category pages: `/realizacje/kategoria/{slug}`
 
 ### CSS Architecture
 
@@ -123,17 +128,24 @@ Defined in `app.config.ts`:
 
 **site.json**: Company info (name, phone, email, address, social URLs, logo paths)
 **navigation.json**: Main nav links, footer links, category definitions (slug + label)
+**servicePages.ts** (`src/data/`): Array of the 6 SEO service landing pages rendered by `/uslugi/[slug].tsx`. Each entry: slug, title (meta), h1, description (meta + Service schema), cardTitle, cardSummary, intro, points[], sections[] (heading + paragraphs[]), faq[] (question + answer). These target money keywords (tynki maszynowe, tynki gipsowe, tynkowanie, gładź natryskowa, malowanie ścian, firma tynkarska — all "Wrocław"). Meta descriptions use a `★ … od 1999 — bezpłatna wycena. ☎ 535 157 036.` CTR pattern.
 **posts.json**: Array of post objects with: slug, title, date, categories[], thumbnail, excerpt, description (HTML), executor, duration, area, location, gallery[]
 **gallery.json**: Array of image paths for the gallery page
 **reviews.json**: Array of review objects with: name, date, text, stars (extracted from original Google reviews widget)
 
 ### Adding New Content
 
-**New blog post:**
+**New blog post (realizacja):**
 1. Add entry to `src/data/posts.json`
 2. Add images to `public/images/uploads/`
 3. Run `python3 scripts/generate-thumbs.py` to create thumbnails
 4. Add prerender route to `app.config.ts`
+
+**New service landing page (SEO):**
+1. Add an entry to the `servicePages` array in `src/data/servicePages.ts` (slug, title, h1, description with `★ … ☎` CTR pattern, cardTitle, cardSummary, intro, points, sections, faq)
+2. Add `/uslugi/{slug}` prerender route to `app.config.ts`
+3. Add a footer link (and optionally a homepage `services` card / intro-paragraph internal link) — see `navigation.json` and `src/routes/index.tsx`
+4. No new route file needed — `/uslugi/[slug].tsx` renders every entry data-driven
 
 **New page:**
 1. Create route file in `src/routes/`
