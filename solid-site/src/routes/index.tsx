@@ -58,6 +58,7 @@ export default function Home() {
     <Layout>
       <SeoHead
         canonical="/"
+        description={site.description}
         faq={steps.map((s) => ({ question: `${s.title} — jak to robimy?`, answer: s.content }))}
       />
 
