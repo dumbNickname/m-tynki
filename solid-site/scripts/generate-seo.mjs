@@ -129,51 +129,88 @@ writeFileSync(resolve(root, "public/robots.txt"), robotsTxt);
 console.log("robots.txt: generated");
 
 // --- llms.txt ---
-const servicesList = [
-  "Tynki maszynowe gipsowe",
-  "Tynki gipsowe ze szlichtą wygładzającą pod malowanie",
-  "Tynki gipsowe utwardzane",
-  "Gładź natryskowa",
-  "Zabudowy z płyt gipsowo-kartonowych (G-K)",
-  "Natryskowe malowanie ścian",
-];
+// Format per https://llmstxt.org/ : an H1 (project name), a blockquote summary,
+// optional free-form Markdown, then H2 sections whose contents are *lists of
+// links* in the form `- [name](url): optional notes`. Bare URLs are NOT valid
+// file-list items — every link must be a Markdown hyperlink.
+const url = (loc) => `${SITE_URL}${withTrailingSlash(loc)}`;
 
-const postsSummary = posts
-  .map((p) => `- ${p.title} (${p.location}, ${p.date})`)
+const servicePageMeta = {
+  "tynki-maszynowe-wroclaw": "Tynki maszynowe Wrocław",
+  "tynki-gipsowe-wroclaw": "Tynki gipsowe Wrocław",
+  "tynkowanie-wroclaw": "Tynkowanie Wrocław",
+  "gladz-natryskowa-wroclaw": "Gładź natryskowa Wrocław",
+  "malowanie-scian-wroclaw": "Malowanie ścian Wrocław",
+  "firma-tynkarska-wroclaw": "Firma tynkarska Wrocław",
+};
+
+const mainPageMeta = {
+  "/": "Strona główna",
+  "/kontakt": "Kontakt",
+  "/realizacje": "Realizacje",
+  "/galeria": "Galeria",
+  "/tynki-ze-szlichta-pod-malowanie": "Tynki ze szlichtą pod malowanie",
+  "/uslugi": "Usługi",
+  "/polityka-prywatnosci": "Polityka prywatności",
+};
+
+const mainLinks = pages
+  .map((p) => `- [${mainPageMeta[p.loc] || p.loc}](${url(p.loc)})`)
   .join("\n");
+
+const serviceLinks = serviceEntries
+  .map((e) => {
+    const slug = e.loc.replace("/uslugi/", "");
+    return `- [${servicePageMeta[slug] || slug}](${url(e.loc)})`;
+  })
+  .join("\n");
+
+const realizacjeLinks = posts
+  .map((p) => `- [${p.title}](${url(`/realizacje/${p.slug}`)}): ${p.location}, ${p.date}`)
+  .join("\n");
+
+const categoryLinks = categoryEntries
+  .map((e) => {
+    const cat = navigation.categories.find((c) => c.href === e.loc);
+    return `- [${cat ? cat.label : e.loc}](${url(e.loc)})`;
+  })
+  .join("\n");
+
+const socialLinks = [
+  `- [Facebook](${site.facebookUrl})`,
+  `- [Instagram](${site.instagramUrl})`,
+  `- [Opinie Google](${site.googleReviewUrl})`,
+].join("\n");
 
 const llmsTxt = `# ${site.name}
 
 > ${site.description}
 
-## Informacje o firmie
+Firma tynkarska M-TYNK działa od 1999 roku we Wrocławiu i okolicach. Specjalizuje się w tynkach maszynowych gipsowych, tynkach gipsowych ze szlichtą wygładzającą pod malowanie, gładzi natryskowej, zabudowach z płyt gipsowo-kartonowych oraz natryskowym malowaniu ścian.
 
-- Nazwa: M-TYNK
-- Branża: Usługi tynkarskie i wykończeniowe
 - Lokalizacja: ${site.address}
-- Obszar działania: Wrocław i okolice
-- Działalność od: 1999 roku
 - Telefon: ${site.phone}
 - E-mail: ${site.email}
-- Strona: ${site.url}
+
+## Strony główne
+
+${mainLinks}
 
 ## Usługi
 
-${servicesList.map((s) => `- ${s}`).join("\n")}
+${serviceLinks}
 
 ## Realizacje
 
-${postsSummary}
+${realizacjeLinks}
 
-## Linki
+## Kategorie realizacji
 
-${allEntries.map((e) => `- ${SITE_URL}${withTrailingSlash(e.loc)}`).join("\n")}
+${categoryLinks}
 
 ## Media społecznościowe
 
-- Facebook: ${site.facebookUrl}
-- Instagram: ${site.instagramUrl}
-- Opinie Google: ${site.googleReviewUrl}
+${socialLinks}
 `;
 
 writeFileSync(resolve(root, "public/llms.txt"), llmsTxt);
