@@ -43,7 +43,14 @@ for (const p of posts) {
 // 2. Explicit overrides / extra legacy URLs whose old slug differs from the
 //    new one. Add entries here as Search Console surfaces more dead URLs.
 const LEGACY_REDIRECTS = {
-  // "/old-wordpress-slug": "/new/path/",
+  // /uslugi/ pages consolidated into the flagship service page
+  "/uslugi": "/tynki-ze-szlichta-pod-malowanie/",
+  "/uslugi/tynki-maszynowe-wroclaw": "/tynki-ze-szlichta-pod-malowanie/",
+  "/uslugi/tynki-gipsowe-wroclaw": "/tynki-ze-szlichta-pod-malowanie/",
+  "/uslugi/tynkowanie-wroclaw": "/tynki-ze-szlichta-pod-malowanie/",
+  "/uslugi/gladz-natryskowa-wroclaw": "/tynki-ze-szlichta-pod-malowanie/",
+  "/uslugi/malowanie-scian-wroclaw": "/tynki-ze-szlichta-pod-malowanie/",
+  "/uslugi/firma-tynkarska-wroclaw": "/tynki-ze-szlichta-pod-malowanie/",
 };
 Object.assign(redirects, LEGACY_REDIRECTS);
 

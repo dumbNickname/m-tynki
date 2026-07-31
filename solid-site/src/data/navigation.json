@@ -1,23 +1,21 @@
 {
   "main": [
     { "label": "Strona Główna", "href": "/" },
-    { "label": "O Nas", "href": "/#o-nas" },
-    { "label": "Usługi", "href": "/uslugi" },
-    { "label": "Tynki ze szlichtą pod malowanie", "href": "/tynki-ze-szlichta-pod-malowanie" },
+    { "label": "Tynki ze szlichtą", "href": "/tynki-ze-szlichta-pod-malowanie" },
     { "label": "Realizacje", "href": "/realizacje" },
     { "label": "Galeria", "href": "/galeria" },
     { "label": "Kontakt", "href": "/kontakt" }
   ],
   "footer": [
     { "label": "Strona Główna", "href": "/" },
-    { "label": "Usługi tynkarskie", "href": "/uslugi" },
-    { "label": "Tynki ze Szlichtą pod Malowanie", "href": "/tynki-ze-szlichta-pod-malowanie" },
-    { "label": "Tynki maszynowe Wrocław", "href": "/uslugi/tynki-maszynowe-wroclaw" },
-    { "label": "Tynki gipsowe Wrocław", "href": "/uslugi/tynki-gipsowe-wroclaw" },
-    { "label": "Tynkowanie Wrocław", "href": "/uslugi/tynkowanie-wroclaw" },
-    { "label": "Gładź natryskowa Wrocław", "href": "/uslugi/gladz-natryskowa-wroclaw" },
-    { "label": "Malowanie ścian Wrocław", "href": "/uslugi/malowanie-scian-wroclaw" },
-    { "label": "Firma tynkarska Wrocław", "href": "/uslugi/firma-tynkarska-wroclaw" },
+    { "label": "Tynki ze szlichtą pod malowanie", "href": "/tynki-ze-szlichta-pod-malowanie" },
+    { "label": "Tynki maszynowe", "href": "/tynki-ze-szlichta-pod-malowanie#tynki-maszynowe" },
+    { "label": "Tynki gipsowe", "href": "/tynki-ze-szlichta-pod-malowanie#tynki-gipsowe" },
+    { "label": "Gładź natryskowa", "href": "/tynki-ze-szlichta-pod-malowanie#gladz-natryskowa" },
+    { "label": "Firma tynkarska M-TYNK", "href": "/tynki-ze-szlichta-pod-malowanie#firma" },
+    { "label": "FAQ", "href": "/tynki-ze-szlichta-pod-malowanie#faq" },
+    { "label": "Realizacje", "href": "/realizacje" },
+    { "label": "Galeria", "href": "/galeria" },
     { "label": "O nas", "href": "/#o-nas" },
     { "label": "Kontakt", "href": "/kontakt" },
     { "label": "Polityka prywatności", "href": "/polityka-prywatnosci" }

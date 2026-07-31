@@ -16,14 +16,6 @@ const read = (rel) => JSON.parse(readFileSync(resolve(root, rel), "utf-8"));
 const site = read("src/data/site.json");
 const posts = read("src/data/posts.json");
 const navigation = read("src/data/navigation.json");
-const servicePages = [
-  "tynki-maszynowe-wroclaw",
-  "tynki-gipsowe-wroclaw",
-  "tynkowanie-wroclaw",
-  "gladz-natryskowa-wroclaw",
-  "malowanie-scian-wroclaw",
-  "firma-tynkarska-wroclaw",
-];
 
 const SITE_URL = site.url;
 const TODAY = new Date().toISOString().slice(0, 10);
@@ -41,19 +33,13 @@ const withTrailingSlash = (path) => {
 };
 
 const pages = [
-  { loc: "/", priority: "1.0" },
-  { loc: "/kontakt", priority: "0.8" },
-  { loc: "/realizacje", priority: "0.8" },
-  { loc: "/galeria", priority: "0.7" },
-  { loc: "/tynki-ze-szlichta-pod-malowanie", priority: "0.9" },
-  { loc: "/uslugi", priority: "0.8" },
-  { loc: "/polityka-prywatnosci", priority: "0.3" },
+  { loc: "/", priority: "1.0", lastmod: "2026-07-31" },
+  { loc: "/kontakt", priority: "0.8", lastmod: "2023-09-04" },
+  { loc: "/realizacje", priority: "0.8", lastmod: "2023-08-25" },
+  { loc: "/galeria", priority: "0.7", lastmod: "2023-09-04" },
+  { loc: "/tynki-ze-szlichta-pod-malowanie", priority: "0.9", lastmod: "2026-07-31" },
+  { loc: "/polityka-prywatnosci", priority: "0.3", lastmod: "2023-09-04" },
 ];
-
-const serviceEntries = servicePages.map((slug) => ({
-  loc: `/uslugi/${slug}`,
-  priority: "0.85",
-}));
 
 const postEntries = posts.map((p) => ({
   loc: `/realizacje/${p.slug}`,
@@ -66,9 +52,10 @@ const categoryEntries = navigation.categories
   .map((c) => ({
     loc: c.href,
     priority: "0.5",
+    lastmod: "2023-09-04",
   }));
 
-const allEntries = [...pages, ...serviceEntries, ...postEntries, ...categoryEntries];
+const allEntries = [...pages, ...postEntries, ...categoryEntries];
 
 // --- sitemap.xml ---
 const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -135,34 +122,17 @@ console.log("robots.txt: generated");
 // file-list items — every link must be a Markdown hyperlink.
 const url = (loc) => `${SITE_URL}${withTrailingSlash(loc)}`;
 
-const servicePageMeta = {
-  "tynki-maszynowe-wroclaw": "Tynki maszynowe Wrocław",
-  "tynki-gipsowe-wroclaw": "Tynki gipsowe Wrocław",
-  "tynkowanie-wroclaw": "Tynkowanie Wrocław",
-  "gladz-natryskowa-wroclaw": "Gładź natryskowa Wrocław",
-  "malowanie-scian-wroclaw": "Malowanie ścian Wrocław",
-  "firma-tynkarska-wroclaw": "Firma tynkarska Wrocław",
-};
-
 const mainPageMeta = {
   "/": "Strona główna",
   "/kontakt": "Kontakt",
   "/realizacje": "Realizacje",
   "/galeria": "Galeria",
   "/tynki-ze-szlichta-pod-malowanie": "Tynki ze szlichtą pod malowanie",
-  "/uslugi": "Usługi",
   "/polityka-prywatnosci": "Polityka prywatności",
 };
 
 const mainLinks = pages
   .map((p) => `- [${mainPageMeta[p.loc] || p.loc}](${url(p.loc)})`)
-  .join("\n");
-
-const serviceLinks = serviceEntries
-  .map((e) => {
-    const slug = e.loc.replace("/uslugi/", "");
-    return `- [${servicePageMeta[slug] || slug}](${url(e.loc)})`;
-  })
   .join("\n");
 
 const realizacjeLinks = posts
@@ -186,7 +156,7 @@ const llmsTxt = `# ${site.name}
 
 > ${site.description}
 
-Firma tynkarska M-TYNK działa od 1999 roku we Wrocławiu i okolicach. Specjalizuje się w tynkach maszynowych gipsowych, tynkach gipsowych ze szlichtą wygładzającą pod malowanie, gładzi natryskowej, zabudowach z płyt gipsowo-kartonowych oraz natryskowym malowaniu ścian.
+Firma tynkarska M-TYNK działa od 1999 roku we Wrocławiu i okolicach. Specjalizuje się w tynkach maszynowych gipsowych ze szlichtą wygładzającą pod malowanie, gładzi natryskowej, zabudowach z płyt gipsowo-kartonowych oraz natryskowym malowaniu ścian.
 
 - Lokalizacja: ${site.address}
 - Telefon: ${site.phone}
@@ -195,10 +165,6 @@ Firma tynkarska M-TYNK działa od 1999 roku we Wrocławiu i okolicach. Specjaliz
 ## Strony główne
 
 ${mainLinks}
-
-## Usługi
-
-${serviceLinks}
 
 ## Realizacje
 

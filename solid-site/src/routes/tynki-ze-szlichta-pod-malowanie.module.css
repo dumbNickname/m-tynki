@@ -47,27 +47,13 @@
 }
 
 .localCard {
-  display: grid;
-  grid-template-columns: 1.3fr 0.7fr;
-  gap: 2rem;
-  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2.5rem;
   border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-primary);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
-}
-
-.localLinks {
-  display: grid;
-  gap: 0.75rem;
-  align-content: center;
-}
-
-.localLinks a {
-  display: block;
-  padding: 0.9rem 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  font-weight: 600;
 }
 
 .benefitsSection {
@@ -214,6 +200,33 @@
   }
 }
 
+.contentSection {
+  background: var(--color-light-gray);
+}
+
+.contentSection:nth-child(even) {
+  background: var(--color-white);
+}
+
+.prose {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.prose h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.prose h2:first-child {
+  margin-top: 0;
+}
+
+.prose p {
+  line-height: 1.8;
+  color: var(--color-text);
+}
+
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: 1fr;
@@ -231,8 +244,7 @@
     margin: 0 auto;
   }
 
-  .benefitsGrid,
-  .localCard {
+  .benefitsGrid {
     grid-template-columns: 1fr;
   }
 

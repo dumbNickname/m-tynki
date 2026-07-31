@@ -10,39 +10,42 @@ import styles from "./index.module.css";
 const services = [
   {
     icon: "images/uploads/2023/08/szlichta-wygladzajaca-01.png",
-    title: "Tynki Gipsowe ze szlichtą wygładzającą",
-    description: "Nasza specjalność. Na tynki gipsowe nakładamy dodatkową warstwą wygładzającą, która pozwala na uzyskanie idealnie gładkiej ściany nadającej się bezpośrednio pod malowanie — bez dodatkowej warstwy gładzi.",
-    href: "/tynki-ze-szlichta-pod-malowanie",
+    title: "Zabezpieczenie budowy",
+    description: "Okleiamy okna, drzwi, osłaniamy posadzki oraz instalacje, aby ochronić budowę przed zabrudzeniami podczas tynkowania.",
+    href: "/tynki-ze-szlichta-pod-malowanie#tynki-maszynowe",
     featured: true,
+    featuredTitle: "Tynki Gipsowe ze szlichtą wygładzającą",
+    featuredDescription: "Nasza specjalność. Na tynki gipsowe nakładamy dodatkową warstwę wygładzającą, która pozwala na uzyskanie idealnie gładkiej ściany nadającej się bezpośrednio pod malowanie — bez dodatkowej warstwy gładzi.",
+  },
+  {
+    icon: "images/uploads/2023/08/tynk-ze-szlichta-wygladzajaca-01-01.png",
+    title: "Tynkowanie maszynowe",
+    description: "Nakładamy tynk gipsowy agregatem tynkarskim — zaprawa ma powtarzalną konsystencję, a ściany są pokryte równo i szybko.",
+    href: "/tynki-ze-szlichta-pod-malowanie#tynki-maszynowe",
+  },
+  {
+    icon: "images/uploads/2023/08/tynk-ze-szlichta-wygladzajaca-01-01.png",
+    title: "Ściąganie i wygładzanie",
+    description: "Ściągamy tynk łatą do równego, a następnie wygładzamy ręcznie trzema rodzajami łat gładzących — uzupełniamy każdy ubytek.",
+    href: "/tynki-ze-szlichta-pod-malowanie#szlichta",
   },
   {
     icon: "images/uploads/2024/09/gladz.svg",
-    title: "Gładź natryskowa",
-    description: "Gładź natryskowa to sprawdzona metoda wygładzania ścian, która gwarantuje idealnie równą powierzchnię. Zapewnia szybkie wykończenie i wysoką jakość efektu.",
-    href: "/uslugi/gladz-natryskowa-wroclaw",
-  },
-  {
-    icon: "images/uploads/2023/08/tynk-ze-szlichta-wygladzajaca-01-01.png",
-    title: "Tynki Gipsowe",
-    description: "Wykonane przez nas tynki gipsowe pozwalają na uzyskanie gładkiej, równej i dokładnie wykończonej powierzchni.",
-    href: "/uslugi/tynki-gipsowe-wroclaw",
-  },
-  {
-    icon: "images/uploads/2023/08/tynk-ze-szlichta-wygladzajaca-01-01.png",
-    title: "Tynki maszynowe",
-    description: "Tynki gipsowe nakładane maszynowo agregatem tynkarskim — szybko i równo na dużych powierzchniach, z ręcznym wykończeniem szlichtą pod malowanie.",
-    href: "/uslugi/tynki-maszynowe-wroclaw",
+    title: "Szlichta z gładziolitem",
+    description: "Nakładamy szlichtę gładziolitu wygładzającego — ściana staje się perfekcyjnie gładka i gotowa pod malowanie bez gładzi.",
+    href: "/tynki-ze-szlichta-pod-malowanie#szlichta",
   },
   {
     icon: "images/uploads/2023/08/Bez-nazwy-2.png",
-    title: "Zabudowy G-K",
-    description: "Oferujemy również zabudowy ścian, sufitów podwieszanych oraz różnego rodzaju konstrukcji lekkich oraz dekoracyjnych wykonanych z płyt karton gipsowych",
+    title: "Zabudowy G-K i gładź natryskowa",
+    description: "Wykonujemy też zabudowy z płyt karton-gipsowych, gładź natryskową oraz sufity podwieszane.",
+    href: "/tynki-ze-szlichta-pod-malowanie#gladz-natryskowa",
   },
   {
     icon: "images/uploads/2023/08/tynk-pod-malowanie-01.png",
-    title: "Natryskowe Malowanie Ścian",
-    description: "Pomieszczenia malujemy na biało i w kolorze, używamy do tego farb akrylowych, lateksowych, winylowych i ceramicznych.",
-    href: "/uslugi/malowanie-scian-wroclaw",
+    title: "Natryskowe malowanie ścian",
+    description: "Malujemy natryskowe na biało i w kolorze — równe pokrycie na dużych powierzchniach, szybciej niż wałkiem.",
+    href: "/tynki-ze-szlichta-pod-malowanie#gladz-natryskowa",
   },
 ];
 
@@ -94,7 +97,7 @@ export default function Home() {
               <span class={styles.sectionTag}>Nasza specjalność</span>
               <h2>Tynki gipsowe ze szlichtą wygładzającą pod malowanie</h2>
               <p class={styles.lead}>Jesteśmy firmą budowlaną świadczącą swoje usługi od 1999r co jest gwarancją jakości usług.</p>
-              <p>Skontaktuj się z nami i przekonaj się o naszym profesjonalizmie! Zobacz nasze <NavLink href="/realizacje">realizacje</NavLink> lub dowiedz się więcej o <NavLink href="/tynki-ze-szlichta-pod-malowanie">tynkach gipsowych ze szlichtą pod malowanie</NavLink>, <NavLink href="/uslugi/tynki-maszynowe-wroclaw">tynkach maszynowych we Wrocławiu</NavLink>, <NavLink href="/uslugi/tynkowanie-wroclaw">tynkowaniu ścian</NavLink> i ofercie <NavLink href="/uslugi/firma-tynkarska-wroclaw">firmy tynkarskiej M-TYNK</NavLink>.</p>
+              <p>Skontaktuj się z nami i przekonaj się o naszym profesjonalizmie! Zobacz nasze <NavLink href="/realizacje">realizacje</NavLink> lub dowiedz się więcej o <NavLink href="/tynki-ze-szlichta-pod-malowanie">tynkach gipsowych ze szlichtą pod malowanie</NavLink>.</p>
               <div class={styles.statsRow}>
                 <div class={styles.statItem}>
                   <span class={styles.statNumber}>25+</span>
@@ -172,8 +175,8 @@ export default function Home() {
                     </div>
                     <div class={svc.featured ? styles.featuredBody : ""}>
                       {svc.featured && <span class={styles.featuredEyebrow}>Nasza specjalność</span>}
-                      <h3>{svc.title}</h3>
-                      <p>{svc.description}</p>
+                      <h3>{svc.featured ? svc.featuredTitle : svc.title}</h3>
+                      <p>{svc.featured ? svc.featuredDescription : svc.description}</p>
                       {svc.href && <span class={styles.serviceMore}>Dowiedz się więcej</span>}
                     </div>
                   </>

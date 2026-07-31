@@ -69,7 +69,8 @@ export default function PostPage() {
 
           <section class="section">
             <div class="container text-center">
-              <p>Dowiedz się więcej o naszej metodzie — <NavLink href="/tynki-ze-szlichta-pod-malowanie">tynki ze szlichtą wygładzającą pod malowanie</NavLink>.</p>
+              <p>Dowiedz się więcej o naszej metodzie — <NavLink href="/tynki-ze-szlichta-pod-malowanie">tynki maszynowe gipsowe ze szlichtą wygładzającą pod malowanie</NavLink>.</p>
+              <p>Oferujemy Tynki Gipsowe z Gładziolitem Wygładzającym pod Malowanie. Nie potrzebujesz dodatkowej warstwy gładzi! <a class="btn btn-primary btn-sm" href={`tel:535157036`}>Bezpłatna wycena</a></p>
             </div>
           </section>
         </Layout>
