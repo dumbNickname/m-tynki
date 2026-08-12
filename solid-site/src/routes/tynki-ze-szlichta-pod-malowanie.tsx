@@ -81,7 +81,7 @@ export default function TynkiService() {
       <SeoHead
         title="Tynki maszynowe ze szlichtą pod malowanie Wrocław"
         canonical="/tynki-ze-szlichta-pod-malowanie"
-        description="Tynki maszynowe Wrocław ★ tynki gipsowe ze szlichtą wygładzającą pod malowanie — ściany gotowe do malowania bez dodatkowej gładzi. Firma M-TYNK od 1999 — bezpłatna wycena. ☎ 535 157 036."
+        description="Tynki maszynowe we Wrocławiu wykańczane szlichtą wygładzającą: ściany gotowe pod malowanie bez osobnej warstwy gładzi. Zobacz, jak to robimy i ile to trwa. Bezpłatna wycena: 535 157 036."
         ogImage="images/uploads/2023/08/tynki-ze-szlichta-pod-malowanie.jpg"
         dateModified="2023-09-04T09:44:26+00:00"
         breadcrumbs={[
@@ -100,7 +100,7 @@ export default function TynkiService() {
       <section class="section" id="szlichta">
         <div class={`container ${styles.grid}`}>
           <div class={styles.text1}>
-            <h2 class={styles.sectionTitle}>Tynki maszynowe gipsowe ze szlichtą gładziolitu wygładzającego pod malowanie we Wrocławiu</h2>
+            <h2 class={styles.sectionTitle}>Na czym polega nasza metoda wykończenia ścian</h2>
             <div class={styles.divider} />
             <p>
               Nasza Firma posiada w swojej ofercie coś, co wyróżnia ją na tle innych firm zajmujących się tynkowaniem. Oferowane przez nas Tynki Gipsowe są wykańczane Szlichtą z GŁADZIOLITEM Wygładzającym, która nadaje gładkość tynkowanej ścianie. Dzięki Gładziolitowi, ściany i sufity w pomieszczeniu są perfekcyjnie równe i można od razu po wyschnięciu przejść do malowania.
@@ -204,7 +204,7 @@ export default function TynkiService() {
         <div class="container">
           <div class={styles.localCard}>
             <div>
-              <h2>Firma tynkarska M-TYNK Wrocław — od 1999 roku</h2>
+              <h2>Kto wykonuje te prace</h2>
               <p>M-TYNK to firma tynkarska działająca we Wrocławiu nieprzerwanie od 1999 roku. Przez ten czas wykonaliśmy tynki w wielu domach jednorodzinnych, mieszkaniach i lokalach usługowych. Naszą specjalnością są tynki gipsowe ze szlichtą wygładzającą pod malowanie.</p>
               <p>Wykonujemy tynki maszynowe, tynki gipsowe ze szlichtą, gładź natryskową, zabudowy z płyt karton-gipsowych oraz natryskowe malowanie ścian.</p>
               <p><strong>Adres:</strong> {site.address}</p>

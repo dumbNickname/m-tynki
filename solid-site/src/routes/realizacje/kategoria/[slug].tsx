@@ -12,6 +12,12 @@ import styles from "../index.module.css";
 const categoryLabels: Record<string, string> = {};
 navigation.categories.forEach((c) => { categoryLabels[c.slug] = c.label; });
 
+const categoryDescriptions: Record<string, string> = {
+  "malowanie-scian": "Budowy, na których po tynkowaniu zostawaliśmy jeszcze na malowanie — natryskiem, na biało lub w kolorze. Zdjęcia, metraż i czas realizacji.",
+  "tynk-ze-szlichta-wygladzajaca": "Realizacje wykończone szlichtą wygładzającą, czyli ściany oddane w stanie gotowym pod malowanie. Zobacz zdjęcia z domów we Wrocławiu i okolicach.",
+  "zabudowy-z-plyt-gk": "Realizacje z zabudowami z płyt karton-gips: sufity podwieszane, ścianki działowe i obudowy, wykonane razem z tynkiem przez jedną ekipę.",
+};
+
 export default function CategoryPage() {
   const params = useParams();
 
@@ -28,7 +34,7 @@ export default function CategoryPage() {
       <SeoHead
         title={`${categoryLabel()} - Realizacje`}
         canonical={`/realizacje/kategoria/${params.slug}`}
-        description={`Realizacje w kategorii „${categoryLabel()}" — tynki gipsowe ze szlichtą wygładzającą pod malowanie. Firma M-TYNK Wrocław.`}
+        description={categoryDescriptions[params.slug ?? ""] || `Realizacje w kategorii „${categoryLabel()}" wykonane przez M-TYNK we Wrocławiu i okolicach.`}
         breadcrumbs={[
           { name: "Strona Główna", href: "/" },
           { name: "Realizacje", href: "/realizacje" },

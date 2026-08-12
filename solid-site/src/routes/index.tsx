@@ -79,8 +79,8 @@ export default function Home() {
           <div class={styles.heroContent}>
             <span class={styles.heroBadge}>Od 1999 roku</span>
             <h1>
-              <span class={styles.heroLocation}>Tynki maszynowe Wrocław i okolice</span>
-              <span class={styles.heroService}>Tynki gipsowe ze szlichtą wygładzającą pod malowanie</span>
+              <span class={styles.heroLocation}>Firma tynkarska — Wrocław i okolice</span>
+              <span class={styles.heroService}>Zostawiamy ściany, które malarz może pomalować od razu</span>
             </h1>
             <p class={styles.heroSubtitle}>Ściany gotowe do malowania — bez dodatkowej gładzi</p>
             <div class={styles.heroActions}>
@@ -94,8 +94,8 @@ export default function Home() {
         <div class="container">
           <div class={styles.introGrid}>
             <div>
-              <span class={styles.sectionTag}>Nasza specjalność</span>
-              <h2>Tynki gipsowe ze szlichtą wygładzającą pod malowanie</h2>
+              <span class={styles.sectionTag}>Kim jesteśmy</span>
+              <h2>Tynkujemy we Wrocławiu od 1999 roku</h2>
               <p class={styles.lead}>Jesteśmy firmą budowlaną świadczącą swoje usługi od 1999r co jest gwarancją jakości usług.</p>
               <p>Skontaktuj się z nami i przekonaj się o naszym profesjonalizmie! Zobacz nasze <NavLink href="/realizacje">realizacje</NavLink> lub dowiedz się więcej o <NavLink href="/tynki-ze-szlichta-pod-malowanie">tynkach gipsowych ze szlichtą pod malowanie</NavLink>.</p>
               <div class={styles.statsRow}>
@@ -137,7 +137,7 @@ export default function Home() {
             </div>
             <div>
               <span class={styles.sectionTag}>Dlaczego my?</span>
-              <h2>Działamy szybko i dokładnie!</h2>
+              <h2>Jak podchodzimy do pracy</h2>
               <p>
                 Panuje przeświadczenie że wszystkie roboty budowlane trwają długo, są robione niedokładne, przez co trzeba przygotować się na dużą ilość poprawek. Jednak to nie tyczy się NAS! Działamy profesjonalnie, wiemy co nas irytuje w pracach budowlanych, dlatego pracujemy tak jakbyśmy sami chcieli zostać obsłużeni.
               </p>
@@ -154,7 +154,7 @@ export default function Home() {
       <section class="section">
         <div class="container text-center">
           <span class={styles.sectionTag}>Zaufali nam</span>
-          <h2>Opinie klientów o firmie tynkarskiej M-TYNK</h2>
+          <h2>Co mówią o nas inwestorzy</h2>
           <Reviews />
         </div>
       </section>
@@ -163,7 +163,7 @@ export default function Home() {
         <div class="container">
           <div class="text-center">
             <span class={styles.sectionTag}>Co oferujemy</span>
-              <h2>Nasze usługi tynkarskie we Wrocławiu</h2>
+              <h2>Co robimy na budowie</h2>
           </div>
           <div class={styles.servicesGrid}>
             <For each={services}>
@@ -213,17 +213,17 @@ export default function Home() {
           <div class={styles.aboutFullGrid}>
             <div>
               <span class={styles.sectionTag}>O firmie</span>
-              <h2>O firmie tynkarskiej M-TYNK</h2>
+              <h2>Skąd się wzięliśmy i jak pracujemy</h2>
               <div class="divider" />
               <p>Jesteśmy firmą tynkarską z wieloletnim doświadczeniem, która od lat zajmuje się tynkarstwem we Wrocławiu i okolicach. Prawie od początku naszej działalności preferujemy metodę wykonywania tynków wraz ze szlichtą wygładzającą, która powoduje, że ściana jest przygotowana pod malowanie.</p>
               <p>Dzięki szlichcie uzyskujemy efekt gładkiej ściany, bez wybrzuszeń i nierówności.</p>
               <p>Nasza firma tynkarska specjalizuje się w wykonaniu tynków maszynowych — w branży tynków maszynowych działamy od 1999r. Posiadamy doświadczoną brygadę (wieloletnia praktyka w zawodzie) więc:</p>
               <ul class={styles.checkList}>
                 <li>Tynki cechuje wysoka jakość, estetyka i kultura wykonania.</li>
-                <li>Zabezpieczamy stolarkę okienna,instalacje i inne wymagające tego rzeczy.</li>
+                <li>Zabezpieczamy stolarkę okienną, instalacje i inne wymagające tego rzeczy.</li>
                 <li>Zawsze stosujemy specjalistyczne grunty i preparaty, obrzutki, narożniki, siatki, jak i również listwy dylatacyjne do okien i drzwi.</li>
                 <li>Posiadamy sprzęt do pracy w systemie silosowym.</li>
-                <li>Doradzamy przy wyborze najlepszego materiału oraz technologi wykonania.</li>
+                <li>Doradzamy przy wyborze najlepszego materiału oraz technologii wykonania.</li>
                 <li>Dbamy o powierzone mienie.</li>
               </ul>
             </div>
@@ -238,7 +238,7 @@ export default function Home() {
         <div class="container">
           <div class="text-center">
             <span class={styles.sectionTag}>Nasz proces</span>
-            <h2>Jak wykonujemy tynki maszynowe?</h2>
+            <h2>Co się dzieje na budowie, dzień po dniu</h2>
           </div>
           <div class={styles.timeline}>
             <For each={steps}>
@@ -258,7 +258,7 @@ export default function Home() {
 
       <section class={`section ${styles.cta}`}>
         <div class="container text-center">
-          <h2>Skontaktuj się z nami</h2>
+          <h2>Umów bezpłatną wycenę</h2>
           <p>Zadzwoń i umów się na bezpłatną wycenę! Obsługujemy Wrocław, powiat wrocławski, Trzebnicę, Oławę, Sobótkę, Długołękę, Miękinię, Domasław, Dobrzykowice i Lutynię.</p>
           <p><strong>Adres:</strong> {site.address} · <strong>E-mail:</strong> <a href={`mailto:${site.email}`}>{site.email}</a></p>
           <a class="btn btn-primary btn-lg" href={`tel:${site.phoneRaw}`}>

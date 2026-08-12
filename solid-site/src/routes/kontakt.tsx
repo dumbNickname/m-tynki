@@ -8,10 +8,10 @@ export default function Kontakt() {
   return (
     <Layout>
       <SeoHead
-        title="Kontakt — Tynki Gipsowe ze Szlichtą Wrocław"
+        title="Kontakt i bezpłatna wycena"
         canonical="/kontakt"
         pageType="ContactPage"
-        description={`Skontaktuj się z firmą M-TYNK Wrocław. Adres: ${site.address}. Telefon: ${site.phone}. E-mail: ${site.email}. Tynki gipsowe ze szlichtą pod malowanie.`}
+        description={`Zadzwoń i umów bezpłatną wycenę: ${site.phone}. M-TYNK, ${site.address} — pracujemy we Wrocławiu, powiecie wrocławskim i okolicznych miejscowościach.`}
         dateModified="2024-06-19T10:29:05+00:00"
         breadcrumbs={[
           { name: "Strona Główna", href: "/" },

@@ -8,9 +8,9 @@ export default function Galeria() {
   return (
     <Layout>
       <SeoHead
-        title="Galeria Realizacji — Tynki pod Malowanie"
+        title="Galeria zdjęć z naszych budów"
         canonical="/galeria"
-        description="Galeria zdjęć realizacji tynków gipsowych ze szlichtą wygładzającą pod malowanie. Zobacz efekty pracy firmy M-TYNK Wrocław."
+        description="Zdjęcia ścian i sufitów z budów, na których pracowaliśmy — tynk wykończony szlichtą, w stanie gotowym pod malowanie."
         dateModified="2023-09-04T13:54:30+00:00"
         breadcrumbs={[
           { name: "Strona Główna", href: "/" },

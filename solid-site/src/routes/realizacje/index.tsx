@@ -15,9 +15,9 @@ export default function Realizacje() {
   return (
     <Layout>
       <SeoHead
-        title="Realizacje — Tynki ze Szlichtą pod Malowanie"
+        title="Realizacje — domy i mieszkania we Wrocławiu"
         canonical="/realizacje"
-        description="Realizacje firmy M-TYNK Wrocław. Zobacz nasze prace tynkarskie — tynki gipsowe ze szlichtą wygładzającą pod malowanie, zabudowy G-K, malowanie ścian."
+        description="Konkretne budowy: lokalizacja, metraż i czas realizacji. Tynki ze szlichtą, zabudowy karton-gips i malowanie natryskowe we Wrocławiu i okolicach."
         dateModified="2024-09-30T08:10:47+00:00"
         breadcrumbs={[
           { name: "Strona Główna", href: "/" },

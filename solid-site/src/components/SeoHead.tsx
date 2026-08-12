@@ -48,7 +48,7 @@ export default function SeoHead(props: SeoHeadProps) {
       "@type": ["Organization", "HomeAndConstructionBusiness"],
       "@id": `${site.url}/#organization`,
       name: site.name,
-      alternateName: site.title,
+      alternateName: "M-TYNK",
       url: site.url,
       logo: {
         "@type": "ImageObject",
@@ -161,7 +161,7 @@ export default function SeoHead(props: SeoHeadProps) {
       "@type": "WebSite",
       "@id": `${site.url}/#website`,
       url: site.url,
-      name: site.title,
+      name: site.name,
       description: site.description,
       publisher: { "@id": `${site.url}/#organization` },
       inLanguage: "pl-PL",
