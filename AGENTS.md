@@ -51,9 +51,9 @@ solid-site/
 │   ├── check-internal-links.mjs  # Pre-build guard: fails build if raw <a href="/..."> is used instead of NavLink
 │   ├── inline-css.mjs         # Post-build: inlines CSS to eliminate render-blocking <link> tags
 │   ├── copy-404.mjs           # Post-build: copies .output/public/404/index.html → .output/public/404.html for GitHub Pages
-│   └── generate-redirects.mjs # Post-build: emits meta-refresh redirect stubs for legacy WordPress URLs (static-host 301 equivalent)
+│   └── generate-redirects.mjs # Post-build: emits meta-refresh redirect stubs for legacy URLs and removed /uslugi/* paths
 ├── public/
-│   ├── sitemap.xml            # Auto-generated XML sitemap (all 16 routes)
+│   ├── sitemap.xml            # Auto-generated XML sitemap (15 routes)
 │   ├── robots.txt             # Auto-generated robots.txt with sitemap reference
 │   ├── llms.txt               # Auto-generated LLM-friendly site summary
 │   └── images/                # All site images (logos, uploads, gallery)
@@ -93,11 +93,8 @@ solid-site/
         ├── index.tsx                          # Homepage (/)
         ├── kontakt.tsx                        # Contact page (/kontakt)
         ├── galeria.tsx                        # Gallery page (/galeria)
-        ├── tynki-ze-szlichta-pod-malowanie.tsx # Flagship service page (standalone route)
+        ├── tynki-ze-szlichta-pod-malowanie.tsx # THE flagship service page (all service content consolidated here)
         ├── polityka-prywatnosci.tsx           # Privacy policy
-        ├── uslugi/
-        │   ├── index.tsx                      # Services hub (/uslugi)
-        │   └── [slug].tsx                     # Service landing pages (/uslugi/:slug) — data-driven from servicePages.ts
         ├── realizacje/
         │   ├── index.tsx                      # All posts listing (/realizacje)
         │   ├── [slug].tsx                     # Single post page (/realizacje/:slug)
@@ -106,11 +103,10 @@ solid-site/
         └── [...404].tsx                       # Catch-all 404 page
 ```
 
-### Prerendered Routes (23 total)
+### Prerendered Routes (16 total)
 
 Defined in `app.config.ts`:
-- `/`, `/kontakt`, `/realizacje`, `/galeria`, `/tynki-ze-szlichta-pod-malowanie`, `/uslugi`, `/polityka-prywatnosci`, `/404`
-- 6 service landing pages: `/uslugi/{slug}` (SEO pages targeting money keywords — see `servicePages.ts`)
+- `/`, `/kontakt`, `/realizacje`, `/galeria`, `/tynki-ze-szlichta-pod-malowanie`, `/polityka-prywatnosci`, `/404`
 - 6 post detail pages: `/realizacje/{slug}`
 - 3 category pages: `/realizacje/kategoria/{slug}`
 
@@ -127,8 +123,7 @@ Defined in `app.config.ts`:
 ### Data Model
 
 **site.json**: Company info (name, phone, email, address, social URLs, logo paths)
-**navigation.json**: Main nav links, footer links, category definitions (slug + label)
-**servicePages.ts** (`src/data/`): Array of the 6 SEO service landing pages rendered by `/uslugi/[slug].tsx`. Each entry: slug, title (meta), h1, description (meta + Service schema), cardTitle, cardSummary, intro, points[], sections[] (heading + paragraphs[]), faq[] (question + answer). These target money keywords (tynki maszynowe, tynki gipsowe, tynkowanie, gładź natryskowa, malowanie ścian, firma tynkarska — all "Wrocław"). Meta descriptions use a `★ … od 1999 — bezpłatna wycena. ☎ 535 157 036.` CTR pattern.
+**navigation.json**: Main nav links (5 items), footer links (anchor links to flagship page sections), category definitions (slug + label)
 **posts.json**: Array of post objects with: slug, title, date, categories[], thumbnail, excerpt, description (HTML), executor, duration, area, location, gallery[]
 **gallery.json**: Array of image paths for the gallery page
 **reviews.json**: Array of review objects with: name, date, text, stars (extracted from original Google reviews widget)
@@ -140,12 +135,6 @@ Defined in `app.config.ts`:
 2. Add images to `public/images/uploads/`
 3. Run `python3 scripts/generate-thumbs.py` to create thumbnails
 4. Add prerender route to `app.config.ts`
-
-**New service landing page (SEO):**
-1. Add an entry to the `servicePages` array in `src/data/servicePages.ts` (slug, title, h1, description with `★ … ☎` CTR pattern, cardTitle, cardSummary, intro, points, sections, faq)
-2. Add `/uslugi/{slug}` prerender route to `app.config.ts`
-3. Add a footer link (and optionally a homepage `services` card / intro-paragraph internal link) — see `navigation.json` and `src/routes/index.tsx`
-4. No new route file needed — `/uslugi/[slug].tsx` renders every entry data-driven
 
 **New page:**
 1. Create route file in `src/routes/`
@@ -163,7 +152,7 @@ Defined in `app.config.ts`:
 7. The Gallery component manages its own lightbox state
 8. Category `"wszystkie"` means "all" — shows all posts without filtering
 9. The Reviews component renders static review data from `reviews.json` — no TrustIndex or third-party widget scripts
-10. Homepage includes: hero, intro, about, reviews, featured service (Tynki Gipsowe ze szlichtą wygładzającą — flagged via `featured: true` in the `services` array in `src/routes/index.tsx`), 5 secondary service cards in an asymmetric 6-column grid, full "O Nas" section, "Jak działamy?" vertical-rail timeline, and CTA
+10. Homepage includes: hero, intro, about, reviews, featured service (Tynki Gipsowe ze szlichtą wygładzającą — flagged via `featured: true` in the `services` array in `src/routes/index.tsx`), 5 secondary process/capability cards in an asymmetric 6-column grid, full "O Nas" section, "Jak działamy?" vertical-rail timeline, and CTA. All service cards link to the ONE flagship page (`/tynki-ze-szlichta-pod-malowanie`) with section anchors — there are NO separate /uslugi/* pages anymore.
 11. **Dark theme**: Controlled via `data-theme="dark"` on `<html>`. An inline script in `entry-server.tsx` reads `localStorage("mtynk_theme")` before paint to prevent flash. Falls back to `prefers-color-scheme` system preference. ThemeToggle component in Header handles user switching.
 12. **Cookie banner**: Self-hosted (`CookieBanner.tsx`), stores consent in `localStorage("mtynk_cookies_accepted")`. No third-party cookie scripts (CookieYes was removed). The site sets no cookies — only uses localStorage for theme preference and cookie consent.
 13. **Image thumbnails**: Gallery grid and PostCard listings use 400px-wide JPEG thumbnails from `public/images/thumbs/`. Full-res images load only in the lightbox. Run `python3 scripts/generate-thumbs.py` after adding new images. The `toThumb()` utility in `src/utils/images.ts` converts image paths to their thumbnail equivalents.
@@ -174,7 +163,7 @@ Defined in `app.config.ts`:
 18. **Dark theme color tokens invert** (`--color-dark`, `--color-white`, `--color-text`, etc.) — they swap meaning between light and dark mode. **This is a footgun for hardcoded "always dark" UI**: using `var(--color-dark)` as a background for an always-dark element will make it go *white* in dark mode. If you do need an always-dark surface, hardcode the hex (e.g. `#14171c`) and provide an explicit `[data-theme="dark"]` override. We tried this once for the homepage's "Tynki Gipsowe ze szlichtą wygładzającą" featured card and reverted — it read as a forgotten dark accident on the light page rather than intentional emphasis. The current featured-card pattern keeps the card in the page's normal light/dark surface but emphasises it with a 4px primary-green left border, a subtle radial green-tint background gradient, and a pulsing-dot eyebrow. That's the recommended approach for "make this card more important than the others."
 19. **Asymmetric services grid**: Homepage services use a 6-column grid where one entry flagged with `featured: true` in the `services` array spans all 6 columns (full-width dark hero card with eyebrow + title + description), and the rest span 2 columns each. Tablet collapses to 4-col grid, mobile to single column. To change which service is featured, edit the `featured` flag in `src/routes/index.tsx`, not the array order.
 20. **Vertical rail timeline**: The "Jak działamy?" section uses a flex-column vertical rail with circled numbered markers connected by a `linear-gradient` line that fades at the bottom. Max-width 720px, centered. The connecting line is `.timeline::before` with `position: absolute` — it relies on the items having consistent spacing, so don't add `margin` between timeline items (use `padding` instead).
-21. **Legacy URL redirects**: The old WordPress site exposed portfolio posts at top-level slugs (e.g. `/tynkowanie-scian-we-wroclawiu`); the rewrite moved them under `/realizacje/{slug}/`. Google still has the old URLs indexed, and on a static host they would 404 (showing as "Crawled, not indexed" / soft-404 in Search Console). `scripts/generate-redirects.mjs` runs post-build and emits a meta-refresh + `<link rel=canonical>` + `noindex,follow` stub at `.output/public/{old-slug}/index.html` for each — the static-host equivalent of a 301. The map is auto-derived from `posts.json` (`/{slug}` → `/realizacje/{slug}/`); add any old URL whose slug differs from the new one to the `LEGACY_REDIRECTS` object in that script. The script **skips** any path where a real prerendered page already exists, so it can't clobber routes like `/tynki-ze-szlichta-pod-malowanie/`. These stubs are intentionally **not** in `sitemap.xml` (you don't advertise redirected URLs).
+21. **Legacy URL redirects**: The old WordPress site exposed portfolio posts at top-level slugs (e.g. `/tynkowanie-scian-we-wroclawiu`); the rewrite moved them under `/realizacje/{slug}/`. Google still has the old URLs indexed, and on a static host they would 404 (showing as "Crawled, not indexed" / soft-404 in Search Console). `scripts/generate-redirects.mjs` runs post-build and emits a meta-refresh + `<link rel=canonical>` + `noindex,follow` stub at `.output/public/{old-slug}/index.html` for each — the static-host equivalent of a 301. The map is auto-derived from `posts.json` (`/{slug}` → `/realizacje/{slug}/`); add any old URL whose slug differs from the new one to the `LEGACY_REDIRECTS` object in that script. The script **skips** any path where a real prerendered page already exists, so it can't clobber routes like `/tynki-ze-szlichta-pod-malowanie/`. These stubs are intentionally **not** in `sitemap.xml` (you don't advertise redirected URLs). The `LEGACY_REDIRECTS` map also includes the removed `/uslugi/*` paths that now redirect to the flagship page.
 
 ---
 

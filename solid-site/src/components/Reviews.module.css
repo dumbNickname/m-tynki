@@ -30,6 +30,10 @@
   gap: 1.25rem;
 }
 
+.marqueeClone {
+  display: contents;
+}
+
 .marqueeUp {
   animation: marqueeUp 40s linear infinite;
 }

@@ -1,7 +1,6 @@
 import Layout from "~/components/Layout";
 import SeoHead from "~/components/SeoHead";
 import PageHeader from "~/components/PageHeader";
-import site from "~/data/site.json";
 import styles from "./polityka-prywatnosci.module.css";
 
 export default function PolitykaPrywatnosci() {
@@ -11,7 +10,6 @@ export default function PolitykaPrywatnosci() {
         title="Polityka prywatności"
         canonical="/polityka-prywatnosci"
         description="Polityka prywatności serwisu M-TYNK Wrocław. Informacje o plikach cookies, logach serwera i udostępnianiu danych."
-        ogImage={site.logo}
         dateModified="2023-08-25T13:09:32+00:00"
         breadcrumbs={[
           { name: "Strona Główna", href: "/" },

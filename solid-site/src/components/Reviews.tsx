@@ -25,31 +25,46 @@ function ReviewCard(props: { review: typeof reviews[0] }) {
 
 export default function Reviews() {
   const col1 = reviews.slice(0, 4);
-  const col2 = reviews.slice(4, 8);
-  const col3 = reviews.slice(0, 4).reverse();
+  const col2 = reviews.slice(4, 7);
+  const col3 = reviews.slice(7);
 
   return (
     <div>
       <div class={styles.marqueeWrapper}>
         <div class={styles.marqueeCol}>
           <div class={`${styles.marqueeTrack} ${styles.marqueeUp}`}>
-            <For each={[...col1, ...col1]}>
+            <For each={col1}>
               {(review) => <ReviewCard review={review} />}
             </For>
+            <div class={styles.marqueeClone} aria-hidden="true">
+              <For each={col1}>
+                {(review) => <ReviewCard review={review} />}
+              </For>
+            </div>
           </div>
         </div>
         <div class={`${styles.marqueeCol} ${styles.marqueeColSecond}`}>
           <div class={`${styles.marqueeTrack} ${styles.marqueeDown}`}>
-            <For each={[...col2, ...col2]}>
+            <For each={col2}>
               {(review) => <ReviewCard review={review} />}
             </For>
+            <div class={styles.marqueeClone} aria-hidden="true">
+              <For each={col2}>
+                {(review) => <ReviewCard review={review} />}
+              </For>
+            </div>
           </div>
         </div>
         <div class={`${styles.marqueeCol} ${styles.marqueeColThird}`}>
           <div class={`${styles.marqueeTrack} ${styles.marqueeUp}`}>
-            <For each={[...col3, ...col3]}>
+            <For each={col3}>
               {(review) => <ReviewCard review={review} />}
             </For>
+            <div class={styles.marqueeClone} aria-hidden="true">
+              <For each={col3}>
+                {(review) => <ReviewCard review={review} />}
+              </For>
+            </div>
           </div>
         </div>
         <div class={styles.marqueeFadeTop} />

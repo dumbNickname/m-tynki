@@ -29,7 +29,6 @@ export default function CategoryPage() {
         title={`${categoryLabel()} - Realizacje`}
         canonical={`/realizacje/kategoria/${params.slug}`}
         description={`Realizacje w kategorii „${categoryLabel()}" — tynki gipsowe ze szlichtą wygładzającą pod malowanie. Firma M-TYNK Wrocław.`}
-        ogImage="images/uploads/elementor/thumbs/tynk-ze-szlichta-wygladzajaca-2-1-qbc493vjwnj8vdtfz6et930fnfrti3rzhl17p4djqe.png"
         breadcrumbs={[
           { name: "Strona Główna", href: "/" },
           { name: "Realizacje", href: "/realizacje" },

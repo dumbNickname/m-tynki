@@ -3,6 +3,8 @@ import site from "~/data/site.json";
 import reviews from "~/data/reviews.json";
 import { withTrailingSlash } from "~/utils/url";
 
+const DEFAULT_OG_IMAGE = "images/og-default.jpg";
+
 interface BreadcrumbItem {
   name: string;
   href?: string;
@@ -35,6 +37,9 @@ interface SeoHeadProps {
 export default function SeoHead(props: SeoHeadProps) {
   const pageTitle = () => props.title ? `${props.title} - ${site.name}` : site.title;
   const canonicalPath = () => props.canonical ? withTrailingSlash(props.canonical) : undefined;
+  const ogImage = () => props.ogImage || DEFAULT_OG_IMAGE;
+  const ogImageUrl = () => `${site.url}/${ogImage()}`;
+  const isDefaultOgImage = () => ogImage() === DEFAULT_OG_IMAGE;
 
   const jsonLd = () => {
     const graph: object[] = [];
@@ -184,12 +189,10 @@ export default function SeoHead(props: SeoHeadProps) {
     if (props.dateModified) {
       webPage.dateModified = props.dateModified;
     }
-    if (props.ogImage) {
-      webPage.primaryImageOfPage = {
-        "@type": "ImageObject",
-        url: `${site.url}/${props.ogImage}`,
-      };
-    }
+    webPage.primaryImageOfPage = {
+      "@type": "ImageObject",
+      url: ogImageUrl(),
+    };
 
     graph.push(webPage);
 
@@ -249,10 +252,11 @@ export default function SeoHead(props: SeoHeadProps) {
       <Meta property="og:type" content={props.ogType || "website"} />
       <Meta property="og:title" content={pageTitle()} />
       {props.description && <Meta property="og:description" content={props.description} />}
-      <Meta property="og:site_name" content={site.title} />
-      {props.ogImage && <Meta property="og:image" content={`${site.url}/${props.ogImage}`} />}
-      {props.ogImage && <Meta property="og:image:width" content="1200" />}
-      {props.ogImage && <Meta property="og:image:height" content="630" />}
+      <Meta property="og:site_name" content={site.name} />
+      <Meta property="og:image" content={ogImageUrl()} />
+      <Meta property="og:image:alt" content={pageTitle()} />
+      {isDefaultOgImage() && <Meta property="og:image:width" content="1200" />}
+      {isDefaultOgImage() && <Meta property="og:image:height" content="630" />}
       {canonicalPath() && (
         <>
           <Link rel="canonical" href={`${site.url}${canonicalPath()}`} />
@@ -262,6 +266,7 @@ export default function SeoHead(props: SeoHeadProps) {
       <Meta name="twitter:card" content="summary_large_image" />
       <Meta name="twitter:title" content={pageTitle()} />
       {props.description && <Meta name="twitter:description" content={props.description} />}
+      <Meta name="twitter:image" content={ogImageUrl()} />
       {props.dateModified && <Meta property="article:modified_time" content={props.dateModified} />}
       {canonicalPath() && <Link rel="alternate" hreflang="pl" href={`${site.url}${canonicalPath()}`} />}
       {canonicalPath() && <Link rel="alternate" hreflang="x-default" href={`${site.url}${canonicalPath()}`} />}

@@ -62,7 +62,7 @@ export default function Home() {
       <SeoHead
         canonical="/"
         description={site.description}
-        faq={steps.map((s) => ({ question: `${s.title} — jak to robimy?`, answer: s.content }))}
+        ogImage="images/og-default.jpg"
       />
 
       <section class={styles.hero}>

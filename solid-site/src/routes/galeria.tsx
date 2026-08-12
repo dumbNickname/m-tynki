@@ -11,7 +11,6 @@ export default function Galeria() {
         title="Galeria Realizacji — Tynki pod Malowanie"
         canonical="/galeria"
         description="Galeria zdjęć realizacji tynków gipsowych ze szlichtą wygładzającą pod malowanie. Zobacz efekty pracy firmy M-TYNK Wrocław."
-        ogImage="images/uploads/2023/09/img-20230904-wa0001.jpg"
         dateModified="2023-09-04T13:54:30+00:00"
         breadcrumbs={[
           { name: "Strona Główna", href: "/" },
