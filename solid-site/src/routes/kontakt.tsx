@@ -29,7 +29,7 @@ export default function Kontakt() {
           <div class={styles.contactGrid}>
             <div>
               <h2>Skontaktuj się z nami</h2>
-              <p>Jeśli chcesz się umówić na Tynkowanie lub masz pytania odnośnie Szlichty Wygładzającej — zadzwoń lub napisz.</p>
+              <p>Jeśli chcesz się umówić na tynkowanie lub masz pytania odnośnie szlichty wygładzającej — zadzwoń lub napisz.</p>
               <div class={styles.contactInfo}>
                 <div class={styles.contactItem}>
                   <div class={styles.contactIcon}>📍</div>

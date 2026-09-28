@@ -44,13 +44,13 @@ for (const p of posts) {
 //    new one. Add entries here as Search Console surfaces more dead URLs.
 const LEGACY_REDIRECTS = {
   // /uslugi/ pages consolidated into the flagship service page
-  "/uslugi": "/tynki-ze-szlichta-pod-malowanie/",
+  "/uslugi": "/",
   "/uslugi/tynki-maszynowe-wroclaw": "/tynki-ze-szlichta-pod-malowanie/",
   "/uslugi/tynki-gipsowe-wroclaw": "/tynki-ze-szlichta-pod-malowanie/",
   "/uslugi/tynkowanie-wroclaw": "/tynki-ze-szlichta-pod-malowanie/",
   "/uslugi/gladz-natryskowa-wroclaw": "/tynki-ze-szlichta-pod-malowanie/",
   "/uslugi/malowanie-scian-wroclaw": "/tynki-ze-szlichta-pod-malowanie/",
-  "/uslugi/firma-tynkarska-wroclaw": "/tynki-ze-szlichta-pod-malowanie/",
+  "/uslugi/firma-tynkarska-wroclaw": "/",
 };
 Object.assign(redirects, LEGACY_REDIRECTS);
 
@@ -62,7 +62,6 @@ const stub = (target) => {
 <meta charset="utf-8">
 <title>Przekierowanie…</title>
 <link rel="canonical" href="https://wroclawtynki.pl${target}">
-<meta name="robots" content="noindex, follow">
 <meta http-equiv="refresh" content="0; url=${href}">
 <script>location.replace(${JSON.stringify(href)})</script>
 </head>

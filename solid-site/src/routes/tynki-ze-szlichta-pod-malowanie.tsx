@@ -83,7 +83,7 @@ export default function TynkiService() {
         canonical="/tynki-ze-szlichta-pod-malowanie"
         description="Tynki maszynowe we Wrocławiu wykańczane szlichtą wygładzającą: ściany gotowe pod malowanie bez osobnej warstwy gładzi. Zobacz, jak to robimy i ile to trwa. Bezpłatna wycena: 535 157 036."
         ogImage="images/uploads/2023/08/tynki-ze-szlichta-pod-malowanie.jpg"
-        dateModified="2023-09-04T09:44:26+00:00"
+        dateModified="2026-09-28T08:00:00+00:00"
         breadcrumbs={[
           { name: "Strona Główna", href: "/" },
           { name: "Tynki ze szlichtą pod malowanie" },
@@ -93,7 +93,7 @@ export default function TynkiService() {
       />
 
       <PageHeader
-        title="Tynki maszynowe ze szlichtą pod malowanie"
+        title="Tynki maszynowe ze szlichtą pod malowanie — Wrocław"
         breadcrumbs={[{ label: "Strona Główna", href: "/" }, { label: "Tynki ze szlichtą pod malowanie" }]}
       />
 
@@ -103,13 +103,13 @@ export default function TynkiService() {
             <h2 class={styles.sectionTitle}>Na czym polega nasza metoda wykończenia ścian</h2>
             <div class={styles.divider} />
             <p>
-              Nasza Firma posiada w swojej ofercie coś, co wyróżnia ją na tle innych firm zajmujących się tynkowaniem. Oferowane przez nas Tynki Gipsowe są wykańczane Szlichtą z GŁADZIOLITEM Wygładzającym, która nadaje gładkość tynkowanej ścianie. Dzięki Gładziolitowi, ściany i sufity w pomieszczeniu są perfekcyjnie równe i można od razu po wyschnięciu przejść do malowania.
+              Nasza firma posiada w swojej ofercie coś, co wyróżnia ją na tle innych firm zajmujących się tynkowaniem. Oferowane przez nas tynki gipsowe są wykańczane szlichtą z Gładziolitem wygładzającym, która nadaje gładkość tynkowanej ścianie. Dzięki Gładziolitowi ściany i sufity w pomieszczeniu są perfekcyjnie równe i można od razu po wyschnięciu przejść do malowania.
             </p>
             <p>
-              Tynk ze Gładziolitem Wygładzającym powoduje brak konieczności wykonywania dodatkowej gładzi na powierzchni tynku. Brak konieczności stosowania gładzi prowadzi do oszczędności czasu i pieniędzy.
+              Tynk z Gładziolitem wygładzającym powoduje brak konieczności wykonywania dodatkowej gładzi na powierzchni tynku. Brak konieczności stosowania gładzi prowadzi do oszczędności czasu i pieniędzy.
             </p>
             <p>
-              Na terenie Wrocławia, gdzie znajduje się siedziba naszej firmy, a także w okolicach, wykonujemy tynki maszynowe gipsowe z Gładziolitem Wygładzającym. Możemy się pochwalić szeregiem opinii naszych klientów, którzy chwalą nasze przywiązanie do detali, pracowitość i przede wszystkim jakość wykonanych tynków.
+              Na terenie Wrocławia, gdzie znajduje się siedziba naszej firmy, a także w okolicach, wykonujemy tynki maszynowe gipsowe z Gładziolitem wygładzającym. Możemy się pochwalić szeregiem opinii naszych klientów, którzy chwalą nasze przywiązanie do detali, pracowitość i przede wszystkim jakość wykonanych tynków.
             </p>
           </div>
 

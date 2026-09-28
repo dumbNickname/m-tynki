@@ -11,10 +11,10 @@ const services = [
   {
     icon: "images/uploads/2023/08/szlichta-wygladzajaca-01.png",
     title: "Zabezpieczenie budowy",
-    description: "Okleiamy okna, drzwi, osłaniamy posadzki oraz instalacje, aby ochronić budowę przed zabrudzeniami podczas tynkowania.",
+    description: "Oklejamy okna, drzwi, osłaniamy posadzki oraz instalacje, aby ochronić budowę przed zabrudzeniami podczas tynkowania.",
     href: "/tynki-ze-szlichta-pod-malowanie#tynki-maszynowe",
     featured: true,
-    featuredTitle: "Tynki Gipsowe ze szlichtą wygładzającą",
+    featuredTitle: "Tynki gipsowe ze szlichtą wygładzającą",
     featuredDescription: "Nasza specjalność. Na tynki gipsowe nakładamy dodatkową warstwę wygładzającą, która pozwala na uzyskanie idealnie gładkiej ściany nadającej się bezpośrednio pod malowanie — bez dodatkowej warstwy gładzi.",
   },
   {
@@ -44,7 +44,7 @@ const services = [
   {
     icon: "images/uploads/2023/08/tynk-pod-malowanie-01.png",
     title: "Natryskowe malowanie ścian",
-    description: "Malujemy natryskowe na biało i w kolorze — równe pokrycie na dużych powierzchniach, szybciej niż wałkiem.",
+    description: "Malujemy natryskowo na biało i w kolorze — równe pokrycie na dużych powierzchniach, szybciej niż wałkiem.",
     href: "/tynki-ze-szlichta-pod-malowanie#gladz-natryskowa",
   },
 ];
@@ -53,7 +53,7 @@ const steps = [
   { number: "01", title: "Przygotowanie", content: "Pierwszym etapem zawsze jest odpowiednie zabezpieczenie okien, drzwi i elementów, które mogą zostać uszkodzone." },
   { number: "02", title: "Narzut", content: "Nakładanie pierwszej warstwy tynku, warstwy właściwej na ścianę. Na tym etapie zużywamy najwięcej materiału." },
   { number: "03", title: "Wygładzanie", content: "Wygładzanie powierzchni narzędziami tynkarskimi, uzupełnianie ubytków i nieprawidłowości. Każdy narzut jest przez nas wygładzany 3 rodzajami łat gładzących." },
-  { number: "04", title: "Gładziolit", content: "Zastosowanie Gładziolitu Wygładzającego w celu uzyskania gładkiej powierzchni Tynku. Na tym etapie wygładzamy ścianę do tego stopnia, że po wyschnięciu, jest gotowa do malowania." },
+  { number: "04", title: "Gładziolit", content: "Zastosowanie Gładziolitu wygładzającego w celu uzyskania gładkiej powierzchni tynku. Na tym etapie wygładzamy ścianę do tego stopnia, że po wyschnięciu, jest gotowa do malowania." },
 ];
 
 export default function Home() {
@@ -96,7 +96,8 @@ export default function Home() {
             <div>
               <span class={styles.sectionTag}>Kim jesteśmy</span>
               <h2>Tynkujemy we Wrocławiu od 1999 roku</h2>
-              <p class={styles.lead}>Jesteśmy firmą budowlaną świadczącą swoje usługi od 1999r co jest gwarancją jakości usług.</p>
+              <p class={styles.lead}>Jesteśmy firmą tynkarską świadczącą swoje usługi od 1999 r., co jest gwarancją jakości usług.</p>
+              <p>Wykonujemy tynki we Wrocławiu i okolicach — tynkowanie domów, mieszkań i lokali użytkowych. Jako tynkarz z ponad 25-letnim doświadczeniem specjalizujemy się w tynkach gipsowych nakładanych agregatem, czyli <NavLink href="/tynki-ze-szlichta-pod-malowanie#tynki-maszynowe">tynkach maszynowych we Wrocławiu</NavLink>, wykańczanych szlichtą wygładzającą.</p>
               <p>Skontaktuj się z nami i przekonaj się o naszym profesjonalizmie! Zobacz nasze <NavLink href="/realizacje">realizacje</NavLink> lub dowiedz się więcej o <NavLink href="/tynki-ze-szlichta-pod-malowanie">tynkach gipsowych ze szlichtą pod malowanie</NavLink>.</p>
               <div class={styles.statsRow}>
                 <div class={styles.statItem}>
@@ -139,10 +140,10 @@ export default function Home() {
               <span class={styles.sectionTag}>Dlaczego my?</span>
               <h2>Jak podchodzimy do pracy</h2>
               <p>
-                Panuje przeświadczenie że wszystkie roboty budowlane trwają długo, są robione niedokładne, przez co trzeba przygotować się na dużą ilość poprawek. Jednak to nie tyczy się NAS! Działamy profesjonalnie, wiemy co nas irytuje w pracach budowlanych, dlatego pracujemy tak jakbyśmy sami chcieli zostać obsłużeni.
+                Panuje przeświadczenie, że wszystkie roboty budowlane trwają długo, są robione niedokładnie, przez co trzeba przygotować się na dużą ilość poprawek. Jednak to nie tyczy się NAS! Działamy profesjonalnie, wiemy co nas irytuje w pracach budowlanych, dlatego pracujemy tak jakbyśmy sami chcieli zostać obsłużeni.
               </p>
               <p>
-                Liczy się dla nas satysfakcja i zadowolenie przebiegu współpracy z klientami, przez to zwracamy uwagę na najmniejsze szczegóły. Opowiadamy na wszystkie pytania, aby Nasi klienci byli świadomi interesujących ich kroków naszej pracy.
+                Liczy się dla nas satysfakcja i zadowolenie przebiegu współpracy z klientami, przez to zwracamy uwagę na najmniejsze szczegóły. Odpowiadamy na wszystkie pytania, aby nasi klienci byli świadomi interesujących ich kroków naszej pracy.
               </p>
             </div>
           </div>
@@ -217,7 +218,7 @@ export default function Home() {
               <div class="divider" />
               <p>Jesteśmy firmą tynkarską z wieloletnim doświadczeniem, która od lat zajmuje się tynkarstwem we Wrocławiu i okolicach. Prawie od początku naszej działalności preferujemy metodę wykonywania tynków wraz ze szlichtą wygładzającą, która powoduje, że ściana jest przygotowana pod malowanie.</p>
               <p>Dzięki szlichcie uzyskujemy efekt gładkiej ściany, bez wybrzuszeń i nierówności.</p>
-              <p>Nasza firma tynkarska specjalizuje się w wykonaniu tynków maszynowych — w branży tynków maszynowych działamy od 1999r. Posiadamy doświadczoną brygadę (wieloletnia praktyka w zawodzie) więc:</p>
+              <p>Nasza firma tynkarska specjalizuje się w wykonaniu tynków maszynowych — w branży tynków maszynowych działamy od 1999 r. Posiadamy doświadczoną brygadę (wieloletnia praktyka w zawodzie) więc:</p>
               <ul class={styles.checkList}>
                 <li>Tynki cechuje wysoka jakość, estetyka i kultura wykonania.</li>
                 <li>Zabezpieczamy stolarkę okienną, instalacje i inne wymagające tego rzeczy.</li>

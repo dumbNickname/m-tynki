@@ -14,7 +14,7 @@ export default function Footer() {
               <img src={site.logoGreen} alt={site.name} width="300" height="81" loading="lazy" />
             </NavLink>
             <p>
-              Oferujemy Tynki Gipsowe z Gładziolitem Wygładzającym pod Malowanie. Nie potrzebujesz dodatkowej warstwy gładzi!
+              Oferujemy tynki gipsowe z Gładziolitem wygładzającym pod malowanie. Nie potrzebujesz dodatkowej warstwy gładzi!
             </p>
             <div class={styles.social}>
               <a href={site.facebookUrl} target="_blank" rel="nofollow noopener noreferrer" aria-label="Facebook">

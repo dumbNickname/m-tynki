@@ -33,11 +33,11 @@ const withTrailingSlash = (path) => {
 };
 
 const pages = [
-  { loc: "/", priority: "1.0", lastmod: "2026-07-31" },
+  { loc: "/", priority: "1.0", lastmod: "2026-09-28" },
   { loc: "/kontakt", priority: "0.8", lastmod: "2023-09-04" },
   { loc: "/realizacje", priority: "0.8", lastmod: "2023-08-25" },
   { loc: "/galeria", priority: "0.7", lastmod: "2023-09-04" },
-  { loc: "/tynki-ze-szlichta-pod-malowanie", priority: "0.9", lastmod: "2026-07-31" },
+  { loc: "/tynki-ze-szlichta-pod-malowanie", priority: "0.9", lastmod: "2026-09-28" },
   { loc: "/polityka-prywatnosci", priority: "0.3", lastmod: "2023-09-04" },
 ];
 
