@@ -22,3 +22,6 @@ Thumbs.db
 
 # Raw Google review exports (contain full reviewer names) — local only
 audit-output/data/
+
+# Draft messages to the client — local only
+audit-output/messages/
