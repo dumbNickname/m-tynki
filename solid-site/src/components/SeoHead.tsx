@@ -1,6 +1,5 @@
 import { Title, Meta, Link } from "@solidjs/meta";
 import site from "~/data/site.json";
-import reviews from "~/data/reviews.json";
 import { withTrailingSlash } from "~/utils/url";
 
 const DEFAULT_OG_IMAGE = "images/og-default.jpg";
@@ -121,29 +120,8 @@ export default function SeoHead(props: SeoHeadProps) {
         site.facebookUrl,
         site.instagramUrl,
         "https://www.google.com/maps/place/?q=place_id:ChIJreagzIzpD0cRAlXgmSCeWFg",
-        "https://maps.google.com/?cid=6365008272716023554",
-        site.googleReviewUrl,
+        "https://maps.google.com/?cid=6366011936145954050",
       ],
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: (reviews.reduce((sum, r) => sum + r.stars, 0) / reviews.length).toFixed(1),
-        bestRating: "5",
-        worstRating: "1",
-        ratingCount: reviews.length,
-        reviewCount: reviews.length,
-      },
-      review: reviews.map((r) => ({
-        "@type": "Review",
-        author: { "@type": "Person", name: r.name },
-        datePublished: r.date,
-        reviewRating: {
-          "@type": "Rating",
-          ratingValue: r.stars,
-          bestRating: "5",
-          worstRating: "1",
-        },
-        reviewBody: r.text,
-      })),
       hasOfferCatalog: {
         "@type": "OfferCatalog",
         name: "Usługi tynkarskie",

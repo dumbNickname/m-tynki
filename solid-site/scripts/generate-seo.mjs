@@ -149,7 +149,7 @@ const categoryLinks = categoryEntries
 const socialLinks = [
   `- [Facebook](${site.facebookUrl})`,
   `- [Instagram](${site.instagramUrl})`,
-  `- [Opinie Google](${site.googleReviewUrl})`,
+  `- [Opinie Google (${site.googleRating}/5, ${site.googleReviewCount} opinie)](${site.googleReviewsListUrl})`,
 ].join("\n");
 
 const llmsTxt = `# ${site.name}

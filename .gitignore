@@ -19,3 +19,6 @@ Thumbs.db
 # Misc
 .ipynb_checkpoints/
 .aider*
+
+# Raw Google review exports (contain full reviewer names) — local only
+audit-output/data/

@@ -62,7 +62,12 @@ export default function Footer() {
       <div class={styles.bottom}>
         <div class={`container ${styles.bottomInner}`}>
           <p>&copy; {new Date().getFullYear()} <strong>M-TYNK</strong> Tynki ze Szlichtą pod Malowanie</p>
-          <p>Realizacja: ro@ch</p>
+          <p>
+            Realizacja:{" "}
+            <a href="https://www.linkedin.com/in/bart%C5%82omiej-pietrowski-8a6a844b/" target="_blank" rel="nofollow noopener noreferrer">
+              ro@ch
+            </a>
+          </p>
         </div>
       </div>
     </footer>

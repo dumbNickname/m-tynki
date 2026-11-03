@@ -171,6 +171,11 @@
   color: var(--color-text-light);
 }
 
+a.statItem:hover .statLabel {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
 .about {
   background: var(--color-light-gray);
 }

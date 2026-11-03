@@ -5,6 +5,7 @@ import Reviews from "~/components/Reviews";
 import SocialFollow from "~/components/SocialFollow";
 import NavLink from "~/components/NavLink";
 import site from "~/data/site.json";
+import { opinieLabel } from "~/utils/plural";
 import styles from "./index.module.css";
 
 const services = [
@@ -104,10 +105,10 @@ export default function Home() {
                   <span class={styles.statNumber}>25+</span>
                   <span class={styles.statLabel}>Lat doświadczenia</span>
                 </div>
-                <div class={styles.statItem}>
-                  <span class={styles.statNumber}>100%</span>
-                  <span class={styles.statLabel}>Zaangażowania</span>
-                </div>
+                <a class={styles.statItem} href={site.googleReviewsListUrl} target="_blank" rel="noopener noreferrer">
+                  <span class={styles.statNumber}>{site.googleRating}★</span>
+                  <span class={styles.statLabel}>{site.googleReviewCount} {opinieLabel(site.googleReviewCount)} w Google</span>
+                </a>
               </div>
             </div>
             <div class={styles.introImage}>
@@ -155,7 +156,7 @@ export default function Home() {
       <section class="section">
         <div class="container text-center">
           <span class={styles.sectionTag}>Zaufali nam</span>
-          <h2>Co mówią o nas inwestorzy</h2>
+          <h2>Opinie o naszych tynkach we Wrocławiu i okolicach</h2>
           <Reviews />
         </div>
       </section>

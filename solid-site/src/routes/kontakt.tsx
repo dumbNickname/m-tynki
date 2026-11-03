@@ -2,6 +2,7 @@ import Layout from "~/components/Layout";
 import SeoHead from "~/components/SeoHead";
 import PageHeader from "~/components/PageHeader";
 import site from "~/data/site.json";
+import { opinieLabel } from "~/utils/plural";
 import styles from "./kontakt.module.css";
 
 export default function Kontakt() {
@@ -66,11 +67,11 @@ export default function Kontakt() {
                   <p style={{ margin: "0.25rem 0 0", "font-size": "var(--fs-small)", color: "var(--color-text-light)" }}>Zachęcamy do postawienia opinii po wykonanej pracy</p>
                 </div>
               </a>
-              <a href={site.googleReviewUrl} target="_blank" rel="noopener noreferrer" class={styles.reviewCard}>
+              <a href={site.googleReviewsListUrl} target="_blank" rel="noopener noreferrer" class={styles.reviewCard}>
                 <img src="images/3f01b95197aa73a801f7357854c22483-150x150-1.png" alt="Opinie Google" width="80" height="80" loading="lazy" />
                 <div>
-                  <strong>Nasze opinie</strong>
-                  <p style={{ margin: "0.25rem 0 0", "font-size": "var(--fs-small)", color: "var(--color-text-light)" }}>Zobacz co mówią o nas klienci</p>
+                  <strong>Nasze opinie: {site.googleRating}/5</strong>
+                  <p style={{ margin: "0.25rem 0 0", "font-size": "var(--fs-small)", color: "var(--color-text-light)" }}>{site.googleReviewCount} {opinieLabel(site.googleReviewCount)} w Google — zobacz, co mówią o nas klienci</p>
                 </div>
               </a>
             </div>

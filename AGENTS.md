@@ -74,7 +74,7 @@ solid-site/
     │   ├── navigation.json    # Nav links (main, footer, categories)
     │   ├── posts.json         # Blog posts (slug, title, date, categories, gallery, etc.)
     │   ├── gallery.json       # Gallery page image paths
-    │   └── reviews.json       # Google reviews (static, extracted from original site)
+    │   └── reviews.json       # Selected Google reviews (static copy, names shortened to first name + initial)
     ├── utils/
     │   └── images.ts          # Shared image utilities (toThumb path converter)
     ├── components/
@@ -126,7 +126,8 @@ Defined in `app.config.ts`:
 **navigation.json**: Main nav links (5 items), footer links (anchor links to flagship page sections), category definitions (slug + label)
 **posts.json**: Array of post objects with: slug, title, date, categories[], thumbnail, excerpt, description (HTML), executor, duration, area, location, gallery[]
 **gallery.json**: Array of image paths for the gallery page
-**reviews.json**: Array of review objects with: name, date, text, stars (extracted from original Google reviews widget)
+**reviews.json**: Array of review objects with: name (first name + surname initial, or the reviewer's nickname), year, text (verbatim), stars. Hand-picked from the Google Business Profile — copy text verbatim, never edit wording.
+**site.json → googleRating / googleRatingValue / googleReviewCount / googleRatingCheckedAt**: Overall Google rating shown on the site (homepage stats, reviews badge, flagship page, contact page, llms.txt). Update manually when the Google profile changes; bump `googleRatingCheckedAt`. `googleReviewsListUrl` opens the real Google listing — every review block must link there.
 
 ### Adding New Content
 
@@ -151,7 +152,7 @@ Defined in `app.config.ts`:
 6. All components import data directly from JSON files (static imports, no dynamic fetching)
 7. The Gallery component manages its own lightbox state
 8. Category `"wszystkie"` means "all" — shows all posts without filtering
-9. The Reviews component renders static review data from `reviews.json` — no TrustIndex or third-party widget scripts
+9. The Reviews component renders static review data from `reviews.json` — no TrustIndex or third-party widget scripts. It always links to the real Google listing (`site.googleReviewsListUrl`) and to the "write a review" link (`site.googleReviewUrl`). There is intentionally **no `aggregateRating` / `review` JSON-LD**: Google ignores self-serving review markup for LocalBusiness/Organization, and a hand-picked subset would misrepresent the real rating.
 10. Homepage includes: hero, intro, about, reviews, featured service (Tynki Gipsowe ze szlichtą wygładzającą — flagged via `featured: true` in the `services` array in `src/routes/index.tsx`), 5 secondary process/capability cards in an asymmetric 6-column grid, full "O Nas" section, "Jak działamy?" vertical-rail timeline, and CTA. All service cards link to the ONE flagship page (`/tynki-ze-szlichta-pod-malowanie`) with section anchors — there are NO separate /uslugi/* pages anymore.
 11. **Dark theme**: Controlled via `data-theme="dark"` on `<html>`. An inline script in `entry-server.tsx` reads `localStorage("mtynk_theme")` before paint to prevent flash. Falls back to `prefers-color-scheme` system preference. ThemeToggle component in Header handles user switching.
 12. **Cookie banner**: Self-hosted (`CookieBanner.tsx`), stores consent in `localStorage("mtynk_cookies_accepted")`. No third-party cookie scripts (CookieYes was removed). The site sets no cookies — only uses localStorage for theme preference and cookie consent.

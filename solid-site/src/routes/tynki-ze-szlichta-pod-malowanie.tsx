@@ -5,6 +5,7 @@ import PageHeader from "~/components/PageHeader";
 import PostCard from "~/components/PostCard";
 import NavLink from "~/components/NavLink";
 import site from "~/data/site.json";
+import { opinieLabel } from "~/utils/plural";
 import posts from "~/data/posts.json";
 import navigation from "~/data/navigation.json";
 import styles from "./tynki-ze-szlichta-pod-malowanie.module.css";
@@ -109,7 +110,7 @@ export default function TynkiService() {
               Tynk z Gładziolitem wygładzającym powoduje brak konieczności wykonywania dodatkowej gładzi na powierzchni tynku. Brak konieczności stosowania gładzi prowadzi do oszczędności czasu i pieniędzy.
             </p>
             <p>
-              Na terenie Wrocławia, gdzie znajduje się siedziba naszej firmy, a także w okolicach, wykonujemy tynki maszynowe gipsowe z Gładziolitem wygładzającym. Możemy się pochwalić szeregiem opinii naszych klientów, którzy chwalą nasze przywiązanie do detali, pracowitość i przede wszystkim jakość wykonanych tynków.
+              Na terenie Wrocławia, gdzie znajduje się siedziba naszej firmy, a także w okolicach, wykonujemy tynki maszynowe gipsowe z Gładziolitem wygładzającym. Na naszym profilu w Google mamy <a href={site.googleReviewsListUrl} target="_blank" rel="noopener noreferrer">{site.googleReviewCount} {opinieLabel(site.googleReviewCount)} ze średnią {site.googleRating}/5</a> — klienci najczęściej chwalą równe, gładkie ściany gotowe pod malowanie, dotrzymane terminy i porządek po zakończeniu prac.
             </p>
           </div>
 
