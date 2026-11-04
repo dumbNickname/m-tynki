@@ -48,6 +48,13 @@ const stages: { label: string; title: string; content: JSX.Element }[] = [
       <p>Po powrocie do Polski trafiłem w okolice Wrocławia. Przypadkiem natrafiłem na ogłoszenie o pracę, które spodobało mi się na tyle, że postanowiłem zostać. Z czasem przeprowadziłem się tu na stałe i dziś Wrocław jest moim domem już od około 12 lat.</p>
     ),
   },
+  {
+    label: "2019",
+    title: "Własna firma: M-TYNK",
+    content: (
+      <p>We wrześniu 2019 roku założyłem we Wrocławiu własną działalność — firmę tynkarską M-TYNK. Od początku stawiam na metodę, którą poznałem w Niemczech: tynki gipsowe ze szlichtą wygładzającą, po których ściany są gotowe pod malowanie.</p>
+    ),
+  },
 ];
 
 export default function ONas() {

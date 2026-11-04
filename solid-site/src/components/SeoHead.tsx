@@ -78,6 +78,11 @@ export default function SeoHead(props: SeoHeadProps) {
         longitude: 17.0283809,
       },
       hasMap: "https://www.google.com/maps/place/?q=place_id:ChIJreagzIzpD0cRAlXgmSCeWFg",
+      legalName: site.legalName,
+      taxID: site.nip,
+      vatID: `PL${site.nip}`,
+      foundingDate: site.foundingDate,
+      founder: { "@id": `${site.url}/#owner` },
       employee: { "@id": `${site.url}/#owner` },
       openingHoursSpecification: {
         "@type": "OpeningHoursSpecification",

@@ -48,6 +48,7 @@ export default function Footer() {
                   <a href={`mailto:${site.email}`}>{site.email}</a>
                 </li>
                 <li>{site.address}</li>
+                <li>NIP: {site.nip} · REGON: {site.regon}</li>
               </ul>
             </div>
             <div class={styles.col}>

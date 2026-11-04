@@ -123,7 +123,7 @@ Defined in `app.config.ts`:
 
 ### Data Model
 
-**site.json**: Company info (name, phone, email, address, social URLs, logo paths) + `owner` (name, jobTitle, careerStart, knowsAbout) — feeds the sitewide `Person` JSON-LD (`#owner`, linked as `Organization.employee`), `/o-nas`, and llms.txt. The owner's bio text on `/o-nas` is his own story, lightly edited — get his approval before changing facts.
+**site.json**: Company info (name, phone, email, address, social URLs, logo paths) + registry data (`legalName`, `nip`, `regon`, `foundingDate` — verified against the MF VAT white list / CEIDG; business registered 2019-09-16, so site copy says "doświadczenie od 1999", never "firma od 1999") + `owner` (name, jobTitle, careerStart, knowsAbout) — feeds the sitewide `Person` JSON-LD (`#owner`, linked as `Organization.employee`), `/o-nas`, and llms.txt. The owner's bio text on `/o-nas` is his own story, lightly edited — get his approval before changing facts.
 **navigation.json**: Main nav links (6 items), footer links (anchor links to flagship page sections), category definitions (slug + label)
 **posts.json**: Array of post objects with: slug, title, date, categories[], thumbnail, excerpt, description (HTML), executor, duration, area, location, gallery[]
 **gallery.json**: Array of image paths for the gallery page

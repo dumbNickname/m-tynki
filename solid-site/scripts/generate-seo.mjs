@@ -162,6 +162,8 @@ Firma tynkarska M-TYNK działa we Wrocławiu i okolicach; doświadczenie w tynko
 
 Właściciel: ${site.owner.name} — tynkarz od ${site.owner.careerStart} roku, z doświadczeniem z Polski, Litwy, Niemiec i Szwajcarii (to w Niemczech poznał metodę tynkowania ze szlichtą). Od około 12 lat mieszka i pracuje we Wrocławiu.
 
+- Firma: ${site.legalName}, działalność zarejestrowana w CEIDG od ${site.foundingDate}
+- NIP: ${site.nip}, REGON: ${site.regon}
 - Lokalizacja: ${site.address}
 - Telefon: ${site.phone}
 - E-mail: ${site.email}
