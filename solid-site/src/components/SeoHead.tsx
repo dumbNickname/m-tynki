@@ -31,6 +31,7 @@ interface SeoHeadProps {
   breadcrumbs?: BreadcrumbItem[];
   faq?: FaqItem[];
   service?: ServiceInfo;
+  aboutOwner?: boolean;
 }
 
 export default function SeoHead(props: SeoHeadProps) {
@@ -77,7 +78,7 @@ export default function SeoHead(props: SeoHeadProps) {
         longitude: 17.0283809,
       },
       hasMap: "https://www.google.com/maps/place/?q=place_id:ChIJreagzIzpD0cRAlXgmSCeWFg",
-      foundingDate: "1999",
+      employee: { "@id": `${site.url}/#owner` },
       openingHoursSpecification: {
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
@@ -136,6 +137,18 @@ export default function SeoHead(props: SeoHeadProps) {
     });
 
     graph.push({
+      "@type": "Person",
+      "@id": `${site.url}/#owner`,
+      name: site.owner.name,
+      jobTitle: site.owner.jobTitle,
+      worksFor: { "@id": `${site.url}/#organization` },
+      url: `${site.url}/o-nas/`,
+      knowsAbout: site.owner.knowsAbout,
+      knowsLanguage: "pl",
+      homeLocation: { "@type": "City", name: "Wrocław" },
+    });
+
+    graph.push({
       "@type": "WebSite",
       "@id": `${site.url}/#website`,
       url: site.url,
@@ -154,7 +167,9 @@ export default function SeoHead(props: SeoHeadProps) {
       isPartOf: { "@id": `${site.url}/#website` },
       ...(props.ogType === "article"
         ? { author: { "@id": `${site.url}/#organization` }, publisher: { "@id": `${site.url}/#organization` } }
-        : { about: { "@id": `${site.url}/#organization` } }),
+        : props.aboutOwner
+          ? { about: { "@id": `${site.url}/#owner` }, mainEntity: { "@id": `${site.url}/#owner` } }
+          : { about: { "@id": `${site.url}/#organization` } }),
       inLanguage: "pl-PL",
     };
 

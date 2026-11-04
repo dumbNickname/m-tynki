@@ -4,6 +4,7 @@
     { "label": "Tynki ze szlichtą", "href": "/tynki-ze-szlichta-pod-malowanie" },
     { "label": "Realizacje", "href": "/realizacje" },
     { "label": "Galeria", "href": "/galeria" },
+    { "label": "O nas", "href": "/o-nas" },
     { "label": "Kontakt", "href": "/kontakt" }
   ],
   "footer": [
@@ -13,7 +14,7 @@
     { "label": "Częste pytania", "href": "/tynki-ze-szlichta-pod-malowanie#faq" },
     { "label": "Realizacje", "href": "/realizacje" },
     { "label": "Galeria", "href": "/galeria" },
-    { "label": "O nas", "href": "/#o-nas" },
+    { "label": "O nas", "href": "/o-nas" },
     { "label": "Kontakt", "href": "/kontakt" },
     { "label": "Polityka prywatności", "href": "/polityka-prywatnosci" }
   ],

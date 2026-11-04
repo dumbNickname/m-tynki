@@ -53,7 +53,7 @@ solid-site/
 │   ├── copy-404.mjs           # Post-build: copies .output/public/404/index.html → .output/public/404.html for GitHub Pages
 │   └── generate-redirects.mjs # Post-build: emits meta-refresh redirect stubs for legacy URLs and removed /uslugi/* paths
 ├── public/
-│   ├── sitemap.xml            # Auto-generated XML sitemap (15 routes)
+│   ├── sitemap.xml            # Auto-generated XML sitemap (16 routes)
 │   ├── robots.txt             # Auto-generated robots.txt with sitemap reference
 │   ├── llms.txt               # Auto-generated LLM-friendly site summary
 │   └── images/                # All site images (logos, uploads, gallery)
@@ -94,6 +94,7 @@ solid-site/
         ├── kontakt.tsx                        # Contact page (/kontakt)
         ├── galeria.tsx                        # Gallery page (/galeria)
         ├── tynki-ze-szlichta-pod-malowanie.tsx # THE flagship service page (all service content consolidated here)
+        ├── o-nas.tsx                          # About page — owner's career timeline (/o-nas), Person schema
         ├── polityka-prywatnosci.tsx           # Privacy policy
         ├── realizacje/
         │   ├── index.tsx                      # All posts listing (/realizacje)
@@ -103,10 +104,10 @@ solid-site/
         └── [...404].tsx                       # Catch-all 404 page
 ```
 
-### Prerendered Routes (16 total)
+### Prerendered Routes (17 total)
 
 Defined in `app.config.ts`:
-- `/`, `/kontakt`, `/realizacje`, `/galeria`, `/tynki-ze-szlichta-pod-malowanie`, `/polityka-prywatnosci`, `/404`
+- `/`, `/kontakt`, `/realizacje`, `/galeria`, `/tynki-ze-szlichta-pod-malowanie`, `/o-nas`, `/polityka-prywatnosci`, `/404`
 - 6 post detail pages: `/realizacje/{slug}`
 - 3 category pages: `/realizacje/kategoria/{slug}`
 
@@ -122,8 +123,8 @@ Defined in `app.config.ts`:
 
 ### Data Model
 
-**site.json**: Company info (name, phone, email, address, social URLs, logo paths)
-**navigation.json**: Main nav links (5 items), footer links (anchor links to flagship page sections), category definitions (slug + label)
+**site.json**: Company info (name, phone, email, address, social URLs, logo paths) + `owner` (name, jobTitle, careerStart, knowsAbout) — feeds the sitewide `Person` JSON-LD (`#owner`, linked as `Organization.employee`), `/o-nas`, and llms.txt. The owner's bio text on `/o-nas` is his own story, lightly edited — get his approval before changing facts.
+**navigation.json**: Main nav links (6 items), footer links (anchor links to flagship page sections), category definitions (slug + label)
 **posts.json**: Array of post objects with: slug, title, date, categories[], thumbnail, excerpt, description (HTML), executor, duration, area, location, gallery[]
 **gallery.json**: Array of image paths for the gallery page
 **reviews.json**: Array of review objects with: name (first name + surname initial, or the reviewer's nickname), year, text (verbatim), stars. Hand-picked from the Google Business Profile — copy text verbatim, never edit wording.

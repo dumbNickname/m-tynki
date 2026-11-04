@@ -33,11 +33,12 @@ const withTrailingSlash = (path) => {
 };
 
 const pages = [
-  { loc: "/", priority: "1.0", lastmod: "2026-09-28" },
+  { loc: "/", priority: "1.0", lastmod: "2026-11-04" },
   { loc: "/kontakt", priority: "0.8", lastmod: "2023-09-04" },
   { loc: "/realizacje", priority: "0.8", lastmod: "2023-08-25" },
   { loc: "/galeria", priority: "0.7", lastmod: "2023-09-04" },
   { loc: "/tynki-ze-szlichta-pod-malowanie", priority: "0.9", lastmod: "2026-09-28" },
+  { loc: "/o-nas", priority: "0.7", lastmod: "2026-11-04" },
   { loc: "/polityka-prywatnosci", priority: "0.3", lastmod: "2023-09-04" },
 ];
 
@@ -128,6 +129,7 @@ const mainPageMeta = {
   "/realizacje": "Realizacje",
   "/galeria": "Galeria",
   "/tynki-ze-szlichta-pod-malowanie": "Tynki ze szlichtą pod malowanie",
+  "/o-nas": "O nas — tynkarz Jarosław Makarewicz",
   "/polityka-prywatnosci": "Polityka prywatności",
 };
 
@@ -156,7 +158,9 @@ const llmsTxt = `# ${site.name}
 
 > ${site.description}
 
-Firma tynkarska M-TYNK działa od 1999 roku we Wrocławiu i okolicach. Specjalizuje się w tynkach maszynowych gipsowych ze szlichtą wygładzającą pod malowanie, gładzi natryskowej, zabudowach z płyt gipsowo-kartonowych oraz natryskowym malowaniu ścian.
+Firma tynkarska M-TYNK działa we Wrocławiu i okolicach; doświadczenie w tynkowaniu od 1999 roku. Specjalizuje się w tynkach maszynowych gipsowych ze szlichtą wygładzającą pod malowanie, gładzi natryskowej, zabudowach z płyt gipsowo-kartonowych oraz natryskowym malowaniu ścian.
+
+Właściciel: ${site.owner.name} — tynkarz od ${site.owner.careerStart} roku, z doświadczeniem z Polski, Litwy, Niemiec i Szwajcarii (to w Niemczech poznał metodę tynkowania ze szlichtą). Od około 12 lat mieszka i pracuje we Wrocławiu.
 
 - Lokalizacja: ${site.address}
 - Telefon: ${site.phone}

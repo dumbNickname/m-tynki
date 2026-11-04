@@ -43,6 +43,18 @@ const faqs = [
     answer: "Tak — to główna zaleta naszej metody. Szlichta z gładziolitem wygładza powierzchnię tynku do takiego stopnia, że po wyschnięciu nie wymaga nakładania dodatkowej gładzi. Ściana jest gotowa bezpośrednio pod malowanie lub tapetowanie.",
   },
   {
+    question: "Czy po tynku gipsowym trzeba robić gładź?",
+    answer: "Po standardowym tynku gipsowym zwykle tak — przed malowaniem nakłada się jeszcze warstwę gładzi. W naszej metodzie tynk wykańczamy szlichtą z gładziolitem, dzięki czemu w wielu przypadkach osobna gładź nie jest potrzebna i ścianę można malować od razu po wyschnięciu.",
+  },
+  {
+    question: "Czy szlichta to to samo co wylewka?",
+    answer: "Nie w naszym przypadku. Słowem „szlichta” często nazywa się wylewkę podłogową (jastrych), ale my wykonujemy szlichtę ścienną — ostatnią, cienką warstwę wygładzającą tynk gipsowy na ścianach i sufitach.",
+  },
+  {
+    question: "Co oznacza tynk „na gładko” albo „na gotowo”?",
+    answer: "To tynk wykończony tak gładko, że nadaje się bezpośrednio pod malowanie, bez dodatkowej warstwy gładzi. U nas taki efekt daje tynk gipsowy nakładany maszynowo i wykańczany szlichtą z gładziolitem.",
+  },
+  {
     question: "Na jakich powierzchniach można stosować tynk ze szlichtą?",
     answer: "Tynk ze szlichtą wygładzającą można stosować na ścianach i sufitach z cegły, betonu, pustaków oraz bloków silikatowych. Sprawdza się zarówno w domach jednorodzinnych, mieszkaniach, jak i obiektach użytkowych.",
   },
@@ -84,7 +96,7 @@ export default function TynkiService() {
         canonical="/tynki-ze-szlichta-pod-malowanie"
         description="Tynki maszynowe we Wrocławiu wykańczane szlichtą wygładzającą: ściany gotowe pod malowanie bez osobnej warstwy gładzi. Zobacz, jak to robimy i ile to trwa. Bezpłatna wycena: 535 157 036."
         ogImage="images/uploads/2023/08/tynki-ze-szlichta-pod-malowanie.jpg"
-        dateModified="2026-09-28T08:00:00+00:00"
+        dateModified="2026-11-04T08:00:00+00:00"
         breadcrumbs={[
           { name: "Strona Główna", href: "/" },
           { name: "Tynki ze szlichtą pod malowanie" },
@@ -101,13 +113,13 @@ export default function TynkiService() {
       <section class="section" id="szlichta">
         <div class={`container ${styles.grid}`}>
           <div class={styles.text1}>
-            <h2 class={styles.sectionTitle}>Na czym polega nasza metoda wykończenia ścian</h2>
+            <h2 class={styles.sectionTitle}>Tynk gipsowy pod malowanie — bez osobnej gładzi</h2>
             <div class={styles.divider} />
             <p>
               Nasza firma posiada w swojej ofercie coś, co wyróżnia ją na tle innych firm zajmujących się tynkowaniem. Oferowane przez nas tynki gipsowe są wykańczane szlichtą z Gładziolitem wygładzającym, która nadaje gładkość tynkowanej ścianie. Dzięki Gładziolitowi ściany i sufity w pomieszczeniu są perfekcyjnie równe i można od razu po wyschnięciu przejść do malowania.
             </p>
             <p>
-              Tynk z Gładziolitem wygładzającym powoduje brak konieczności wykonywania dodatkowej gładzi na powierzchni tynku. Brak konieczności stosowania gładzi prowadzi do oszczędności czasu i pieniędzy.
+              Dlatego nasz tynk nazywa się często tynkiem „na gładko” lub „na gotowo”: w wielu przypadkach po wyschnięciu nie trzeba już robić gładzi na tynku gipsowym. Odpada cały etap prac, co oznacza oszczędność czasu i pieniędzy.
             </p>
             <p>
               Na terenie Wrocławia, gdzie znajduje się siedziba naszej firmy, a także w okolicach, wykonujemy tynki maszynowe gipsowe z Gładziolitem wygładzającym. Na naszym profilu w Google mamy <a href={site.googleReviewsListUrl} target="_blank" rel="noopener noreferrer">{site.googleReviewCount} {opinieLabel(site.googleReviewCount)} ze średnią {site.googleRating}/5</a> — klienci najczęściej chwalą równe, gładkie ściany gotowe pod malowanie, dotrzymane terminy i porządek po zakończeniu prac.
@@ -125,10 +137,13 @@ export default function TynkiService() {
           </div>
 
           <div class={styles.szlichta}>
-            <h2 class={styles.sectionTitle}>Czym jest szlichta z gładziolitem?</h2>
+            <h2 class={styles.sectionTitle}>Czym jest szlichta ścienna z gładziolitem?</h2>
             <div class={styles.divider} />
             <p>
               Szlichta z Gładziolitem wygładzającym jest niczym innym jak ostatnią warstwą nakładanego tynku. Można powiedzieć, że jest to warstwa dodatkowa, która nadaje gładkości ścianie i pozwala od razu przejść do malowania bądź położenia płytek. Jest to coś, co wymaga dodatkowej pracy, ale daje piorunujący efekt końcowy.
+            </p>
+            <p>
+              Uwaga na nazewnictwo: słowem „szlichta” często określa się też wylewkę podłogową (jastrych). U nas chodzi wyłącznie o szlichtę ścienną, czyli cienką warstwę wygładzającą tynk na ścianach i sufitach.
             </p>
           </div>
 
@@ -206,7 +221,8 @@ export default function TynkiService() {
           <div class={styles.localCard}>
             <div>
               <h2>Kto wykonuje te prace</h2>
-              <p>M-TYNK to firma tynkarska działająca we Wrocławiu nieprzerwanie od 1999 roku. Przez ten czas wykonaliśmy tynki w wielu domach jednorodzinnych, mieszkaniach i lokalach usługowych. Naszą specjalnością są tynki gipsowe ze szlichtą wygładzającą pod malowanie.</p>
+              <p>M-TYNK to firma tynkarska z Wrocławia z doświadczeniem w tynkowaniu od 1999 roku. Przez ten czas wykonaliśmy tynki w wielu domach jednorodzinnych, mieszkaniach i lokalach usługowych. Naszą specjalnością są tynki gipsowe ze szlichtą wygładzającą pod malowanie.</p>
+              <p>Firmę prowadzi {site.owner.name}, tynkarz od 1999 roku. Metodę tynkowania ze szlichtą poznał w Niemczech i od tego czasu stosuje ją na co dzień. <NavLink href="/o-nas">Więcej o naszej historii</NavLink>.</p>
               <p>Wykonujemy tynki maszynowe, tynki gipsowe ze szlichtą, gładź natryskową, zabudowy z płyt karton-gipsowych oraz natryskowe malowanie ścian.</p>
               <p><strong>Adres:</strong> {site.address}</p>
               <p><strong>Telefon:</strong> <a href={`tel:${site.phoneRaw}`}>{site.phone}</a> · <strong>E-mail:</strong> <a href={`mailto:${site.email}`}>{site.email}</a></p>

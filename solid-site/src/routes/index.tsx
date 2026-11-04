@@ -78,7 +78,7 @@ export default function Home() {
           />
           <div class={styles.heroOverlay} />
           <div class={styles.heroContent}>
-            <span class={styles.heroBadge}>Od 1999 roku</span>
+            <span class={styles.heroBadge}>Doświadczenie od 1999 roku</span>
             <h1>
               <span class={styles.heroLocation}>Firma tynkarska — Wrocław i okolice</span>
               <span class={styles.heroService}>Zostawiamy ściany, które malarz może pomalować od razu</span>
@@ -96,8 +96,8 @@ export default function Home() {
           <div class={styles.introGrid}>
             <div>
               <span class={styles.sectionTag}>Kim jesteśmy</span>
-              <h2>Tynkujemy we Wrocławiu od 1999 roku</h2>
-              <p class={styles.lead}>Jesteśmy firmą tynkarską świadczącą swoje usługi od 1999 r., co jest gwarancją jakości usług.</p>
+              <h2>Doświadczenie w tynkowaniu od 1999 roku</h2>
+              <p class={styles.lead}>Jesteśmy firmą tynkarską z Wrocławia z doświadczeniem w tynkowaniu od 1999 roku — zdobywanym w Polsce, na Litwie, w Niemczech i w Szwajcarii.</p>
               <p>Wykonujemy tynki we Wrocławiu i okolicach — tynkowanie domów, mieszkań i lokali użytkowych. Jako tynkarz z ponad 25-letnim doświadczeniem specjalizujemy się w tynkach gipsowych nakładanych agregatem, czyli <NavLink href="/tynki-ze-szlichta-pod-malowanie#tynki-maszynowe">tynkach maszynowych we Wrocławiu</NavLink>, wykańczanych szlichtą wygładzającą.</p>
               <p>Skontaktuj się z nami i przekonaj się o naszym profesjonalizmie! Zobacz nasze <NavLink href="/realizacje">realizacje</NavLink> lub dowiedz się więcej o <NavLink href="/tynki-ze-szlichta-pod-malowanie">tynkach gipsowych ze szlichtą pod malowanie</NavLink>.</p>
               <div class={styles.statsRow}>
@@ -219,7 +219,8 @@ export default function Home() {
               <div class="divider" />
               <p>Jesteśmy firmą tynkarską z wieloletnim doświadczeniem, która od lat zajmuje się tynkarstwem we Wrocławiu i okolicach. Prawie od początku naszej działalności preferujemy metodę wykonywania tynków wraz ze szlichtą wygładzającą, która powoduje, że ściana jest przygotowana pod malowanie.</p>
               <p>Dzięki szlichcie uzyskujemy efekt gładkiej ściany, bez wybrzuszeń i nierówności.</p>
-              <p>Nasza firma tynkarska specjalizuje się w wykonaniu tynków maszynowych — w branży tynków maszynowych działamy od 1999 r. Posiadamy doświadczoną brygadę (wieloletnia praktyka w zawodzie) więc:</p>
+              <p>Firmę prowadzi {site.owner.name}, który tynkuje od 1999 roku. Metodę ze szlichtą poznał podczas pracy w Niemczech. <NavLink href="/o-nas">Poznaj jego historię</NavLink>.</p>
+              <p>Nasza firma tynkarska specjalizuje się w wykonaniu tynków maszynowych — doświadczenie w tynkach maszynowych zdobywamy od 1999 r. Posiadamy doświadczoną brygadę (wieloletnia praktyka w zawodzie) więc:</p>
               <ul class={styles.checkList}>
                 <li>Tynki cechuje wysoka jakość, estetyka i kultura wykonania.</li>
                 <li>Zabezpieczamy stolarkę okienną, instalacje i inne wymagające tego rzeczy.</li>

@@ -18,6 +18,7 @@ export default defineConfig({
         "/realizacje",
         "/galeria",
         "/tynki-ze-szlichta-pod-malowanie",
+        "/o-nas",
         "/polityka-prywatnosci",
         "/realizacje/tynk-wraz-z-zabudowa-gk-i-malowaniem",
         "/realizacje/tynk-na-gladko-pod-malowanie",
