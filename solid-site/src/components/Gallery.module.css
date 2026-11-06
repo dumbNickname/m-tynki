@@ -37,6 +37,30 @@
   background: rgba(87, 191, 107, 0.15);
 }
 
+.mosaic {
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-flow: dense;
+  gap: 1rem;
+}
+
+.mosaic .item:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.mosaic .item {
+  border-radius: var(--radius-lg);
+}
+
+.mosaic .item img {
+  height: 100%;
+}
+
+.item:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
 .lightbox {
   position: fixed;
   inset: 0;
@@ -114,11 +138,19 @@
   .grid {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .mosaic {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mosaic {
+    gap: 0.6rem;
   }
 
   .lightboxContent {

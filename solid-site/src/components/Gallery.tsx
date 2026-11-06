@@ -6,6 +6,8 @@ interface GalleryProps {
   images: string[];
   altPrefix?: string;
   alts?: string[];
+  /** "mosaic": first image large (uses full-res source), 3-column layout. */
+  variant?: "grid" | "mosaic";
 }
 
 function imageAlt(prefix: string, index: number, alts?: string[]): string {
@@ -52,11 +54,17 @@ export default function Gallery(props: GalleryProps) {
 
   return (
     <>
-      <div class={styles.grid}>
+      <div class={props.variant === "mosaic" ? `${styles.grid} ${styles.mosaic}` : styles.grid}>
         <For each={props.images}>
           {(src, i) => (
-            <button class={styles.item} onClick={() => openLightbox(i())} type="button">
-              <img src={toThumb(src)} alt={imageAlt(prefix(), i(), props.alts)} loading="lazy" />
+            <button class={styles.item} onClick={() => openLightbox(i())} type="button" aria-label={`Powiększ: ${imageAlt(prefix(), i(), props.alts)}`}>
+              <img
+                src={toThumb(src)}
+                srcset={props.variant === "mosaic" && i() === 0 ? `${toThumb(src)} 400w, ${src} 1200w` : undefined}
+                sizes={props.variant === "mosaic" && i() === 0 ? "(max-width: 768px) 100vw, 800px" : undefined}
+                alt={imageAlt(prefix(), i(), props.alts)}
+                loading="lazy"
+              />
               <div class={styles.overlay} />
             </button>
           )}
