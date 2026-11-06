@@ -1,0 +1,22 @@
+.figure {
+  margin: 0 auto;
+  max-width: 360px;
+}
+
+.video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  border-radius: var(--radius);
+  background: #14171c;
+  box-shadow: var(--shadow-card);
+}
+
+.caption {
+  margin-top: 0.75rem;
+  font-size: var(--fs-small);
+  color: var(--color-text-light);
+  text-align: center;
+  line-height: 1.5;
+}

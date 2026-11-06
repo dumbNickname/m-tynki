@@ -6,7 +6,11 @@ import PageHeader from "~/components/PageHeader";
 import Gallery from "~/components/Gallery";
 import NavLink from "~/components/NavLink";
 import posts from "~/data/posts.json";
+import { galleryAlts } from "~/utils/images";
 import styles from "./post.module.css";
+
+const base = import.meta.env.SERVER_BASE_URL || "";
+const withBase = (html: string) => html.replace(/href="\/(?!\/)/g, `href="${base}/`);
 
 export default function PostPage() {
   const params = useParams();
@@ -42,14 +46,16 @@ export default function PostPage() {
 
           <section class="section">
             <div class="container">
-              <div innerHTML={p().description} />
+              <div innerHTML={withBase(p().description)} />
 
               <div class={styles.workDetails}>
                 <h2>Szczegóły przeprowadzonych prac</h2>
                 <p>
                   <strong>Wykonawca:</strong> {p().executor}<br />
-                  <strong>Data:</strong> {p().date}<br />
-                  <strong>Czas trwania prac:</strong> {p().duration}
+                  <strong>Data:</strong> {p().date}
+                  <Show when={p().duration}>
+                    <br /><strong>Czas trwania prac:</strong> {p().duration}
+                  </Show>
                   <Show when={p().area}>
                     <br /><strong>Powierzchnia pod tynkowanie:</strong> {p().area}
                   </Show>
@@ -63,7 +69,7 @@ export default function PostPage() {
 
           <section class="section">
             <div class="container">
-              <Gallery images={p().gallery} altPrefix={p().title} />
+              <Gallery images={p().gallery} altPrefix={p().title} alts={p().gallery.map((src) => galleryAlts[src])} />
             </div>
           </section>
 

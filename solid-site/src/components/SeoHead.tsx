@@ -19,8 +19,19 @@ interface ServiceInfo {
   serviceType?: string;
 }
 
+export interface VideoInfo {
+  name: string;
+  description: string;
+  thumbnailUrl: string;
+  contentUrl: string;
+  uploadDate: string;
+  duration: string;
+}
+
 interface SeoHeadProps {
   title?: string;
+  /** Use `title` as the full <title> without appending the site name. */
+  rawTitle?: boolean;
   description?: string;
   canonical?: string;
   ogImage?: string;
@@ -32,10 +43,14 @@ interface SeoHeadProps {
   faq?: FaqItem[];
   service?: ServiceInfo;
   aboutOwner?: boolean;
+  video?: VideoInfo;
 }
 
 export default function SeoHead(props: SeoHeadProps) {
-  const pageTitle = () => props.title ? `${props.title} - ${site.name}` : site.title;
+  const pageTitle = () => {
+    if (!props.title) return site.title;
+    return props.rawTitle ? props.title : `${props.title} - ${site.name}`;
+  };
   const canonicalPath = () => props.canonical ? withTrailingSlash(props.canonical) : undefined;
   const ogImage = () => props.ogImage || DEFAULT_OG_IMAGE;
   const ogImageUrl = () => `${site.url}/${ogImage()}`;
@@ -235,6 +250,21 @@ export default function SeoHead(props: SeoHeadProps) {
           { "@type": "AdministrativeArea", name: "Powiat wrocławski" },
         ],
         ...(canonicalPath() ? { url: `${site.url}${canonicalPath()}` } : {}),
+      });
+    }
+
+    if (props.video) {
+      graph.push({
+        "@type": "VideoObject",
+        "@id": `${canonicalPath() ? `${site.url}${canonicalPath()}` : site.url}#video`,
+        name: props.video.name,
+        description: props.video.description,
+        thumbnailUrl: `${site.url}/${props.video.thumbnailUrl}`,
+        contentUrl: `${site.url}/${props.video.contentUrl}`,
+        uploadDate: props.video.uploadDate,
+        duration: props.video.duration,
+        inLanguage: "pl-PL",
+        publisher: { "@id": `${site.url}/#organization` },
       });
     }
 

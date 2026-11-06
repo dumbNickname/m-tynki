@@ -19,6 +19,8 @@ export default defineConfig({
         "/galeria",
         "/tynki-ze-szlichta-pod-malowanie",
         "/o-nas",
+        "/malowanie-tynku-gipsowego",
+        "/realizacje/tynkowanie-maszynowe-krok-po-kroku",
         "/polityka-prywatnosci",
         "/realizacje/tynk-wraz-z-zabudowa-gk-i-malowaniem",
         "/realizacje/tynk-na-gladko-pod-malowanie",

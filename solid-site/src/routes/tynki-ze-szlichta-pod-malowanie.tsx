@@ -4,6 +4,8 @@ import SeoHead from "~/components/SeoHead";
 import PageHeader from "~/components/PageHeader";
 import PostCard from "~/components/PostCard";
 import NavLink from "~/components/NavLink";
+import VideoClip from "~/components/VideoClip";
+import videos from "~/data/videos.json";
 import site from "~/data/site.json";
 import { opinieLabel } from "~/utils/plural";
 import posts from "~/data/posts.json";
@@ -11,7 +13,9 @@ import navigation from "~/data/navigation.json";
 import styles from "./tynki-ze-szlichta-pod-malowanie.module.css";
 import realizacjeStyles from "./realizacje/index.module.css";
 
-const featuredSlugs = ["tynki-ze-szlichta-pod-malowanie-wroclaw", "tynkowanie-scian-we-wroclawiu", "tynkowanie-w-domu-jednorodzinnym"];
+const video = videos.tynkiGipsowe;
+
+const featuredSlugs = ["tynkowanie-maszynowe-krok-po-kroku", "tynki-ze-szlichta-pod-malowanie-wroclaw", "tynkowanie-w-domu-jednorodzinnym"];
 const featuredPosts = posts.filter((p) => featuredSlugs.includes(p.slug));
 const categoryLabels: Record<string, string> = {};
 navigation.categories.forEach((c) => { categoryLabels[c.slug] = c.label; });
@@ -92,17 +96,26 @@ export default function TynkiService() {
   return (
     <Layout>
       <SeoHead
-        title="Tynki maszynowe ze szlichtą pod malowanie Wrocław"
+        title="Tynki maszynowe gipsowe Wrocław — pod malowanie bez gładzi"
+        rawTitle
         canonical="/tynki-ze-szlichta-pod-malowanie"
-        description="Tynki maszynowe we Wrocławiu wykańczane szlichtą wygładzającą: ściany gotowe pod malowanie bez osobnej warstwy gładzi. Zobacz, jak to robimy i ile to trwa. Bezpłatna wycena: 535 157 036."
+        description="Tynki maszynowe gipsowe we Wrocławiu i okolicach, wykańczane szlichtą: po wyschnięciu malujesz — bez gładzi i szlifowania. Zobacz film z budowy. Wycena: 535 157 036."
         ogImage="images/uploads/2023/08/tynki-ze-szlichta-pod-malowanie.jpg"
-        dateModified="2026-11-04T08:00:00+00:00"
+        dateModified="2026-11-06T08:00:00+00:00"
         breadcrumbs={[
           { name: "Strona Główna", href: "/" },
           { name: "Tynki ze szlichtą pod malowanie" },
         ]}
         faq={faqs}
         service={{ name: "Tynki maszynowe gipsowe ze szlichtą wygładzającą pod malowanie" }}
+        video={{
+          name: video.name,
+          description: video.description,
+          thumbnailUrl: video.poster,
+          contentUrl: video.src,
+          uploadDate: video.uploadDate,
+          duration: video.duration,
+        }}
       />
 
       <PageHeader
@@ -147,11 +160,14 @@ export default function TynkiService() {
             </p>
           </div>
 
-          <div class={`${styles.imageWrap} ${styles.img2}`}>
-            <img
-              src="images/uploads/elementor/thumbs/tyni-pod-malowanie-qbdq91rev2rfmler3fd35z8elq8utmztpuh8j5jxts.jpg"
-              alt="Tynki pod malowanie"
-              loading="lazy"
+          <div class={styles.img2}>
+            <VideoClip
+              src={video.src}
+              poster={video.poster}
+              width={video.width}
+              height={video.height}
+              title={video.name}
+              caption="Film z budowy: tynk gipsowy ze szlichtą po wyschnięciu, przed malowaniem."
             />
           </div>
 
@@ -212,6 +228,7 @@ export default function TynkiService() {
 
             <h2>Malowanie natryskowe — wykończenie w jednej ekipie</h2>
             <p>Oprócz tynkowania wykonujemy również natryskowe malowanie ścian i sufitów na biało oraz w kolorze. Dzięki temu inwestor nie musi koordynować kilku ekip — tę samą powierzchnię, którą otynkowaliśmy i wygładziliśmy, możemy również pomalować. Malujemy farbami akrylowymi, lateksowymi, winylowymi i ceramicznymi, dobierając rodzaj farby do pomieszczenia.</p>
+            <p>Malujesz sam albo z własnym malarzem? Zobacz nasz poradnik: <NavLink href="/malowanie-tynku-gipsowego">malowanie tynku gipsowego — kiedy, jaki grunt i jaka farba</NavLink>.</p>
           </div>
         </div>
       </section>

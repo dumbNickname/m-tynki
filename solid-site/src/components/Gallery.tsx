@@ -5,10 +5,11 @@ import styles from "./Gallery.module.css";
 interface GalleryProps {
   images: string[];
   altPrefix?: string;
+  alts?: string[];
 }
 
-function imageAlt(src: string, prefix: string, index: number): string {
-  return `${prefix} — zdjęcie ${index + 1}`;
+function imageAlt(prefix: string, index: number, alts?: string[]): string {
+  return alts?.[index] || `${prefix} — zdjęcie ${index + 1}`;
 }
 
 export default function Gallery(props: GalleryProps) {
@@ -55,7 +56,7 @@ export default function Gallery(props: GalleryProps) {
         <For each={props.images}>
           {(src, i) => (
             <button class={styles.item} onClick={() => openLightbox(i())} type="button">
-              <img src={toThumb(src)} alt={imageAlt(src, prefix(), i())} loading="lazy" />
+              <img src={toThumb(src)} alt={imageAlt(prefix(), i(), props.alts)} loading="lazy" />
               <div class={styles.overlay} />
             </button>
           )}
@@ -73,7 +74,7 @@ export default function Gallery(props: GalleryProps) {
           <div class={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
             <button class={styles.close} onClick={closeLightbox} aria-label="Zamknij">✕</button>
             <button class={styles.prev} onClick={prev} aria-label="Poprzednie" disabled={lightboxIndex() === 0}>‹</button>
-            <img src={props.images[lightboxIndex()!]} alt={imageAlt(props.images[lightboxIndex()!], prefix(), lightboxIndex()!)} />
+            <img src={props.images[lightboxIndex()!]} alt={imageAlt(prefix(), lightboxIndex()!, props.alts)} />
             <button class={styles.next} onClick={next} aria-label="Następne" disabled={lightboxIndex() === props.images.length - 1}>›</button>
           </div>
         </div>
