@@ -132,6 +132,22 @@
   background: var(--color-primary-subtle);
 }
 
+.notice {
+  margin-top: 2rem;
+  padding: 1.5rem 1.75rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(var(--color-primary-rgb), 0.3);
+  background: var(--color-primary-subtle);
+}
+
+.notice h3 {
+  margin-bottom: 0.6rem;
+}
+
+.notice p:last-child {
+  margin-bottom: 0;
+}
+
 @media (max-width: 1024px) {
   .intro {
     grid-template-columns: 1fr;

@@ -21,10 +21,10 @@ const categoryLabels: Record<string, string> = {};
 navigation.categories.forEach((c) => { categoryLabels[c.slug] = c.label; });
 
 const benefits = [
-  { icon: "⏱️", title: "Oszczędność czasu", description: "Eliminacja etapu nakładania gładzi skraca czas wykończenia nawet o kilka dni." },
-  { icon: "✨", title: "Idealna gładkość", description: "Szlichta z gładziolitem zapewnia perfekcyjnie równą powierzchnię bez widocznych nierówności." },
-  { icon: "💰", title: "Oszczędność kosztów", description: "Brak potrzeby osobnej gładzi oznacza niższe koszty materiałów i robocizny." },
-  { icon: "🎨", title: "Gotowe pod malowanie", description: "Po wyschnięciu ściany są od razu gotowe do malowania — bez dodatkowego szlifowania." },
+  { icon: "⏱️", title: "Oszczędność czasu", description: "Tam, gdzie gładź nie jest potrzebna, odpada cały etap jej nakładania, schnięcia i szlifowania — to nawet kilka dni mniej." },
+  { icon: "✨", title: "Gładka powierzchnia tynku", description: "Szlichta z gładziolitem wygładza tynk na etapie tynkowania — ściana jest wyraźnie gładsza niż po zwykłym zatarciu. Płaskość odbieramy według normy dla tynków gipsowych (PN-B-10110)." },
+  { icon: "💰", title: "Oszczędność kosztów", description: "W typowych pomieszczeniach malowanych jasną, matową farbą zwykle nie trzeba płacić za osobną gładź — mniej materiału i robocizny." },
+  { icon: "🎨", title: "Pod malowanie", description: "Po wyschnięciu ścianę gruntuje się i maluje. Przy oświetleniu wzdłuż ścian, farbach z połyskiem lub ciemnych kolorach doradzamy gładź — robimy ją przy malowaniu." },
   { icon: "🏗️", title: "Trwałość", description: "Tynk ze szlichtą tworzy jednolitą, mocną warstwę, odporną na pęknięcia i uszkodzenia mechaniczne." },
   { icon: "🔧", title: "Uniwersalność", description: "Nadaje się do zastosowania na ścianach i sufitach, w budynkach mieszkalnych oraz użytkowych." },
 ];
@@ -44,11 +44,11 @@ const faqs = [
   },
   {
     question: "Czy tynk ze szlichtą nadaje się od razu pod malowanie?",
-    answer: "Tak — to główna zaleta naszej metody. Szlichta z gładziolitem wygładza powierzchnię tynku do takiego stopnia, że po wyschnięciu nie wymaga nakładania dodatkowej gładzi. Ściana jest gotowa bezpośrednio pod malowanie lub tapetowanie.",
+    answer: "W typowych pomieszczeniach — tak, i to główna zaleta naszej metody. Po wyschnięciu i zagruntowaniu ścianę maluje się jasną, matową farbą bez osobnej gładzi. To jednak nadal tynk, a nie gładź: odbiera się go według normy dla tynków gipsowych (PN-B-10110), a nie według wymagań stawianych gładzi. Jeśli planujesz oświetlenie padające wzdłuż ścian (listwy LED, kinkiety, oprawy liniowe przy suficie), farbę z połyskiem albo ciemne kolory, doradzimy gładź — wykonujemy ją jako osobny etap, przy malowaniu.",
   },
   {
     question: "Czy po tynku gipsowym trzeba robić gładź?",
-    answer: "Po standardowym tynku gipsowym zwykle tak — przed malowaniem nakłada się jeszcze warstwę gładzi. W naszej metodzie tynk wykańczamy szlichtą z gładziolitem, dzięki czemu w wielu przypadkach osobna gładź nie jest potrzebna i ścianę można malować od razu po wyschnięciu.",
+    answer: "Po standardowym tynku gipsowym zwykle tak — przed malowaniem nakłada się jeszcze warstwę gładzi. W naszej metodzie tynk wykańczamy szlichtą z gładziolitem, dzięki czemu w typowych pomieszczeniach osobna gładź zwykle nie jest potrzebna i po wyschnięciu ścianę można gruntować i malować. Wyjątkiem są ściany oświetlane światłem bocznym, farby z połyskiem i ciemne kolory — tam doradzamy gładź.",
   },
   {
     question: "Czy szlichta to to samo co wylewka?",
@@ -56,7 +56,7 @@ const faqs = [
   },
   {
     question: "Co oznacza tynk „na gładko” albo „na gotowo”?",
-    answer: "To tynk wykończony tak gładko, że nadaje się bezpośrednio pod malowanie, bez dodatkowej warstwy gładzi. U nas taki efekt daje tynk gipsowy nakładany maszynowo i wykańczany szlichtą z gładziolitem.",
+    answer: "Tak potocznie nazywa się tynk wykończony na tyle gładko, że w typowych pomieszczeniach można go malować bez dodatkowej warstwy gładzi. U nas to tynk gipsowy nakładany maszynowo i wykańczany szlichtą z gładziolitem. Nie jest to jednak gładź — tam, gdzie potrzebna jest najwyższa gładkość (np. pod światło boczne), dokładamy gładź przy malowaniu.",
   },
   {
     question: "Na jakich powierzchniach można stosować tynk ze szlichtą?",
@@ -64,7 +64,7 @@ const faqs = [
   },
   {
     question: "Czym różni się tynk gipsowy od gładzi gipsowej?",
-    answer: "Tynk gipsowy to warstwa wyrównująca nakładana na surową ścianę, a gładź to cienka warstwa wykończeniowa. Dzięki wykończeniu szlichtą wygładzającą nasz tynk gipsowy w wielu przypadkach pełni obie role i ścianę można malować bez osobnej gładzi.",
+    answer: "Tynk gipsowy to warstwa wyrównująca nakładana na surową ścianę, a gładź to cienka warstwa wykończeniowa. Dzięki wykończeniu szlichtą wygładzającą nasz tynk gipsowy w typowych pomieszczeniach często wystarcza pod malowanie bez osobnej gładzi. Gładź daje jednak wyższą klasę gładkości — doradzamy ją pod oświetlenie wzdłuż ścian, farby z połyskiem i ciemne kolory.",
   },
   {
     question: "Czy tynk gipsowy nadaje się do łazienki i kuchni?",
@@ -72,7 +72,7 @@ const faqs = [
   },
   {
     question: "Czym różni się tynkowanie ze szlichtą od zwykłego tynkowania?",
-    answer: "Po zwykłym tynkowaniu zwykle trzeba nałożyć osobną warstwę gładzi przed malowaniem. W naszej metodzie tynk wykańczamy szlichtą wygładzającą, dzięki czemu ściana jest gładka i w wielu przypadkach gotowa pod malowanie bez dodatkowej gładzi.",
+    answer: "Po zwykłym tynkowaniu zwykle trzeba nałożyć osobną warstwę gładzi przed malowaniem. W naszej metodzie tynk wykańczamy szlichtą wygładzającą, dzięki czemu ściana jest gładka i w typowych pomieszczeniach zwykle można ją malować bez dodatkowej gładzi.",
   },
   {
     question: "Jaki jest czas realizacji tynkowania?",
@@ -88,7 +88,7 @@ const faqs = [
   },
   {
     question: "Czym jest gładź natryskowa i kiedy jest potrzebna?",
-    answer: "Gładź natryskowa to metoda wygładzania ścian agregatem — stosowana gdy podłoże wymaga dodatkowej warstwy wyrównującej. Nasze tynki gipsowe ze szlichtą wygładzającą w wielu przypadkach eliminują potrzebę osobnej gładzi, ale w niektórych sytuacjach doradzamy gładź natryskową jako uzupełnienie.",
+    answer: "Gładź natryskowa to metoda wygładzania ścian agregatem — stosowana gdy podłoże wymaga dodatkowej warstwy wyrównującej. Nasze tynki gipsowe ze szlichtą wygładzającą w typowych pomieszczeniach często eliminują potrzebę osobnej gładzi, ale przy oświetleniu wzdłuż ścian, farbach z połyskiem, ciemnych kolorach lub gdy zależy Ci na najwyższej gładkości doradzamy gładź jako osobny etap, wykonywany przy malowaniu.",
   },
 ];
 
@@ -96,10 +96,10 @@ export default function TynkiService() {
   return (
     <Layout>
       <SeoHead
-        title="Tynki maszynowe gipsowe Wrocław — pod malowanie bez gładzi"
+        title="Tynki maszynowe gipsowe Wrocław — ze szlichtą, pod malowanie"
         rawTitle
         canonical="/tynki-ze-szlichta-pod-malowanie"
-        description="Tynki maszynowe gipsowe we Wrocławiu i okolicach, wykańczane szlichtą: po wyschnięciu malujesz — bez gładzi i szlifowania. Zobacz film z budowy. Wycena: 535 157 036."
+        description="Tynki maszynowe gipsowe we Wrocławiu i okolicach, wykańczane szlichtą: w typowych pomieszczeniach malujesz bez osobnej gładzi. Zobacz film z budowy. Wycena: 535 157 036."
         ogImage="images/uploads/2023/08/tynki-ze-szlichta-pod-malowanie.jpg"
         dateModified="2026-11-06T08:00:00+00:00"
         breadcrumbs={[
@@ -126,13 +126,13 @@ export default function TynkiService() {
       <section class="section" id="szlichta">
         <div class={`container ${styles.grid}`}>
           <div class={styles.text1}>
-            <h2 class={styles.sectionTitle}>Tynk gipsowy pod malowanie — bez osobnej gładzi</h2>
+            <h2 class={styles.sectionTitle}>Tynk gipsowy pod malowanie — zwykle bez osobnej gładzi</h2>
             <div class={styles.divider} />
             <p>
-              Nasza firma posiada w swojej ofercie coś, co wyróżnia ją na tle innych firm zajmujących się tynkowaniem. Oferowane przez nas tynki gipsowe są wykańczane szlichtą z Gładziolitem wygładzającym, która nadaje gładkość tynkowanej ścianie. Dzięki Gładziolitowi ściany i sufity w pomieszczeniu są perfekcyjnie równe i można od razu po wyschnięciu przejść do malowania.
+              Nasza firma posiada w swojej ofercie coś, co wyróżnia ją na tle innych firm zajmujących się tynkowaniem. Oferowane przez nas tynki gipsowe są wykańczane szlichtą z Gładziolitem wygładzającym, która nadaje gładkość tynkowanej ścianie. Dzięki Gładziolitowi ściany i sufity są gładkie już po tynkowaniu, a po wyschnięciu i zagruntowaniu w typowych pomieszczeniach można przejść do malowania.
             </p>
             <p>
-              Dlatego nasz tynk nazywa się często tynkiem „na gładko” lub „na gotowo”: w wielu przypadkach po wyschnięciu nie trzeba już robić gładzi na tynku gipsowym. Odpada cały etap prac, co oznacza oszczędność czasu i pieniędzy.
+              Dlatego nasz tynk nazywa się często tynkiem „na gładko” lub „na gotowo”: w typowych pomieszczeniach po wyschnięciu zwykle nie trzeba już robić gładzi na tynku gipsowym. Odpada cały etap prac, co oznacza oszczędność czasu i pieniędzy. Gdzie gładź jednak warto zrobić — piszemy <a href="#gladz-natryskowa">niżej</a>.
             </p>
             <p>
               Na terenie Wrocławia, gdzie znajduje się siedziba naszej firmy, a także w okolicach, wykonujemy tynki maszynowe gipsowe z Gładziolitem wygładzającym. Na naszym profilu w Google mamy <a href={site.googleReviewsListUrl} target="_blank" rel="noopener noreferrer">{site.googleReviewCount} {opinieLabel(site.googleReviewCount)} ze średnią {site.googleRating}/5</a> — klienci najczęściej chwalą równe, gładkie ściany gotowe pod malowanie, dotrzymane terminy i porządek po zakończeniu prac.
@@ -153,7 +153,7 @@ export default function TynkiService() {
             <h2 class={styles.sectionTitle}>Czym jest szlichta ścienna z gładziolitem?</h2>
             <div class={styles.divider} />
             <p>
-              Szlichta z Gładziolitem wygładzającym jest niczym innym jak ostatnią warstwą nakładanego tynku. Można powiedzieć, że jest to warstwa dodatkowa, która nadaje gładkości ścianie i pozwala od razu przejść do malowania bądź położenia płytek. Jest to coś, co wymaga dodatkowej pracy, ale daje piorunujący efekt końcowy.
+              Szlichta z Gładziolitem wygładzającym jest niczym innym jak ostatnią warstwą nakładanego tynku. Można powiedzieć, że jest to warstwa dodatkowa, która nadaje gładkości ścianie, dzięki czemu w typowych pomieszczeniach po wyschnięciu można przejść do gruntowania i malowania. Wymaga to dodatkowej pracy, ale efekt widać gołym okiem — najlepiej porównać go na żywo na naszej budowie.
             </p>
             <p>
               Uwaga na nazewnictwo: słowem „szlichta” często określa się też wylewkę podłogową (jastrych). U nas chodzi wyłącznie o szlichtę ścienną, czyli cienką warstwę wygładzającą tynk na ścianach i sufitach.
@@ -191,7 +191,7 @@ export default function TynkiService() {
           <div class={styles.prose}>
             <h2>Na czym polega tynkowanie maszynowe?</h2>
             <p>Tynk maszynowy nakładany jest na ścianę agregatem tynkarskim, który w sposób ciągły miesza suchą zaprawę z wodą i podaje gotową masę pod ciśnieniem prosto na powierzchnię. Dzięki temu zaprawa ma zawsze tę samą, powtarzalną konsystencję, a tynk dokładnie wypełnia podłoże i mocno się z nim wiąże. Maszyna zastępuje najbardziej pracochłonny etap ręcznego narzucania zaprawy, więc duże powierzchnie da się otynkować w znacznie krótszym czasie.</p>
-            <p>Po nałożeniu warstwy właściwej ściągamy tynk łatą do równego, a następnie wygładzamy go ręcznie — u nas dodatkowo szlichtą gładziolitu. To połączenie wydajności maszyny z ręcznym, dokładnym wykończeniem daje równą ścianę gotową pod malowanie.</p>
+            <p>Po nałożeniu warstwy właściwej ściągamy tynk łatą do równego, a następnie wygładzamy go ręcznie — u nas dodatkowo szlichtą gładziolitu. To połączenie wydajności maszyny z ręcznym, dokładnym wykończeniem daje równą, gładką ścianę przygotowaną pod malowanie.</p>
 
             <h2>Tynk maszynowy a tynk ręczny — co wybrać?</h2>
             <p>Przy większych metrażach tynk maszynowy jest zwykle szybszy i bardziej jednolity niż tynk kładziony wyłącznie ręcznie, bo cała ściana powstaje z tej samej, równo wymieszanej zaprawy. Maszynowe podawanie ogranicza też różnice wynikające ze zmęczenia czy tempa pracy. Tynk ręczny pozostaje rozsądnym rozwiązaniem przy małych powierzchniach, trudno dostępnych miejscach i drobnych poprawkach.</p>
@@ -199,7 +199,7 @@ export default function TynkiService() {
 
             <h2>Jak przebiega tynkowanie maszynowe krok po kroku?</h2>
             <p>Realizację zaczynamy od oceny podłoża i zabezpieczenia budowy: okleiamy okna i drzwi, osłaniamy posadzki oraz instalacje. Następnie ustawiamy narożniki i listwy, przygotowujemy agregat i dobieramy konsystencję zaprawy do konkretnego pomieszczenia. Warstwę właściwą nakładamy maszynowo, ściągamy ją łatą do równego, a po wstępnym związaniu przystępujemy do wygładzania.</p>
-            <p>Kluczowy dla efektu końcowego jest etap wygładzania. Każdy narzut przecieramy trzema rodzajami łat gładzących, uzupełniamy drobne ubytki, a na końcu nakładamy szlichtę gładziolitu. Dzięki temu ściana po wyschnięciu jest gładka i równa — bez fal, zacieków i widocznych łączeń — i nadaje się bezpośrednio pod malowanie, bez osobnej warstwy gładzi.</p>
+            <p>Kluczowy dla efektu końcowego jest etap wygładzania. Każdy narzut przecieramy trzema rodzajami łat gładzących, uzupełniamy drobne ubytki, a na końcu nakładamy szlichtę gładziolitu. Dzięki temu ściana po wyschnięciu jest gładka i równa, a w typowych pomieszczeniach można ją malować bez osobnej warstwy gładzi. Płaskość i pion sprawdzamy łatą 2 m i poziomicą, według normy PN-B-10110 dla tynków gipsowych maszynowych.</p>
             <p>Cały proces prowadzimy tak, aby ograniczyć liczbę poprawek po naszym wyjściu z budowy. Zwracamy uwagę na naroża, ościeża okien i miejsca przy instalacjach, bo to tam najczęściej widać różnicę między tynkiem wykonanym pospiesznie a dopracowanym ręcznie.</p>
           </div>
         </div>
@@ -210,7 +210,7 @@ export default function TynkiService() {
           <div class={styles.prose}>
             <h2>Dlaczego tynki gipsowe?</h2>
             <p>Tynk gipsowy daje gładką i równą powierzchnię ścian oraz sufitów, dobrze sprawdzającą się we wnętrzach mieszkalnych. Gips jest materiałem paroprzepuszczalnym, który pomaga regulować wilgotność powietrza w pomieszczeniach, a jednocześnie pozwala uzyskać estetyczne wykończenie bez grubych warstw dodatkowych mas.</p>
-            <p>W naszym wykonaniu tynk gipsowy nakładamy maszynowo, a potem wygładzamy szlichtą gładziolitu. Taka ściana po wyschnięciu jest przygotowana bezpośrednio pod malowanie, więc w wielu przypadkach nie trzeba nakładać osobnej, kosztownej warstwy gładzi.</p>
+            <p>W naszym wykonaniu tynk gipsowy nakładamy maszynowo, a potem wygładzamy szlichtą gładziolitu. Taka ściana po wyschnięciu jest przygotowana pod malowanie, więc w typowych pomieszczeniach zwykle nie trzeba nakładać osobnej, kosztownej warstwy gładzi.</p>
 
             <h2>Tynk gipsowy a tynk cementowo-wapienny</h2>
             <p>Tynk gipsowy najlepiej sprawdza się w suchych pomieszczeniach mieszkalnych — pokojach, sypialniach, korytarzach — gdzie zależy nam na gładkiej powierzchni i komforcie wykończenia. Tynk cementowo-wapienny jest bardziej odporny na wilgoć i mechaniczne uszkodzenia, dlatego częściej stosuje się go w pomieszczeniach narażonych na zawilgocenie oraz na niektórych powierzchniach technicznych.</p>
@@ -222,9 +222,12 @@ export default function TynkiService() {
       <section class={`section ${styles.contentSection}`} id="gladz-natryskowa">
         <div class="container">
           <div class={styles.prose}>
-            <h2>Gładź natryskowa — kiedy jest potrzebna?</h2>
+            <h2>Gładź — kiedy jest potrzebna?</h2>
+            <p>Tynk ze szlichtą to nadal tynk gipsowy. Odbiera się go według normy <strong>PN-B-10110 „Tynki gipsowe wykonywane mechanicznie”</strong> (lub warunków zapisanych w umowie): płaskość łatą 2 m, pion poziomicą, a wygląd z odległości ok. 2 m w rozproszonym świetle dziennym. Gładź to osobna, cienka warstwa wykończeniowa, która daje wyższą klasę gładkości.</p>
+            <p>Gładź doradzamy, gdy na ścianę będzie padać <strong>światło wzdłuż jej powierzchni</strong> — listwy LED, kinkiety, oprawy liniowe przy suficie, podświetlane wnęki — a także pod farby z połyskiem, ciemne kolory albo gdy zależy Ci na najwyższym standardzie. Takie światło wydobywa drobne ślady narzędzi na każdym tynku. Gładź wykonujemy jako osobny etap, przy malowaniu — można ją zrobić tylko w wybranych pomieszczeniach lub na pojedynczych ścianach. <strong>Powiedz nam o planowanym oświetleniu przed wyceną.</strong> Więcej o odbiorze tynku: <NavLink href="/malowanie-tynku-gipsowego#odbior">odbiór tynku przed malowaniem</NavLink>.</p>
+            <h3>Gładź natryskowa</h3>
             <p>Gładź natryskowa to metoda wykończenia ścian, w której gotową masę nakłada się na powierzchnię za pomocą agregatu, a następnie rozprowadza i wygładza ręcznie. Natrysk pozwala równomiernie pokryć duże powierzchnie w krótkim czasie, a ręczne wygładzenie nadaje im ostateczną gładkość.</p>
-            <p>Warto pamiętać, że w naszej metodzie tynkowania ze szlichtą wygładzającą wiele ścian jest gotowych pod malowanie bez osobnej warstwy gładzi. Podczas wyceny doradzamy, które rozwiązanie będzie korzystniejsze — czy wystarczy tynk ze szlichtą, czy w danym pomieszczeniu gładź natryskowa jest potrzebna jako uzupełnienie.</p>
+            <p>W naszej metodzie tynkowania ze szlichtą wygładzającą wiele ścian w typowych pomieszczeniach można malować bez osobnej warstwy gładzi. Podczas wyceny doradzamy, które rozwiązanie będzie korzystniejsze — czy wystarczy tynk ze szlichtą, czy w danym pomieszczeniu warto dodać gładź.</p>
 
             <h2>Malowanie natryskowe — wykończenie w jednej ekipie</h2>
             <p>Oprócz tynkowania wykonujemy również natryskowe malowanie ścian i sufitów na biało oraz w kolorze. Dzięki temu inwestor nie musi koordynować kilku ekip — tę samą powierzchnię, którą otynkowaliśmy i wygładziliśmy, możemy również pomalować. Malujemy farbami akrylowymi, lateksowymi, winylowymi i ceramicznymi, dobierając rodzaj farby do pomieszczenia.</p>

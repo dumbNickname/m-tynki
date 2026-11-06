@@ -16,7 +16,7 @@ const services = [
     href: "/tynki-ze-szlichta-pod-malowanie#tynki-maszynowe",
     featured: true,
     featuredTitle: "Tynki gipsowe ze szlichtą wygładzającą",
-    featuredDescription: "Nasza specjalność. Na tynki gipsowe nakładamy dodatkową warstwę wygładzającą, która pozwala na uzyskanie idealnie gładkiej ściany nadającej się bezpośrednio pod malowanie — bez dodatkowej warstwy gładzi.",
+    featuredDescription: "Nasza specjalność. Na tynki gipsowe nakładamy dodatkową warstwę wygładzającą, która wyraźnie wygładza ścianę już na etapie tynkowania. W typowych pomieszczeniach po wyschnięciu ścianę się gruntuje i maluje — bez osobnej gładzi. Pod oświetlenie wzdłuż ścian czy farby z połyskiem doradzamy gładź, którą robimy przy malowaniu.",
   },
   {
     icon: "images/uploads/2023/08/tynk-ze-szlichta-wygladzajaca-01-01.png",
@@ -33,7 +33,7 @@ const services = [
   {
     icon: "images/uploads/2024/09/gladz.svg",
     title: "Szlichta z gładziolitem",
-    description: "Nakładamy szlichtę gładziolitu wygładzającego — ściana staje się perfekcyjnie gładka i gotowa pod malowanie bez gładzi.",
+    description: "Nakładamy szlichtę gładziolitu wygładzającego — tynk staje się gładki i w typowych pomieszczeniach nadaje się pod malowanie bez osobnej gładzi.",
     href: "/tynki-ze-szlichta-pod-malowanie#szlichta",
   },
   {
@@ -54,7 +54,7 @@ const steps = [
   { number: "01", title: "Przygotowanie", content: "Pierwszym etapem zawsze jest odpowiednie zabezpieczenie okien, drzwi i elementów, które mogą zostać uszkodzone." },
   { number: "02", title: "Narzut", content: "Nakładanie pierwszej warstwy tynku, warstwy właściwej na ścianę. Na tym etapie zużywamy najwięcej materiału." },
   { number: "03", title: "Wygładzanie", content: "Wygładzanie powierzchni narzędziami tynkarskimi, uzupełnianie ubytków i nieprawidłowości. Każdy narzut jest przez nas wygładzany 3 rodzajami łat gładzących." },
-  { number: "04", title: "Gładziolit", content: "Zastosowanie Gładziolitu wygładzającego w celu uzyskania gładkiej powierzchni tynku. Na tym etapie wygładzamy ścianę do tego stopnia, że po wyschnięciu, jest gotowa do malowania." },
+  { number: "04", title: "Gładziolit", content: "Zastosowanie Gładziolitu wygładzającego w celu uzyskania gładkiej powierzchni tynku. Na tym etapie wygładzamy ścianę tak, aby po wyschnięciu i zagruntowaniu w typowych pomieszczeniach można ją było malować. Płaskość sprawdzamy łatą 2 m według normy PN-B-10110." },
 ];
 
 export default function Home() {
@@ -81,9 +81,9 @@ export default function Home() {
             <span class={styles.heroBadge}>Doświadczenie od 1999 roku</span>
             <h1>
               <span class={styles.heroLocation}>Firma tynkarska — Wrocław i okolice</span>
-              <span class={styles.heroService}>Zostawiamy ściany, które malarz może pomalować od razu</span>
+              <span class={styles.heroService}>Tynki gipsowe ze szlichtą, przygotowane pod malowanie</span>
             </h1>
-            <p class={styles.heroSubtitle}>Ściany gotowe do malowania — bez dodatkowej gładzi</p>
+            <p class={styles.heroSubtitle}>W typowych pomieszczeniach malujesz bez osobnej gładzi — a gdzie jest potrzebna, zrobimy ją przy malowaniu</p>
             <div class={styles.heroActions}>
               <a href={`tel:${site.phoneRaw}`} class="btn btn-primary btn-lg">Bezpłatna wycena</a>
             </div>
@@ -218,7 +218,7 @@ export default function Home() {
               <h2>Skąd się wzięliśmy i jak pracujemy</h2>
               <div class="divider" />
               <p>Jesteśmy firmą tynkarską z wieloletnim doświadczeniem, która od lat zajmuje się tynkarstwem we Wrocławiu i okolicach. Prawie od początku naszej działalności preferujemy metodę wykonywania tynków wraz ze szlichtą wygładzającą, która powoduje, że ściana jest przygotowana pod malowanie.</p>
-              <p>Dzięki szlichcie uzyskujemy efekt gładkiej ściany, bez wybrzuszeń i nierówności.</p>
+              <p>Dzięki szlichcie uzyskujemy gładką, równą ścianę, odbieraną według normy dla tynków gipsowych.</p>
               <p>Firmę prowadzi {site.owner.name}, który tynkuje od 1999 roku. Metodę ze szlichtą poznał podczas pracy w Niemczech. <NavLink href="/o-nas">Poznaj jego historię</NavLink>.</p>
               <p>Nasza firma tynkarska specjalizuje się w wykonaniu tynków maszynowych — doświadczenie w tynkach maszynowych zdobywamy od 1999 r. Posiadamy doświadczoną brygadę (wieloletnia praktyka w zawodzie) więc:</p>
               <ul class={styles.checkList}>

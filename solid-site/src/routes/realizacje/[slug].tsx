@@ -106,7 +106,7 @@ export default function PostPage() {
                   <div class={`${styles.card} ${styles.ctaCard}`}>
                     <p class={styles.ctaTitle}>Chcesz takie ściany u siebie?</p>
                     <p class={styles.ctaText}>
-                      Tynk gipsowy ze szlichtą — po wyschnięciu malujesz, bez gładzi. {site.googleRating}★ w {site.googleReviewCount} {opinieLabel(site.googleReviewCount)} Google.
+                      Tynk gipsowy ze szlichtą — w typowych pomieszczeniach malujesz bez osobnej gładzi. {site.googleRating}★ w {site.googleReviewCount} {opinieLabel(site.googleReviewCount)} Google.
                     </p>
                     <a class="btn btn-primary" href={`tel:${site.phoneRaw}`}>Zadzwoń: {site.phone}</a>
                     <NavLink class={styles.ctaLink} href="/tynki-ze-szlichta-pod-malowanie">Jak pracujemy →</NavLink>

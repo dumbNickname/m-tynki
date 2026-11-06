@@ -31,7 +31,11 @@ const faqs = [
   },
   {
     question: "Czy po tynku ze szlichtą trzeba robić gładź przed malowaniem?",
-    answer: "W wielu przypadkach nie. Szlichta wygładzająca zostawia ścianę na tyle gładką, że po wyschnięciu i zagruntowaniu można ją od razu malować. Odpada nakładanie gładzi, jej schnięcie i szlifowanie, czyli cały etap prac i sporo pyłu.",
+    answer: "W typowych pomieszczeniach zwykle nie — po wyschnięciu i zagruntowaniu ścianę można malować, więc odpada nakładanie gładzi, jej schnięcie i szlifowanie. Trzeba jednak pamiętać, że tynk ze szlichtą to nadal tynk, a nie gładź: jest odbierany według normy dla tynków gipsowych i nie ma gładkości gładzi szpachlowej. Jeśli planujesz oświetlenie padające wzdłuż ścian (listwy LED, kinkiety, oprawy przy suficie), farbę z połyskiem, ciemne kolory albo po prostu chcesz najwyższej klasy gładkości — zalecamy gładź. Wykonujemy ją jako osobny etap, przy malowaniu.",
+  },
+  {
+    question: "Jak odbiera się tynk gipsowy — czy można go sprawdzać latarką?",
+    answer: "Tynk gipsowy maszynowy odbiera się według normy PN-B-10110 (lub warunków zapisanych w umowie): łatą 2 m sprawdza się płaskość, poziomicą pion, kątownikiem naroża, a wygląd powierzchni ocenia się z odległości ok. 2 m w rozproszonym świetle dziennym. Latarka przyłożona płasko do ściany pokaże drobne ślady narzędzi na każdym tynku — nie jest to kryterium odbioru tynku. Ocena w świetle bocznym ma sens tylko wtedy, gdy wcześniej ustalono wyższy standard wykończenia, czyli gładź.",
   },
   {
     question: "Malowanie natryskowe czy wałkiem?",
@@ -40,8 +44,8 @@ const faqs = [
 ];
 
 const checklist = [
-  { title: "Łata 2 m", text: "Przyłóż długą łatę w pionie, w poziomie i po przekątnej. Pod łatą nie powinno być wyraźnych prześwitów ani „brzuszków”." },
-  { title: "Światło boczne", text: "Przyłóż latarkę lub lampę płasko do ściany i poświeć wzdłuż niej. Fale, smugi po pacy i niedociągnięcia, których nie widać przy świetle dziennym, od razu wyjdą na wierzch — tak samo zobaczy je później farba." },
+  { title: "Łata 2 m i poziomica", text: "Przyłóż łatę 2 m w różnych miejscach ściany, a poziomicą sprawdź pion. Norma dla tynków gipsowych maszynowych (PN-B-10110) dopuszcza niewielkie odchyłki — rzędu kilku milimetrów na długości łaty — więc liczy się zmierzona wartość, a nie samo „widać prześwit”." },
+  { title: "Ocena wzrokowa z ok. 2 m", text: "Wygląd tynku ocenia się z odległości ok. 2 m, w rozproszonym świetle dziennym — tak, jak będziesz na ścianę patrzeć na co dzień. Szukamy rys, plam, zacieków i miejsc wyraźnie odstających od reszty ściany." },
   { title: "Naroża i ościeża", text: "Sprawdź kąty przy oknach i drzwiach, połączenia ścian z sufitem i krawędzie. To tam najczęściej widać pośpiech." },
   { title: "Okolice instalacji", text: "Puszki elektryczne, wyprowadzenia rur i kratki wentylacyjne powinny być obrobione czysto, bez wyszczerbień i grudek." },
   { title: "Kolor ściany", text: "Jednolity, jasny kolor oznacza suchy tynk. Ciemniejsze plamy to wilgoć — z malowaniem trzeba poczekać." },
@@ -52,6 +56,8 @@ const comparison = [
   { label: "Dodatkowe schnięcie", standard: "tak — gładź musi wyschnąć przed szlifowaniem", szlichta: "nie — schnie tylko tynk" },
   { label: "Szlifowanie i pył", standard: "szlifowanie wszystkich ścian i sufitów", szlichta: "zwykle tylko drobne poprawki" },
   { label: "Liczba ekip", standard: "często tynkarz + osobna ekipa od gładzi", szlichta: "jedna ekipa (my możemy też pomalować)" },
+  { label: "Gładkość", standard: "najwyższa — gładź przygotowuje ścianę także pod światło boczne", szlichta: "gładka powierzchnia tynku, odbierana według normy dla tynków gipsowych" },
+  { label: "Kiedy wybrać", standard: "oświetlenie wzdłuż ścian, farby z połyskiem, ciemne kolory, najwyższy standard", szlichta: "typowe pokoje, korytarze i sypialnie malowane jasną, matową farbą" },
 ];
 
 export default function MalowanieTynkuGipsowego() {
@@ -61,7 +67,7 @@ export default function MalowanieTynkuGipsowego() {
         title="Malowanie tynku gipsowego — kiedy, jaki grunt i farba"
         rawTitle
         canonical="/malowanie-tynku-gipsowego"
-        description="Kiedy można malować tynk gipsowy, jak sprawdzić, czy wyschnął, czy gruntować i jaką farbę wybrać. Poradnik tynkarzy z Wrocławia + lista kontrolna odbioru ścian."
+        description="Kiedy można malować tynk gipsowy, jak sprawdzić, czy wyschnął, czy gruntować i jaką farbę wybrać. Poradnik tynkarzy z Wrocławia + odbiór tynku według normy."
         ogImage="images/og-malowanie-tynku-gipsowego.jpg"
         ogType="article"
         datePublished="2026-11-06T08:00:00+00:00"
@@ -92,7 +98,7 @@ export default function MalowanieTynkuGipsowego() {
             <p class={styles.lead}>
               <strong>W skrócie:</strong> tynk gipsowy maluje się dopiero, gdy jest suchy w całej grubości — zwykle po 2–4 tygodniach.
               Przed malowaniem ścianę trzeba zagruntować, a potem położyć dwie warstwy farby akrylowej lub lateksowej.
-              Jeśli tynk był wykończony szlichtą wygładzającą, w wielu przypadkach nie trzeba już robić gładzi.
+              Jeśli tynk był wykończony szlichtą wygładzającą, w typowych pomieszczeniach zwykle nie trzeba już robić gładzi — wyjątkiem są ściany oświetlane światłem bocznym.
             </p>
             <p>
               Tynkujemy domy we Wrocławiu i okolicach od 1999 roku i po każdej budowie inwestorzy pytają nas o to samo: kiedy można malować, czym gruntować i na co uważać.
@@ -105,7 +111,7 @@ export default function MalowanieTynkuGipsowego() {
                 <li><a href="#czy-suchy">Jak sprawdzić, czy tynk wyschnął?</a></li>
                 <li><a href="#gruntowanie">Gruntowanie tynku gipsowego</a></li>
                 <li><a href="#jaka-farba">Jaka farba na tynk gipsowy?</a></li>
-                <li><a href="#odbior">Odbiór tynku przed malowaniem — lista kontrolna</a></li>
+                <li><a href="#odbior">Odbiór tynku przed malowaniem — normy i lista kontrolna</a></li>
                 <li><a href="#gladz">Tynk + gładź czy tynk ze szlichtą?</a></li>
                 <li><a href="#faq">Najczęściej zadawane pytania</a></li>
               </ol>
@@ -172,8 +178,11 @@ export default function MalowanieTynkuGipsowego() {
             <ul class={styles.list}>
               <li><strong>Pokoje, sypialnie, korytarze</strong> — farby akrylowe lub lateksowe. Dobrze kryją, są paroprzepuszczalne i łatwe w poprawkach.</li>
               <li><strong>Kuchnia, łazienka, przedpokój</strong> — farby lateksowe lub ceramiczne o wyższej klasie odporności na szorowanie, które można myć.</li>
-              <li><strong>Sufity</strong> — matowe farby sufitowe, które ukrywają światło padające pod kątem z okien.</li>
+              <li><strong>Sufity</strong> — matowe farby sufitowe, które lepiej maskują drobne nierówności przy świetle padającym z okien.</li>
             </ul>
+            <p>
+              Im bardziej matowa i jaśniejsza farba, tym mniej widać drobne nierówności podłoża. Farby z połyskiem i ciemne kolory działają odwrotnie — podkreślają każdy ślad, dlatego pod nie zwykle robi się gładź.
+            </p>
             <p>
               Standardowo: jedna warstwa podkładu i dwie warstwy farby nawierzchniowej. Przy intensywnych kolorach warto pierwszą warstwę zrobić w odcieniu zbliżonym do docelowego.
               Na dużych, pustych powierzchniach — w nowym domu przed montażem podłóg i mebli — szybciej i równiej wychodzi <NavLink href="/tynki-ze-szlichta-pod-malowanie#gladz-natryskowa">malowanie natryskowe</NavLink>.
@@ -189,7 +198,7 @@ export default function MalowanieTynkuGipsowego() {
                 alt="Salon w nowym domu z gładkimi, pomalowanymi na biało ścianami i podwieszanym sufitem z płyt GK"
                 loading="lazy"
               />
-              <figcaption>Gładkie ściany po malowaniu na biało i podwieszany fragment sufitu z płyt GK. Przy dużych przeszkleniach światło boczne bezlitośnie pokazuje każdą nierówność — dlatego tak ważna jest gładkość tynku.</figcaption>
+              <figcaption>Ściany po malowaniu na biało i podwieszany fragment sufitu z płyt GK. Planujesz oświetlenie liniowe przy suficie lub wzdłuż ścian? Powiedz nam przed wyceną — w takich miejscach doradzamy gładź.</figcaption>
             </figure>
           </div>
         </div>
@@ -200,7 +209,7 @@ export default function MalowanieTynkuGipsowego() {
           <div class={flagship.prose}>
             <h2>Odbiór tynku przed malowaniem — lista kontrolna</h2>
             <p>
-              Farba nie ukryje nierówności — wręcz je podkreśli, szczególnie przy świetle padającym z dużych okien. Dlatego tynk najlepiej odebrać <strong>zanim</strong> wejdzie malarz. Tak sprawdzają nas inwestorzy (i tak sami sprawdzamy swoją pracę):
+              Tynk najlepiej odebrać <strong>zanim</strong> wejdzie malarz — poprawki przed malowaniem są proste, po malowaniu już nie. Punktem odniesienia jest norma <strong>PN-B-10110 „Tynki gipsowe wykonywane mechanicznie”</strong>, chyba że w umowie ustalono inaczej. Polskie Normy są dobrowolne, ale w praktyce właśnie według nich odbiera się tynki. Tak sprawdzają nas inwestorzy (i tak sami sprawdzamy swoją pracę):
             </p>
           </div>
           <ol class={styles.checklist}>
@@ -213,6 +222,15 @@ export default function MalowanieTynkuGipsowego() {
               )}
             </For>
           </ol>
+          <div class={`${flagship.prose} ${styles.notice}`}>
+            <h3>A co ze światłem bocznym?</h3>
+            <p>
+              Światło padające wzdłuż ściany — z latarki, listwy LED, kinkietu albo okna tuż przy ścianie — wydobywa drobne ślady narzędzi na <strong>każdym</strong> tynku, także na bardzo dobrze wykonanym. Dlatego nie jest to sposób odbioru tynku.
+            </p>
+            <p>
+              Jeśli jednak takie oświetlenie jest w projekcie (np. oprawy liniowe przy suficie, podświetlane wnęki, „wall-washery”), ściany będą tak oglądane na co dzień. Wtedy potrzebna jest <strong>gładź</strong> — osobna warstwa wykończeniowa, którą wykonujemy przy malowaniu i którą odbiera się już według wyższych wymagań. <strong>Powiedz nam o takim oświetleniu przed wyceną</strong> — doradzimy, w których pomieszczeniach wystarczy tynk ze szlichtą, a gdzie warto dodać gładź.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -221,7 +239,7 @@ export default function MalowanieTynkuGipsowego() {
           <div class={flagship.prose}>
             <h2>Tynk gipsowy + gładź czy tynk ze szlichtą?</h2>
             <p>
-              Zwykły tynk gipsowy przed malowaniem najczęściej pokrywa się jeszcze gładzią, którą trzeba wysuszyć i wyszlifować. Tynk wykończony <NavLink href="/tynki-ze-szlichta-pod-malowanie#szlichta">szlichtą wygładzającą</NavLink> jest gładki od razu — po wyschnięciu wystarczy grunt i farba.
+              Zwykły tynk gipsowy przed malowaniem najczęściej pokrywa się jeszcze gładzią, którą trzeba wysuszyć i wyszlifować. Tynk wykończony <NavLink href="/tynki-ze-szlichta-pod-malowanie#szlichta">szlichtą wygładzającą</NavLink> jest gładszy już na etapie tynkowania — w typowych pomieszczeniach po wyschnięciu wystarczy grunt i farba.
             </p>
             <div class={styles.tableWrap}>
               <table class={styles.table}>
@@ -246,7 +264,8 @@ export default function MalowanieTynkuGipsowego() {
               </table>
             </div>
             <p>
-              Szlichta wymaga od tynkarza więcej pracy na etapie tynkowania, ale inwestor oszczędza cały kolejny etap — czas, materiał i sprzątanie pyłu po szlifowaniu.
+              Szlichta wymaga od tynkarza więcej pracy na etapie tynkowania, ale tam, gdzie gładź nie jest potrzebna, inwestor oszczędza cały kolejny etap — czas, materiał i sprzątanie pyłu po szlifowaniu. Tam, gdzie jest potrzebna, wykonujemy ją jako osobny etap, przy malowaniu.
+              Nie musisz wybierać „wszystko albo nic” — gładź można zrobić tylko w wybranych pomieszczeniach albo na pojedynczych ścianach.
               Więcej o tym, jak to robimy: <NavLink href="/tynki-ze-szlichta-pod-malowanie">tynki maszynowe gipsowe ze szlichtą pod malowanie</NavLink>.
             </p>
           </div>
@@ -273,9 +292,9 @@ export default function MalowanieTynkuGipsowego() {
 
       <section class={`section ${flagship.ctaSection}`}>
         <div class="container text-center">
-          <h2>Budujesz pod Wrocławiem? Zrobimy tynk, który od razu pomalujesz</h2>
+          <h2>Budujesz pod Wrocławiem? Porozmawiajmy o tynkach</h2>
           <p>
-            {site.googleRating}★ w {site.googleReviewCount} {opinieLabel(site.googleReviewCount)} Google. Zadzwoń po bezpłatną wycenę albo umów się na obejrzenie naszej aktualnej budowy.
+            {site.googleRating}★ w {site.googleReviewCount} {opinieLabel(site.googleReviewCount)} Google. Zadzwoń po bezpłatną wycenę — powiedz nam o planowanym oświetleniu, a doradzimy, gdzie wystarczy szlichta, a gdzie warto dodać gładź. Możesz też obejrzeć naszą aktualną budowę.
           </p>
           <a class="btn btn-primary btn-lg" href={`tel:${site.phoneRaw}`}>
             {site.phone}
