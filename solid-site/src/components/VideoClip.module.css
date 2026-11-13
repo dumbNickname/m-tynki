@@ -3,14 +3,20 @@
   max-width: 360px;
 }
 
+.frame {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+}
+
+/* border-radius alone doesn't clip the video/poster in Safari; clip-path does. */
 .video {
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 9 / 16;
+  aspect-ratio: 712 / 1280;
   border-radius: var(--radius);
+  clip-path: inset(0 round var(--radius));
   background: #14171c;
-  box-shadow: var(--shadow-card);
 }
 
 .caption {
