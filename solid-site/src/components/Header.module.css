@@ -203,7 +203,10 @@
   box-shadow: var(--shadow-elevated);
   z-index: 1050;
   padding: 2rem;
-  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Hidden while closed so its links leave the tab order and screen-reader tree;
+     visibility flips only after the slide-out finishes. */
+  visibility: hidden;
+  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 0.35s;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -211,6 +214,8 @@
 
 .flyoutOpen {
   right: 0;
+  visibility: visible;
+  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s;
 }
 
 .flyoutClose {

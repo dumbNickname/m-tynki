@@ -157,7 +157,7 @@ export default function MalowanieTynkuGipsowego() {
               <img
                 src="images/uploads/2026/04/swiezy-tynk-gipsowy-schniecie-scian.jpg"
                 srcset="images/thumbs/uploads/2026/04/swiezy-tynk-gipsowy-schniecie-scian.jpg 400w, images/uploads/2026/04/swiezy-tynk-gipsowy-schniecie-scian.jpg 1200w"
-                sizes="(max-width: 768px) 100vw, 400px"
+                sizes="(max-width: 768px) 100vw, 800px"
                 width="1200"
                 height="1600"
                 alt="Świeży tynk gipsowy w trakcie schnięcia — jaśniejsze i ciemniejsze partie ściany i sufitu w pustym pomieszczeniu"

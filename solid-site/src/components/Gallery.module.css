@@ -34,7 +34,7 @@
 }
 
 .item:hover .overlay {
-  background: rgba(87, 191, 107, 0.15);
+  background: rgba(var(--color-primary-rgb), 0.15);
 }
 
 .mosaic {
@@ -87,6 +87,30 @@
   border-radius: var(--radius);
   object-fit: contain;
   animation: scaleIn 0.3s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* During a view-transition morph the browser animates; skip the CSS entry animations. */
+.morphing,
+.morphing .lightboxContent img {
+  animation: none;
+}
+
+/* Thumbnails are square crops; keep both snapshots cropped (not squashed) while morphing. */
+::view-transition-old(gallery-photo),
+::view-transition-new(gallery-photo) {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* `cover` overflows the box; the pseudo-elements don't clip it on their own. */
+::view-transition-image-pair(gallery-photo) {
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+::view-transition-group(gallery-photo) {
+  animation-duration: 0.32s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .close {

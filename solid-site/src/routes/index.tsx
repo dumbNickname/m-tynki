@@ -113,7 +113,7 @@ export default function Home() {
             </div>
             <div class={styles.introImage}>
               <img
-                src="images/uploads/elementor/thumbs/tynk-ze-szlichta-wygladzajaca-2-1-qbc493vjwnj8vdtfz6et930fnfrti3rzhl17p4djqe.png"
+                src="images/uploads/elementor/thumbs/tynk-ze-szlichta-wygladzajaca-2-1-qbc493vjwnj8vdtfz6et930fnfrti3rzhl17p4djqe.jpg"
                 alt="Tynk ze szlichtą wygładzającą"
                 width="374"
                 height="503"
@@ -231,7 +231,7 @@ export default function Home() {
               </ul>
             </div>
             <div class={styles.aboutFullImage}>
-              <img src="images/uploads/2023/08/mtynk-tynki-pod-malowanie-1.png" alt="M-TYNK tynki pod malowanie" loading="lazy" />
+              <img src="images/uploads/2023/08/mtynk-tynki-pod-malowanie-1.jpg" alt="M-TYNK tynki pod malowanie" width="663" height="1080" loading="lazy" />
             </div>
           </div>
         </div>
