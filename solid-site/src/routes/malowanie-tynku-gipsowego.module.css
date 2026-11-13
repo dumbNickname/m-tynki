@@ -1,3 +1,8 @@
+/* The next section has the same background, so one section padding is enough. */
+.introSection {
+  padding-bottom: 0;
+}
+
 .intro {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 320px;

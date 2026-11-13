@@ -85,7 +85,7 @@
 }
 
 .col a:hover {
-  color: var(--color-white);
+  color: var(--color-footer-heading);
 }
 
 .googleLink img {

@@ -21,7 +21,7 @@
   gap: 1rem;
   padding: 2.5rem 2rem;
   border-radius: var(--radius-lg);
-  color: var(--color-white);
+  color: #ffffff;
   text-decoration: none;
   transition: transform var(--transition), box-shadow var(--transition);
   position: relative;
@@ -40,7 +40,7 @@
 .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
-  color: var(--color-white);
+  color: #ffffff;
 }
 
 .card:hover::before {
@@ -55,8 +55,10 @@
   background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
 }
 
+/* Cards are always saturated, in both themes — hardcoded so white text stays readable
+   (theme tokens invert in dark mode). */
 .gallery {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  background: linear-gradient(135deg, #397d47 0%, #2e6b3b 100%);
 }
 
 .icon {

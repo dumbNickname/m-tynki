@@ -92,7 +92,7 @@ export default function MalowanieTynkuGipsowego() {
         breadcrumbs={[{ label: "Strona Główna", href: "/" }, { label: "Malowanie tynku gipsowego" }]}
       />
 
-      <section class="section">
+      <section class={`section ${styles.introSection}`}>
         <div class={`container ${styles.intro}`}>
           <div class={styles.introText}>
             <p class={styles.lead}>
