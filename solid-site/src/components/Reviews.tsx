@@ -7,7 +7,7 @@ import styles from "./Reviews.module.css";
 function ReviewCard(props: { review: typeof reviews[0] }) {
   return (
     <div class={styles.card}>
-      <div class={styles.stars} aria-label={`${props.review.stars} na 5 gwiazdek`}>
+      <div class={styles.stars} role="img" aria-label={`${props.review.stars} na 5 gwiazdek`}>
         <For each={Array(props.review.stars).fill(0)}>
           {() => <span class={styles.star} aria-hidden="true">&#9733;</span>}
         </For>

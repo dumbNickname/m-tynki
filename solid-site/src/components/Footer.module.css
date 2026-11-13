@@ -107,7 +107,7 @@
   justify-content: space-between;
   align-items: center;
   font-size: 0.8rem;
-  opacity: 0.6;
+  opacity: 0.85;
 }
 
 .bottomInner a {
@@ -115,7 +115,7 @@
 }
 
 .bottomInner a:hover {
-  color: var(--color-white);
+  color: var(--color-footer-heading);
 }
 
 @media (max-width: 1024px) {

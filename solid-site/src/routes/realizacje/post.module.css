@@ -62,12 +62,12 @@
   letter-spacing: 0.06em;
   padding: 0.4em 0.9em;
   border-radius: var(--radius-pill);
-  background: #4ca85f;
+  background: #397d47;
   color: #ffffff;
 }
 
 .tag:hover {
-  background: #3d8e4e;
+  background: #2e6b3b;
   color: #ffffff;
 }
 

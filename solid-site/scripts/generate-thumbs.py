@@ -3,6 +3,8 @@
 
 Reads gallery.json and posts.json, creates 400px-wide JPEG thumbnails
 in public/images/thumbs/ mirroring the original directory structure.
+Post card thumbnails additionally get an 800px-wide variant in
+public/images/medium/ (used by PostCard srcset on high-DPI phones).
 
 Usage: python3 scripts/generate-thumbs.py
 """
@@ -20,15 +22,29 @@ except ImportError:
 
 THUMB_WIDTH = 400
 THUMB_QUALITY = 70
+MEDIUM_WIDTH = 800
+MEDIUM_QUALITY = 72
 BASE = Path(__file__).resolve().parent.parent / "public"
 SRC_DIR = Path(__file__).resolve().parent.parent / "src"
 
 
+def to_variant_path(img_path: str, folder: str) -> str:
+    # Non-.jpg sources keep their extension (wyr.png -> wyr-png.jpg) so they
+    # can't collide with a same-named .jpg. Keep in sync with src/utils/images.ts.
+    base, ext = os.path.splitext(img_path)
+    ext = ext.lower().lstrip(".")
+    name = (base if ext in ("jpg", "") else f"{base}-{ext}") + ".jpg"
+    if name.startswith("images/"):
+        name = name[len("images/") :]
+    return f"images/{folder}/" + name
+
+
 def to_thumb_path(img_path: str) -> str:
-    without_ext = os.path.splitext(img_path)[0]
-    if img_path.startswith("images/"):
-        return "images/thumbs/" + without_ext[len("images/") :] + ".jpg"
-    return "images/thumbs/" + without_ext + ".jpg"
+    return to_variant_path(img_path, "thumbs")
+
+
+def to_medium_path(img_path: str) -> str:
+    return to_variant_path(img_path, "medium")
 
 
 def collect_images() -> set[str]:
@@ -47,7 +63,12 @@ def collect_images() -> set[str]:
     return images
 
 
-def generate_thumbnails(images: set[str]) -> None:
+def collect_card_thumbnails() -> set[str]:
+    with open(SRC_DIR / "data" / "posts.json") as f:
+        return {post["thumbnail"] for post in json.load(f) if post.get("thumbnail")}
+
+
+def generate_thumbnails(images: set[str], to_path=to_thumb_path, width: int = THUMB_WIDTH, quality: int = THUMB_QUALITY) -> None:
     created = 0
     skipped = 0
     errors = 0
@@ -59,7 +80,7 @@ def generate_thumbnails(images: set[str]) -> None:
             errors += 1
             continue
 
-        thumb_rel = to_thumb_path(img_path)
+        thumb_rel = to_path(img_path)
         thumb_path = BASE / thumb_rel
         thumb_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -71,14 +92,14 @@ def generate_thumbnails(images: set[str]) -> None:
             with Image.open(src) as im:
                 im = im.convert("RGB")
                 w, h = im.size
-                if w <= THUMB_WIDTH:
-                    im.save(thumb_path, "JPEG", quality=THUMB_QUALITY, optimize=True)
+                if w <= width:
+                    im.save(thumb_path, "JPEG", quality=quality, optimize=True, progressive=True)
                 else:
-                    ratio = THUMB_WIDTH / w
+                    ratio = width / w
                     new_h = int(h * ratio)
-                    resized = im.resize((THUMB_WIDTH, new_h), Image.Resampling.LANCZOS)
+                    resized = im.resize((width, new_h), Image.Resampling.LANCZOS)
                     resized.save(
-                        thumb_path, "JPEG", quality=THUMB_QUALITY, optimize=True
+                        thumb_path, "JPEG", quality=quality, optimize=True, progressive=True
                     )
             created += 1
         except Exception as e:
@@ -87,9 +108,9 @@ def generate_thumbnails(images: set[str]) -> None:
 
     orig_total = sum((BASE / p).stat().st_size for p in images if (BASE / p).exists())
     thumb_total = sum(
-        (BASE / to_thumb_path(p)).stat().st_size
+        (BASE / to_path(p)).stat().st_size
         for p in images
-        if (BASE / to_thumb_path(p)).exists()
+        if (BASE / to_path(p)).exists()
     )
 
     print(f"Created: {created}, Skipped: {skipped}, Errors: {errors}")
@@ -101,5 +122,9 @@ def generate_thumbnails(images: set[str]) -> None:
 
 if __name__ == "__main__":
     images = collect_images()
-    print(f"Processing {len(images)} images...")
+    print(f"Processing {len(images)} images ({THUMB_WIDTH}px thumbs)...")
     generate_thumbnails(images)
+
+    cards = collect_card_thumbnails()
+    print(f"Processing {len(cards)} post card images ({MEDIUM_WIDTH}px medium)...")
+    generate_thumbnails(cards, to_medium_path, MEDIUM_WIDTH, MEDIUM_QUALITY)

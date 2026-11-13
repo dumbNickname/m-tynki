@@ -9,7 +9,7 @@ export default function NotFound() {
     <Layout>
       <SeoHead
         title="Strona nie została znaleziona"
-        canonical="/404"
+        noindex
         description="Nie znaleziono żądanej strony. Wróć na stronę główną M-TYNK Wrocław."
       />
 

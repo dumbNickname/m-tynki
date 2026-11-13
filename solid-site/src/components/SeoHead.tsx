@@ -44,6 +44,8 @@ interface SeoHeadProps {
   service?: ServiceInfo;
   aboutOwner?: boolean;
   video?: VideoInfo;
+  /** For pages that must not be indexed (404). Also drops JSON-LD. */
+  noindex?: boolean;
 }
 
 export default function SeoHead(props: SeoHeadProps) {
@@ -274,7 +276,7 @@ export default function SeoHead(props: SeoHeadProps) {
   return (
     <>
       <Title>{pageTitle()}</Title>
-      <Meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+      <Meta name="robots" content={props.noindex ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
       {props.description && <Meta name="description" content={props.description} />}
       <Meta property="og:locale" content="pl_PL" />
       <Meta property="og:type" content={props.ogType || "website"} />
@@ -298,7 +300,7 @@ export default function SeoHead(props: SeoHeadProps) {
       {props.dateModified && <Meta property="article:modified_time" content={props.dateModified} />}
       {canonicalPath() && <Link rel="alternate" hreflang="pl" href={`${site.url}${canonicalPath()}`} />}
       {canonicalPath() && <Link rel="alternate" hreflang="x-default" href={`${site.url}${canonicalPath()}`} />}
-      <script type="application/ld+json" innerHTML={jsonLd()} />
+      {!props.noindex && <script type="application/ld+json" innerHTML={jsonLd()} />}
     </>
   );
 }

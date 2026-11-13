@@ -64,7 +64,7 @@ export default function ONas() {
         title={`O nas — tynkarz ${OWNER_NAME}`}
         canonical="/o-nas"
         pageType="AboutPage"
-        description={`${OWNER_NAME}, właściciel M-TYNK, tynkuje od 1999 roku. Doświadczenie z Polski, Litwy, Niemiec i Szwajcarii — dziś tynki ze szlichtą we Wrocławiu i okolicach.`}
+        description={`${OWNER_NAME}, właściciel M-TYNK, tynkuje od 1999 roku — w Polsce, na Litwie, w Niemczech i Szwajcarii. Dziś tynki ze szlichtą we Wrocławiu.`}
         dateModified="2026-11-04T00:00:00+00:00"
         aboutOwner
         breadcrumbs={[

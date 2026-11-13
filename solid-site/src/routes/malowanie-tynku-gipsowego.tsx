@@ -101,7 +101,7 @@ export default function MalowanieTynkuGipsowego() {
               Jeśli tynk był wykończony szlichtą wygładzającą, w typowych pomieszczeniach zwykle nie trzeba już robić gładzi — wyjątkiem są ściany oświetlane światłem bocznym.
             </p>
             <p>
-              Tynkujemy domy we Wrocławiu i okolicach od 1999 roku i po każdej budowie inwestorzy pytają nas o to samo: kiedy można malować, czym gruntować i na co uważać.
+              Tynkujemy domy we Wrocławiu i okolicach (doświadczenie w tynkowaniu od 1999 roku) i po każdej budowie inwestorzy pytają nas o to samo: kiedy można malować, czym gruntować i na co uważać.
               Zebraliśmy tu odpowiedzi, które dajemy na budowie. Obok krótki film z jednej z naszych realizacji — tak wyglądają ściany z tynku gipsowego ze szlichtą po wyschnięciu, tuż przed malowaniem.
             </p>
             <nav class={styles.toc} aria-label="Spis treści">
@@ -241,11 +241,11 @@ export default function MalowanieTynkuGipsowego() {
             <p>
               Zwykły tynk gipsowy przed malowaniem najczęściej pokrywa się jeszcze gładzią, którą trzeba wysuszyć i wyszlifować. Tynk wykończony <NavLink href="/tynki-ze-szlichta-pod-malowanie#szlichta">szlichtą wygładzającą</NavLink> jest gładszy już na etapie tynkowania — w typowych pomieszczeniach po wyschnięciu wystarczy grunt i farba.
             </p>
-            <div class={styles.tableWrap}>
+            <div class={styles.tableWrap} role="region" aria-label="Porównanie: tynk gipsowy z gładzią a tynk ze szlichtą" tabindex="0">
               <table class={styles.table}>
                 <thead>
                   <tr>
-                    <th scope="col"></th>
+                    <th scope="col"><span class="sr-only">Kryterium</span></th>
                     <th scope="col">Tynk gipsowy + gładź</th>
                     <th scope="col">Tynk gipsowy ze szlichtą</th>
                   </tr>

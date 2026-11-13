@@ -32,7 +32,7 @@
 }
 
 .text a:hover {
-  color: var(--color-primary);
+  color: var(--color-footer-heading);
 }
 
 .accept {

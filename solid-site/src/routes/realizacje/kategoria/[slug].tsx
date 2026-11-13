@@ -53,7 +53,7 @@ export default function CategoryPage() {
 
       <section class="section">
         <div class="container">
-          <nav class={styles.categoryNav}>
+          <nav class={styles.categoryNav} aria-label="Kategorie realizacji">
             <For each={navigation.categories}>
               {(cat) => (
                 <NavLink
@@ -73,7 +73,7 @@ export default function CategoryPage() {
           <Show when={filteredPosts().length > 0} fallback={<p>Brak realizacji w tej kategorii.</p>}>
             <div class={styles.postsGrid}>
               <For each={filteredPosts()}>
-                {(post) => <PostCard post={post} categoryLabels={categoryLabels} />}
+                {(post, i) => <PostCard post={post} categoryLabels={categoryLabels} priority={i() === 0} />}
               </For>
             </div>
           </Show>

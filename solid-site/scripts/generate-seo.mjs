@@ -17,6 +17,22 @@ const site = read("src/data/site.json");
 const posts = read("src/data/posts.json");
 const navigation = read("src/data/navigation.json");
 
+// site.description is hand-written copy that quotes the Google rating and the
+// phone number. Fail the build if those quotes drift from the source fields.
+{
+  const ratingQuote = site.description.match(/(\d[,.]\d)★ w (\d+) opini/);
+  if (ratingQuote && (ratingQuote[1] !== site.googleRating || Number(ratingQuote[2]) !== site.googleReviewCount)) {
+    throw new Error(
+      `site.json description quotes "${ratingQuote[1]}★ w ${ratingQuote[2]}" but googleRating/googleReviewCount are ` +
+        `${site.googleRating}/${site.googleReviewCount} — update the description text.`,
+    );
+  }
+  const phoneQuote = site.description.match(/\d{3} \d{3} \d{3}/);
+  if (phoneQuote && phoneQuote[0] !== site.phone.replace(/^\+48\s*/, "")) {
+    throw new Error(`site.json description quotes phone "${phoneQuote[0]}" but site.phone is "${site.phone}".`);
+  }
+}
+
 const SITE_URL = site.url;
 const TODAY = new Date().toISOString().slice(0, 10);
 

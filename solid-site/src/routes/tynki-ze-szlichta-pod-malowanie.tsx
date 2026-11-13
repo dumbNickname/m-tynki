@@ -99,7 +99,7 @@ export default function TynkiService() {
         title="Tynki maszynowe gipsowe Wrocław — ze szlichtą, pod malowanie"
         rawTitle
         canonical="/tynki-ze-szlichta-pod-malowanie"
-        description="Tynki maszynowe gipsowe we Wrocławiu i okolicach, wykańczane szlichtą: w typowych pomieszczeniach malujesz bez osobnej gładzi. Zobacz film z budowy. Wycena: 535 157 036."
+        description={`Tynki maszynowe gipsowe we Wrocławiu, wykańczane szlichtą: w typowych pomieszczeniach malujesz bez gładzi. Zobacz film z budowy. Wycena: ${site.phone.replace(/^\+48\s*/, "")}.`}
         ogImage="images/uploads/2023/08/tynki-ze-szlichta-pod-malowanie.jpg"
         dateModified="2026-11-06T08:00:00+00:00"
         breadcrumbs={[
@@ -145,6 +145,8 @@ export default function TynkiService() {
               srcset="images/thumbs/uploads/2023/08/tynki-ze-szlichta-pod-malowanie.jpg 400w, images/uploads/2023/08/tynki-ze-szlichta-pod-malowanie.jpg 1125w"
               sizes="(max-width: 768px) 60vw, 500px"
               alt="Tynki ze szlichtą pod malowanie Wrocław"
+              width="1125"
+              height="2000"
               loading="lazy"
             />
           </div>

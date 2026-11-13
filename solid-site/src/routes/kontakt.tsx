@@ -12,7 +12,7 @@ export default function Kontakt() {
         title="Kontakt i bezpłatna wycena"
         canonical="/kontakt"
         pageType="ContactPage"
-        description={`Zadzwoń i umów bezpłatną wycenę: ${site.phone}. M-TYNK, ${site.address} — pracujemy we Wrocławiu, powiecie wrocławskim i okolicznych miejscowościach.`}
+        description={`Bezpłatna wycena tynków: zadzwoń pod ${site.phone}. M-TYNK, ${site.address.replace(/\s*\d{2}-\d{3}\s*/, " ")} — pracujemy we Wrocławiu i w powiecie wrocławskim.`}
         dateModified="2024-06-19T10:29:05+00:00"
         breadcrumbs={[
           { name: "Strona Główna", href: "/" },

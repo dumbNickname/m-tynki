@@ -1,12 +1,12 @@
 :root {
-  --color-primary: #4ca85f;
-  --color-primary-dark: #3d8e4e;
+  --color-primary: #397d47;
+  --color-primary-dark: #2e6b3b;
   --color-primary-light: #66b878;
-  --color-primary-subtle: rgba(76, 168, 95, 0.08);
-  --color-primary-rgb: 76, 168, 95;
+  --color-primary-subtle: rgba(57, 125, 71, 0.08);
+  --color-primary-rgb: 57, 125, 71;
   --color-dark: #14171c;
   --color-text: #383d45;
-  --color-text-light: #6b7280;
+  --color-text-light: #69707e;
   --color-light-gray: #f6f7f5;
   --color-border: #e4e6e3;
   --color-white: #ffffff;
@@ -116,6 +116,25 @@ a {
 
 a:hover {
   color: var(--color-primary-dark);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* In-text links need more than colour to stand out from body text (WCAG 1.4.1). */
+p a:not([class]) {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
 }
 
 ul,

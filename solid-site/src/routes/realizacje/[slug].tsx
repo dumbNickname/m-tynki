@@ -44,7 +44,7 @@ export default function PostPage() {
             <SeoHead
               title={p().title}
               canonical={`/realizacje/${p().slug}`}
-              description={p().excerpt}
+              description={p().metaDescription || p().excerpt}
               ogImage={p().thumbnail}
               ogType="article"
               datePublished={`${p().date}T00:00:00+00:00`}

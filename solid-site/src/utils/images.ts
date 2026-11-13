@@ -9,10 +9,23 @@ for (const post of posts as { gallery: string[]; galleryAlts?: string[] }[]) {
   });
 }
 
+// Variants are always JPEG. Non-.jpg sources keep their extension in the name
+// (wyr.png -> wyr-png.jpg) so they can't collide with a same-named .jpg.
+// Must stay in sync with to_variant_path() in scripts/generate-thumbs.py.
+function toVariant(src: string, folder: string): string {
+  const match = src.match(/\.([^./]+)$/);
+  const ext = match ? match[1].toLowerCase() : "";
+  const base = match ? src.slice(0, -match[0].length) : src;
+  const name = (ext === "jpg" || ext === "" ? base : `${base}-${ext}`) + ".jpg";
+  return `images/${folder}/` + (name.startsWith("images/") ? name.slice("images/".length) : name);
+}
+
+/** 400px-wide JPEG thumbnail. */
 export function toThumb(src: string): string {
-  const withoutExt = src.replace(/\.[^.]+$/, "");
-  if (src.startsWith("images/")) {
-    return "images/thumbs/" + withoutExt.slice("images/".length) + ".jpg";
-  }
-  return "images/thumbs/" + withoutExt + ".jpg";
+  return toVariant(src, "thumbs");
+}
+
+/** 800px-wide JPEG (post card images only). */
+export function toMedium(src: string): string {
+  return toVariant(src, "medium");
 }

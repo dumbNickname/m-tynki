@@ -1,5 +1,5 @@
 import NavLink from "./NavLink";
-import { toThumb } from "~/utils/images";
+import { toMedium, toThumb } from "~/utils/images";
 import { formatDatePl } from "~/utils/date";
 import styles from "./PostCard.module.css";
 
@@ -16,6 +16,7 @@ interface Post {
 interface PostCardProps {
   post: Post;
   categoryLabels: Record<string, string>;
+  priority?: boolean;
 }
 
 export default function PostCard(props: PostCardProps) {
@@ -26,11 +27,12 @@ export default function PostCard(props: PostCardProps) {
     <article class={styles.card}>
       <div class={styles.thumbnail}>
         <img
-          src={props.post.thumbnail}
-          srcset={`${toThumb(props.post.thumbnail)} 400w, ${props.post.thumbnail} 800w`}
+          src={toMedium(props.post.thumbnail)}
+          srcset={`${toThumb(props.post.thumbnail)} 400w, ${toMedium(props.post.thumbnail)} 800w`}
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 45vw, 370px"
           alt=""
-          loading="lazy"
+          loading={props.priority ? "eager" : "lazy"}
+          fetchpriority={props.priority ? "high" : undefined}
         />
         <span class={styles.badge}>{badgeLabel()}</span>
       </div>
