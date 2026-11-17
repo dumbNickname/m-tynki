@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "vinxi dev",
-    "build": "node scripts/check-internal-links.mjs && node scripts/generate-seo.mjs && vinxi build && node scripts/inline-css.mjs && node scripts/copy-404.mjs && node scripts/generate-redirects.mjs",
+    "build": "node scripts/check-internal-links.mjs && node scripts/generate-seo.mjs && node scripts/generate-image-sizes.mjs && vinxi build && node scripts/inline-css.mjs && node scripts/copy-404.mjs && node scripts/generate-redirects.mjs",
     "preview": "vinxi start",
     "typecheck": "tsc --noEmit",
     "check:links": "node scripts/check-internal-links.mjs"

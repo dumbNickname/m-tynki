@@ -1,5 +1,6 @@
 import { Title, Meta, Link } from "@solidjs/meta";
 import site from "~/data/site.json";
+import imageSizes from "~/data/image-sizes.json";
 import { withTrailingSlash } from "~/utils/url";
 
 const DEFAULT_OG_IMAGE = "images/og-default.jpg";
@@ -34,6 +35,11 @@ interface SeoHeadProps {
   rawTitle?: boolean;
   description?: string;
   canonical?: string;
+  /**
+   * The page's own main (hero) image. Becomes og:image and the
+   * primaryImageOfPage. Pages without one share the default image on social
+   * media but claim no primaryImageOfPage.
+   */
   ogImage?: string;
   ogType?: string;
   pageType?: "ContactPage" | "AboutPage" | "ImageGallery";
@@ -56,7 +62,7 @@ export default function SeoHead(props: SeoHeadProps) {
   const canonicalPath = () => props.canonical ? withTrailingSlash(props.canonical) : undefined;
   const ogImage = () => props.ogImage || DEFAULT_OG_IMAGE;
   const ogImageUrl = () => `${site.url}/${ogImage()}`;
-  const isDefaultOgImage = () => ogImage() === DEFAULT_OG_IMAGE;
+  const ogImageSize = () => (imageSizes as Record<string, { width: number; height: number } | undefined>)[ogImage()];
 
   const jsonLd = () => {
     const graph: object[] = [];
@@ -204,10 +210,12 @@ export default function SeoHead(props: SeoHeadProps) {
     if (props.dateModified) {
       webPage.dateModified = props.dateModified;
     }
-    webPage.primaryImageOfPage = {
-      "@type": "ImageObject",
-      url: ogImageUrl(),
-    };
+    const size = ogImageSize();
+    if (props.ogImage && size) {
+      const imageId = `${webPage["@id"]}#primaryimage`;
+      webPage.image = [{ "@type": "ImageObject", "@id": imageId, url: ogImageUrl(), width: size.width, height: size.height }];
+      webPage.primaryImageOfPage = { "@id": imageId };
+    }
 
     graph.push(webPage);
 
@@ -285,8 +293,8 @@ export default function SeoHead(props: SeoHeadProps) {
       <Meta property="og:site_name" content={site.name} />
       <Meta property="og:image" content={ogImageUrl()} />
       <Meta property="og:image:alt" content={pageTitle()} />
-      {isDefaultOgImage() && <Meta property="og:image:width" content="1200" />}
-      {isDefaultOgImage() && <Meta property="og:image:height" content="630" />}
+      {ogImageSize() && <Meta property="og:image:width" content={String(ogImageSize()!.width)} />}
+      {ogImageSize() && <Meta property="og:image:height" content={String(ogImageSize()!.height)} />}
       {canonicalPath() && (
         <>
           <Link rel="canonical" href={`${site.url}${canonicalPath()}`} />

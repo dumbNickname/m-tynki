@@ -1,0 +1,42 @@
+{
+  "images/og-default.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "images/og-malowanie-tynku-gipsowego.jpg": {
+    "width": 1200,
+    "height": 630
+  },
+  "images/uploads/2023/08/img-20230904-wa0012.jpg": {
+    "width": 1125,
+    "height": 2000
+  },
+  "images/uploads/2023/08/img-20230904-wa0019.jpg": {
+    "width": 1536,
+    "height": 2048
+  },
+  "images/uploads/2023/08/obrazek-wyr-1.png": {
+    "width": 700,
+    "height": 700
+  },
+  "images/uploads/2023/08/obrazek-wyr.png": {
+    "width": 700,
+    "height": 700
+  },
+  "images/uploads/2023/08/tynki-ze-szlichta-pod-malowanie.jpg": {
+    "width": 1125,
+    "height": 2000
+  },
+  "images/uploads/2023/08/wyr.jpg": {
+    "width": 576,
+    "height": 1024
+  },
+  "images/uploads/2023/08/wyr.png": {
+    "width": 700,
+    "height": 700
+  },
+  "images/uploads/2025/07/tynkowanie-maszynowe-agregatem-narzut.jpg": {
+    "width": 1200,
+    "height": 1600
+  }
+}
