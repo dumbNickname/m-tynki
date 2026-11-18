@@ -188,8 +188,9 @@
   background: rgba(255, 255, 255, 0.15);
 }
 
-.prev:disabled,
-.next:disabled {
+/* aria-disabled, not disabled: a disabled button would drop focus to the inert page. */
+.prev[aria-disabled="true"],
+.next[aria-disabled="true"] {
   opacity: 0.15;
   cursor: default;
   background: transparent;

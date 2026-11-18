@@ -23,6 +23,13 @@
   outline-offset: var(--focus-offset);
 }
 
+@supports not selector(:has(*)) {
+  .card:focus-within {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset);
+  }
+}
+
 .thumbnail {
   position: relative;
   overflow: hidden;

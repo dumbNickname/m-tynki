@@ -1,4 +1,4 @@
-import { For, createSignal, onMount } from "solid-js";
+import { For, createSignal, onCleanup, onMount } from "solid-js";
 import reviews from "~/data/reviews.json";
 import site from "~/data/site.json";
 import { opinieLabel } from "~/utils/plural";
@@ -30,12 +30,29 @@ export default function Reviews() {
   const col2 = reviews.slice(third, third * 2);
   const col3 = reviews.slice(third * 2);
 
-  // The columns only scroll by themselves once JS confirms the user hasn't asked for
-  // reduced motion; until then (and when paused) each column is a plain scrollable list.
-  const [playing, setPlaying] = createSignal(false);
+  // Prerendered in the playing layout (so most visitors see no jump on hydration); CSS
+  // only animates it without reduced motion. Paused, each column is a scrollable list.
+  // `userStarted` lets someone with reduced motion still opt in via the button.
+  const [playing, setPlaying] = createSignal(true);
+  const [userStarted, setUserStarted] = createSignal(false);
   onMount(() => {
-    setPlaying(!window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const sync = () => {
+      if (reduce.matches) {
+        setPlaying(false);
+        setUserStarted(false);
+      }
+    };
+    sync();
+    reduce.addEventListener("change", sync);
+    onCleanup(() => reduce.removeEventListener("change", sync));
   });
+
+  const togglePlaying = () => {
+    const next = !playing();
+    setPlaying(next);
+    setUserStarted(next);
+  };
 
   const columns = [
     { items: col1, class: styles.marqueeUp },
@@ -52,14 +69,17 @@ export default function Reviews() {
           <span class={styles.summaryStars} aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
           <span>{site.googleReviewCount} {opinieLabel(site.googleReviewCount)} w Google</span>
         </a>
-        <button type="button" class={styles.playToggle} onClick={() => setPlaying((p) => !p)}>
+        <button type="button" class={styles.playToggle} onClick={togglePlaying}>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             {playing() ? <path d="M6 5h4v14H6zM14 5h4v14h-4z" /> : <path d="M7 4.5v15l12-7.5z" />}
           </svg>
           {playing() ? "Zatrzymaj przewijanie opinii" : "Przewijaj opinie automatycznie"}
         </button>
       </div>
-      <div class={playing() ? `${styles.marqueeWrapper} ${styles.playing}` : styles.marqueeWrapper}>
+      <div
+        class={styles.marqueeWrapper}
+        classList={{ [styles.playing]: playing(), [styles.userStarted]: userStarted() }}
+      >
         <For each={columns}>
           {(col, i) => (
             <div

@@ -212,25 +212,33 @@
   }
 }
 
+/* Not nested: `&` can't stand for a pseudo-element, so nesting inside ::backdrop is unreliable. */
 .flyout::backdrop {
   background: rgba(0, 0, 0, 0);
   backdrop-filter: blur(0);
   overflow: hidden;
   overscroll-behavior: contain;
-  transition:
-    background-color 0.25s ease,
-    backdrop-filter 0.25s ease,
-    overlay 0.35s allow-discrete,
-    display 0.35s allow-discrete;
 }
 
 .flyout[open]::backdrop {
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
+}
 
-  @starting-style {
+@starting-style {
+  .flyout[open]::backdrop {
     background: rgba(0, 0, 0, 0);
     backdrop-filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .flyout::backdrop {
+    transition:
+      background-color 0.25s ease,
+      backdrop-filter 0.25s ease,
+      overlay 0.35s allow-discrete,
+      display 0.35s allow-discrete;
   }
 }
 

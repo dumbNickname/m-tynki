@@ -5,7 +5,7 @@ type Scheme = "light" | "dark";
 
 const STORAGE_KEY = "mtynk_theme";
 
-// Shared by every toggle instance (desktop header + mobile menu) so they never disagree.
+// Shared by both toggle instances (desktop header + mobile header bar) so they never disagree.
 const [theme, setTheme] = createSignal<Scheme>("light");
 let listening = false;
 

@@ -31,6 +31,12 @@
   outline-offset: -2px;
 }
 
+/* The edge fade would mask out most of a focused column's outline. */
+.marqueeWrapper:has(.marqueeCol:focus-visible) {
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+
 .playing .marqueeCol {
   overflow: hidden;
   padding-block: 0;
@@ -50,16 +56,26 @@
   display: contents;
 }
 
-.playing .marqueeUp {
+@media (prefers-reduced-motion: no-preference) {
+  .playing .marqueeUp {
+    animation: marqueeUp 40s linear infinite;
+  }
+
+  .playing .marqueeDown {
+    animation: marqueeDown 40s linear infinite;
+  }
+}
+
+/* Reduced-motion users who pressed play themselves. */
+.playing.userStarted .marqueeUp {
   animation: marqueeUp 40s linear infinite;
 }
 
-.playing .marqueeDown {
+.playing.userStarted .marqueeDown {
   animation: marqueeDown 40s linear infinite;
 }
 
-.marqueeWrapper:hover .marqueeTrack,
-.marqueeWrapper:focus-within .marqueeTrack {
+.marqueeWrapper:hover .marqueeTrack {
   animation-play-state: paused;
 }
 

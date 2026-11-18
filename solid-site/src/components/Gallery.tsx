@@ -43,12 +43,23 @@ export default function Gallery(props: GalleryProps) {
   const [lightboxIndex, setLightboxIndex] = createSignal<number | null>(null);
   const [morphing, setMorphing] = createSignal(false);
   let dialogRef!: HTMLDialogElement;
+  let opening = false;
   const thumbs: HTMLImageElement[] = [];
 
   // Thumbnail morphs into the full-size photo (View Transitions API). The full image
   // is decoded first — otherwise the morph would land on an empty frame. Browsers
   // without support, reduced-motion users and slow loads get the plain lightbox.
   async function openLightbox(index: number) {
+    if (opening || dialogRef.open) return;
+    opening = true;
+    try {
+      await openAt(index);
+    } finally {
+      opening = false;
+    }
+  }
+
+  async function openAt(index: number) {
     const thumb = thumbs[index];
     const show = () => {
       setLightboxIndex(index);
@@ -60,11 +71,13 @@ export default function Gallery(props: GalleryProps) {
     }
     thumb.style.viewTransitionName = VT_NAME;
     setMorphing(true);
+    // `morphing` stays on until the dialog closes: dropping it here would restart the
+    // CSS entry animation on an already-visible photo.
     const t = document.startViewTransition(() => {
       thumb.style.viewTransitionName = "";
       show();
     });
-    t.finished.finally(() => setMorphing(false));
+    await t.finished.catch(() => {});
   }
 
   function closeLightbox() {
@@ -108,6 +121,7 @@ export default function Gallery(props: GalleryProps) {
   // Esc / back gesture: run our closing morph instead of the instant native close.
   // If the browser doesn't let us cancel, the native close still lands in onClose.
   function handleCancel(e: Event) {
+    if (!e.cancelable) return;
     e.preventDefault();
     closeLightbox();
   }
@@ -139,18 +153,21 @@ export default function Gallery(props: GalleryProps) {
         onClick={(e) => e.target === e.currentTarget && closeLightbox()}
         onKeyDown={handleKeydown}
         onCancel={handleCancel}
-        onClose={() => setLightboxIndex(null)}
+        onClose={() => {
+          setLightboxIndex(null);
+          setMorphing(false);
+        }}
       >
         <Show when={lightboxIndex() !== null}>
           <div class={styles.lightboxContent}>
             <button class={styles.close} onClick={closeLightbox} aria-label="Zamknij">✕</button>
-            <button class={styles.prev} onClick={prev} aria-label="Poprzednie" disabled={lightboxIndex() === 0}>‹</button>
+            <button class={styles.prev} onClick={prev} aria-label="Poprzednie" aria-disabled={lightboxIndex() === 0}>‹</button>
             <img
               src={props.images[lightboxIndex()!]}
               alt={imageAlt(prefix(), lightboxIndex()!, props.alts)}
               style={{ "view-transition-name": VT_NAME }}
             />
-            <button class={styles.next} onClick={next} aria-label="Następne" disabled={lightboxIndex() === props.images.length - 1}>›</button>
+            <button class={styles.next} onClick={next} aria-label="Następne" aria-disabled={lightboxIndex() === props.images.length - 1}>›</button>
           </div>
         </Show>
       </dialog>
