@@ -10,7 +10,8 @@
 
 /* The video's clip-path would cut off its own focus ring, so show it on the frame. */
 .frame:has(.video:focus-visible) {
-  box-shadow: var(--focus-ring), var(--shadow-card);
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
 }
 
 /* border-radius alone doesn't clip the video/poster in Safari; clip-path does. */

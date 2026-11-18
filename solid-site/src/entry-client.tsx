@@ -18,6 +18,12 @@ document.addEventListener("click", (e) => {
   window.location.href = href;
 }, true);
 
+// Back/forward between in-page anchors (#faq etc.) stays on the same document —
+// the browser restores the scroll position itself, so only reload on real page changes.
+let currentPage = location.pathname + location.search;
 window.addEventListener("popstate", () => {
+  const page = location.pathname + location.search;
+  if (page === currentPage) return;
+  currentPage = page;
   window.location.reload();
 });

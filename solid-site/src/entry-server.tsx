@@ -15,7 +15,8 @@ export default createHandler(() => (
           <link rel="icon" href="images/mtynk-ludzik-gladziolit-300x300-1-150x150.png" sizes="32x32" />
           <link rel="icon" href="images/mtynk-ludzik-gladziolit-300x300-1.png" sizes="192x192" />
           <link rel="apple-touch-icon" href="images/mtynk-ludzik-gladziolit-300x300-1.png" />
-          <script>{`(function(){try{var t=localStorage.getItem("mtynk_theme");if(t==="dark"||(!t&&window.matchMedia("(prefers-color-scheme:dark)").matches))document.documentElement.setAttribute("data-theme","dark")}catch(e){}})()`}</script>
+          <meta name="color-scheme" content="light dark" />
+          <script>{`(function(){var t=null;try{t=localStorage.getItem("mtynk_theme")}catch(e){}if(t!=="dark"&&t!=="light")t=null;if(t)document.querySelector('meta[name="color-scheme"]').content=t;document.documentElement.setAttribute("data-theme",t||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"))})()`}</script>
           {assets}
         </head>
         <body>

@@ -1,31 +1,66 @@
-import { createSignal, createEffect, onMount } from "solid-js";
+import { createSignal, onMount } from "solid-js";
 import styles from "./ThemeToggle.module.css";
 
-function getInitialTheme(): "light" | "dark" {
-  if (typeof window === "undefined") return "light";
-  const stored = localStorage.getItem("mtynk_theme");
-  if (stored === "dark" || stored === "light") return stored;
+type Scheme = "light" | "dark";
+
+const STORAGE_KEY = "mtynk_theme";
+
+// Shared by every toggle instance (desktop header + mobile menu) so they never disagree.
+const [theme, setTheme] = createSignal<Scheme>("light");
+let listening = false;
+
+function systemScheme(): Scheme {
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
+function readStored(): Scheme | null {
+  try {
+    const value = localStorage.getItem(STORAGE_KEY);
+    return value === "dark" || value === "light" ? value : null;
+  } catch {
+    return null;
+  }
+}
+
+/** No stored value = follow the OS; "light"/"dark" = the user's explicit override. */
+function apply(stored: Scheme | null) {
+  const meta = document.querySelector<HTMLMetaElement>('meta[name="color-scheme"]');
+  if (meta) meta.content = stored ?? "light dark";
+  const resolved = stored ?? systemScheme();
+  document.documentElement.setAttribute("data-theme", resolved);
+  setTheme(resolved);
+}
+
+function startListening() {
+  if (listening) return;
+  listening = true;
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => apply(readStored()));
+  window.addEventListener("storage", (e) => {
+    if (e.key === STORAGE_KEY || e.key === null) apply(readStored());
+  });
+}
+
 export default function ThemeToggle() {
-  const [theme, setTheme] = createSignal<"light" | "dark">("light");
-
   onMount(() => {
-    setTheme(getInitialTheme());
+    apply(readStored());
+    startListening();
   });
 
-  createEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme());
-    localStorage.setItem("mtynk_theme", theme());
-  });
-
+  // Picking the scheme the OS already uses means "undo my override": clear it rather
+  // than storing it, so the site keeps following future OS changes.
   const toggle = () => {
-    setTheme((t) => (t === "dark" ? "light" : "dark"));
+    const target: Scheme = theme() === "dark" ? "light" : "dark";
+    const stored = target === systemScheme() ? null : target;
+    try {
+      if (stored) localStorage.setItem(STORAGE_KEY, stored);
+      else localStorage.removeItem(STORAGE_KEY);
+    } catch {}
+    apply(stored);
   };
 
   return (
     <button
+      type="button"
       class={styles.toggle}
       onClick={toggle}
       aria-label={theme() === "dark" ? "Włącz tryb jasny" : "Włącz tryb ciemny"}
@@ -42,6 +77,7 @@ export default function ThemeToggle() {
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
+        aria-hidden="true"
       >
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
       </svg>
@@ -56,6 +92,7 @@ export default function ThemeToggle() {
         stroke-width="2"
         stroke-linecap="round"
         stroke-linejoin="round"
+        aria-hidden="true"
       >
         <circle cx="12" cy="12" r="5" />
         <line x1="12" y1="1" x2="12" y2="3" />

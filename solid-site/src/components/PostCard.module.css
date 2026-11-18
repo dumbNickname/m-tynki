@@ -16,9 +16,11 @@
   transform: translateY(-3px);
 }
 
-.card:focus-within {
+/* The stretched link covers the card, so the card draws the link's focus indicator. */
+.card:has(.link:focus-visible) {
   border-color: var(--color-primary);
-  box-shadow: var(--focus-ring);
+  outline: var(--focus-outline);
+  outline-offset: var(--focus-offset);
 }
 
 .thumbnail {

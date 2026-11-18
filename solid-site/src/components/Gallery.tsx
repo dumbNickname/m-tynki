@@ -1,4 +1,4 @@
-import { createSignal, createEffect, onCleanup, For, Show } from "solid-js";
+import { createSignal, For, Show } from "solid-js";
 import { toThumb } from "~/utils/images";
 import styles from "./Gallery.module.css";
 
@@ -42,7 +42,7 @@ export default function Gallery(props: GalleryProps) {
   const prefix = () => props.altPrefix || "Realizacja M-TYNK";
   const [lightboxIndex, setLightboxIndex] = createSignal<number | null>(null);
   const [morphing, setMorphing] = createSignal(false);
-  let lightboxRef!: HTMLDivElement;
+  let dialogRef!: HTMLDialogElement;
   const thumbs: HTMLImageElement[] = [];
 
   // Thumbnail morphs into the full-size photo (View Transitions API). The full image
@@ -50,15 +50,19 @@ export default function Gallery(props: GalleryProps) {
   // without support, reduced-motion users and slow loads get the plain lightbox.
   async function openLightbox(index: number) {
     const thumb = thumbs[index];
-    if (!canAnimate() || !thumb || !(await preload(props.images[index], 250))) {
+    const show = () => {
       setLightboxIndex(index);
+      if (!dialogRef.open) dialogRef.showModal();
+    };
+    if (!canAnimate() || !thumb || !(await preload(props.images[index], 250))) {
+      show();
       return;
     }
     thumb.style.viewTransitionName = VT_NAME;
     setMorphing(true);
     const t = document.startViewTransition(() => {
       thumb.style.viewTransitionName = "";
-      setLightboxIndex(index);
+      show();
     });
     t.finished.finally(() => setMorphing(false));
   }
@@ -66,13 +70,18 @@ export default function Gallery(props: GalleryProps) {
   function closeLightbox() {
     const index = lightboxIndex();
     const thumb = index !== null ? thumbs[index] : undefined;
-    if (!canAnimate() || !thumb || !isInViewport(thumb)) {
+    // close() hands focus back to the thumbnail that opened the dialog.
+    const hide = () => {
+      dialogRef.close();
       setLightboxIndex(null);
+    };
+    if (!canAnimate() || !thumb || !isInViewport(thumb)) {
+      hide();
       return;
     }
     setMorphing(true);
     const t = document.startViewTransition(() => {
-      setLightboxIndex(null);
+      hide();
       thumb.style.viewTransitionName = VT_NAME;
     });
     t.finished.finally(() => {
@@ -94,17 +103,14 @@ export default function Gallery(props: GalleryProps) {
   function handleKeydown(e: KeyboardEvent) {
     if (e.key === "ArrowLeft") prev();
     else if (e.key === "ArrowRight") next();
-    else if (e.key === "Escape") closeLightbox();
   }
 
-  createEffect(() => {
-    const isOpen = lightboxIndex() !== null;
-    document.body.style.overflow = isOpen ? "hidden" : "";
-    if (isOpen) lightboxRef?.focus();
-    onCleanup(() => {
-      document.body.style.overflow = "";
-    });
-  });
+  // Esc / back gesture: run our closing morph instead of the instant native close.
+  // If the browser doesn't let us cancel, the native close still lands in onClose.
+  function handleCancel(e: Event) {
+    e.preventDefault();
+    closeLightbox();
+  }
 
   return (
     <>
@@ -126,15 +132,17 @@ export default function Gallery(props: GalleryProps) {
         </For>
       </div>
 
-      <Show when={lightboxIndex() !== null}>
-        <div
-          ref={lightboxRef}
-          class={morphing() ? `${styles.lightbox} ${styles.morphing}` : styles.lightbox}
-          onClick={closeLightbox}
-          onKeyDown={handleKeydown}
-          tabindex="-1"
-        >
-          <div class={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
+      <dialog
+        ref={dialogRef}
+        class={morphing() ? `${styles.lightbox} ${styles.morphing}` : styles.lightbox}
+        aria-label="Podgląd zdjęcia"
+        onClick={(e) => e.target === e.currentTarget && closeLightbox()}
+        onKeyDown={handleKeydown}
+        onCancel={handleCancel}
+        onClose={() => setLightboxIndex(null)}
+      >
+        <Show when={lightboxIndex() !== null}>
+          <div class={styles.lightboxContent}>
             <button class={styles.close} onClick={closeLightbox} aria-label="Zamknij">✕</button>
             <button class={styles.prev} onClick={prev} aria-label="Poprzednie" disabled={lightboxIndex() === 0}>‹</button>
             <img
@@ -144,8 +152,8 @@ export default function Gallery(props: GalleryProps) {
             />
             <button class={styles.next} onClick={next} aria-label="Następne" disabled={lightboxIndex() === props.images.length - 1}>›</button>
           </div>
-        </div>
-      </Show>
+        </Show>
+      </dialog>
     </>
   );
 }

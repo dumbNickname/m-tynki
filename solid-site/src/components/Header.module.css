@@ -176,46 +176,68 @@
   display: inline-block;
 }
 
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1040;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--transition);
-  backdrop-filter: blur(4px);
-}
-
-.overlayOpen {
-  opacity: 1;
-  pointer-events: auto;
-}
-
 .flyout {
-  position: fixed;
-  top: 0;
-  right: -100%;
+  /* Modal <dialog> drawer pinned to the right edge. Closed = display: none (UA style),
+     so its links are out of the tab order and accessibility tree. */
+  inset: 0 0 0 auto;
+  margin: 0;
   width: 300px;
-  height: 100vh;
-  height: 100dvh;
+  max-width: 100%;
+  height: 100%;
+  max-height: none;
+  border: 0;
   background: var(--color-white);
+  color: var(--color-text);
   box-shadow: var(--shadow-elevated);
-  z-index: 1050;
   padding: 2rem;
-  /* Hidden while closed so its links leave the tab order and screen-reader tree;
-     visibility flips only after the slide-out finishes. */
-  visibility: hidden;
-  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear 0.35s;
   overflow-y: auto;
+  overscroll-behavior: contain;
+  flex-direction: column;
+
+  @media (prefers-reduced-motion: no-preference) {
+    translate: 100% 0;
+    transition:
+      translate 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+      overlay 0.35s allow-discrete,
+      display 0.35s allow-discrete;
+  }
+}
+
+.flyout[open] {
+  display: flex;
+  translate: 0 0;
+
+  @starting-style {
+    translate: 100% 0;
+  }
+}
+
+.flyout::backdrop {
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0);
+  overflow: hidden;
+  overscroll-behavior: contain;
+  transition:
+    background-color 0.25s ease,
+    backdrop-filter 0.25s ease,
+    overlay 0.35s allow-discrete,
+    display 0.35s allow-discrete;
+}
+
+.flyout[open]::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+
+  @starting-style {
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0);
+  }
+}
+
+.flyout nav {
   display: flex;
   flex-direction: column;
-}
-
-.flyoutOpen {
-  right: 0;
-  visibility: visible;
-  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1), visibility 0s;
+  flex: 1;
 }
 
 .flyoutClose {
